@@ -1,10 +1,8 @@
 #! /bin/sh
 
-FOLDER='~/Dropbox/Apps'
+# copy  zsh files
+cp -R zsh ~/.zsh
+cp zsh/zshrc ~/.zshrc
 
-#alias zsh files
-ln -s $FOLDER/dotfiles/zsh      ~/.zsh
-ln -s $FOLDER/dotfiles/zsh/zshrc ~/.zshrc
-
-#alias git files
-ln -s $FOLDER/dotfiles/gitconfig ~/.gitconfig
+# copy git files
+cp gitconfig ~/.gitconfig
