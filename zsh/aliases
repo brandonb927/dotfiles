@@ -4,9 +4,6 @@ alias gc='git commit'
 alias gl='git log'
 alias ga='git add'
 
-# Show open ports
-alias ports='netstat -tulanp'
-
 # I'm a goof sometimes, here is a safety net
 # do not delete / or prompt if deleting more than 3 files at a time #
 alias rm='rm -I --preserve-root'
