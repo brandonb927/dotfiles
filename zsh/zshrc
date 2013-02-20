@@ -35,5 +35,3 @@ ZSH_THEME="brandonbrown"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
