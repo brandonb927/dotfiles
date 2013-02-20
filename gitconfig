@@ -1,6 +1,6 @@
 [user]
-	name = Brandon Brown
-	email = brandon@brandonbrown.io
+	name =
+	email =
 [credential]
 	helper = osxkeychain
 [core]

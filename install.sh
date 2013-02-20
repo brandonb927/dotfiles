@@ -1,8 +1,13 @@
 #! /bin/sh
 
-# copy  zsh files
-cp -R zsh ~/.zsh
+# Install zsh
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+# copy zsh files
 cp zsh/zshrc ~/.zshrc
+cp zsh/zprofile ~/.zprofile
+cat zsh/aliases >> ~/.zprofile
 
 # copy git files
 cp gitconfig ~/.gitconfig
+cp gitignore ~/.gitignore
