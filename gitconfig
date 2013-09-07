@@ -1,14 +1,29 @@
-[user]
-	name =
-	email =
 [credential]
 	helper = osxkeychain
+
 [core]
 	editor = subl -n -w
+    autocrlf = input
+	quotepath = false
+	# http://stackoverflow.com/questions/136178/git-diff-handling-long-lines
+	pager = less -r
+	# if ↑ doesn’t work, try: pager = less -+$LESS -FRX
+
+[alias]
+	s = status
+	c = commit
+	cm = commit -m
+	ca = commit --amend # careful
+	ac = !git add . && git commit
+	acm = !git add . && git commit -m
+	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	ll = log --stat --abbrev-commit
+	d = diff --color-words
+	dh = diff --color-words head
+
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+	ui = auto # covers diff = true, status = auto, branch = auto
+	interactive = auto
 [color "branch"]
 	current = yellow reverse
 	local = yellow
@@ -22,3 +37,11 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+
+[user]
+	name = [name for commits]
+	email = [email for commits]
+
+[github]
+	user = [GH username]
+	token = [API token from https://github.com/account/admin]
