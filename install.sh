@@ -99,6 +99,8 @@ curl -L -O http://support.apple.com/downloads/DL1482/en_US/AirPortUtility56.dmg
 hdiutil mount AirPortUtility56.dmg
 sudo installer -pkg /Volumes/AirPortUtility -target /
 hdiutil unmount /Volumes/AirPortUtility
+drive=`diskutil list | grep AirPortUtility | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm AirPortUtility56.dmg
 
 
@@ -132,6 +134,8 @@ curl -L -O https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 hdiutil mount googlechrome.dmg
 cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications
 hdiutil unmount /Volumes/Google\ Chrome
+drive=`diskutil list | grep Google\ Chrome | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm googlechrome.dmg
 
 
@@ -176,6 +180,8 @@ curl -L -o dropbox.dmg https://www.dropbox.com/download\?plat\=mac
 hdiutil mount dropbox.dmg
 cp -R /Volumes/Dropbox\ Installer/Dropbox.app /Applications
 hdiutil unmount /Volumes/Dropbox\ Installer
+drive=`diskutil list | grep Dropbox\ Installer | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm dropbox.dmg
 
 
@@ -188,6 +194,8 @@ curl -L -o firefox.dmg https://download.mozilla.org/?product=firefox-23.0.1&os=o
 hdiutil mount firefox.dmg
 cp -R /Volumes/Firefox/Firefox.app /Applications
 hdiutil unmount /Volumes/Firefox
+drive=`diskutil list | grep Firefox | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm firefox.dmg
 
 
@@ -243,6 +251,8 @@ curl -L -o keepassx.dmg http://www.keepassx.org/dev/attachments/download/38/KeeP
 hdiutil mount keepassx.dmg
 cp -R /Volumes/KeePassX/KeePassX.app /Applications
 hdiutil unmount /Volumes/KeePassX
+drive=`diskutil list | grep KeePassX | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm keepassx.dmg
 
 
@@ -255,6 +265,8 @@ curl -L -o minecraft.dmg https://s3.amazonaws.com/Minecraft.Download/launcher/Mi
 hdiutil mount minecraft.dmg
 cp -R /Volumes/Minecraft/Minecraft.app /Applications
 hdiutil unmount /Volumes/Minecraft
+drive=`diskutil list | grep Minecraft | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm minecraft.dmg
 
 
@@ -267,6 +279,8 @@ curl -L -o skype.dmg http://www.skype.com/go/getskype-macosx.dmg
 hdiutil mount skype.dmg
 cp -R /Volumes/Skype/Skype.app /Applications
 hdiutil unmount /Volumes/Skype
+drive=`diskutil list | grep Skype | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm skype.dmg
 
 
@@ -279,6 +293,8 @@ curl -L -o sublimetext.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202
 hdiutil mount sublimetext.dmg
 cp -R /Volumes/Sublime\ Text\ 2/Sublime\ Text\ 2.app /Applications
 hdiutil unmount /Volumes/Sublime\ Text\ 2
+drive=`diskutil list | grep Sublime\ Text\ 2 | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm sublimetext.dmg
 
 
@@ -302,6 +318,8 @@ curl -L -o utorrent.dmg http://download-new.utorrent.com/endpoint/utmac/os/osx/t
 hdiutil mount utorrent.dmg
 cp -R /Volumes/uTorrent/uTorrent.app /Applications
 hdiutil unmount /Volumes/uTorrent
+drive=`diskutil list | grep uTorrent | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm utorrent.dmg
 
 
@@ -309,10 +327,12 @@ echo ""
 cecho "====================================================================" $white
 cecho "VLC" $cyan
 cecho "====================================================================" $white
-curl -L -o vlc.dmg http://get.videolan.org/vlc/2.0.6/macosx/vlc-2.0.6.dmg
-hdiutil mount vlc.dmg -mountpoint /Volumes/vlc
-cp -R /Volumes/vlc/VLC.app /Applications
-hdiutil unmount /Volumes/vlc
+curl -L -o vlc.dmg http://get.videolan.org/vlc/2.0.8/macosx/vlc-2.0.8.dmg
+hdiutil mount vlc.dmg -mountpoint /Volumes/vlc-2.0.8
+cp -R /Volumes/vlc-2.0.8/VLC.app /Applications
+hdiutil unmount /Volumes/vlc-2.0.8
+drive=`diskutil list | grep vlc-2.0.8 | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm vlc.dmg
 
 
@@ -330,6 +350,8 @@ cecho "XtraFinder" $cyan
 cecho "====================================================================" $white
 curl -L -O http://www.trankynam.com/xtrafinder/downloads/XtraFinder.dmg
 hdiutil mount XtraFinder.dmg -mountpoint /Volumes/XtraFinder
-cp -R /Volumes/XtraFinder/XtraFinder.app /Applications
+sudo installer -pkg /Volumes/XtraFinder -target /
 hdiutil unmount /Volumes/XtraFinder
+drive=`diskutil list | XtraFinder | awk '{print $6}'`
+hdiutil detach /dev/$drive
 rm XtraFinder.dmg
