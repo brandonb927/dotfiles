@@ -93,6 +93,16 @@ cecho "====================================================================" $wh
 
 echo ""
 cecho "====================================================================" $white
+cecho "Android SDK for Mac" $cyan
+cecho "====================================================================" $white
+curl -L -o android-sdk.zip http://dl.google.com/android/android-sdk_r22.0.5-macosx.zip
+unzip android-sdk.zip
+mv android-sdk/sdk /Applications/android-sdk
+rm android-sdk.zip
+
+
+echo ""
+cecho "====================================================================" $white
 cecho "Airport Utility 5.6" $cyan
 cecho "====================================================================" $white
 curl -L -O http://support.apple.com/downloads/DL1482/en_US/AirPortUtility56.dmg
@@ -244,6 +254,17 @@ rm istatsmenus.zip
 
 echo ""
 cecho "====================================================================" $white
+cecho "iStatsMenu" $cyan
+cecho "====================================================================" $white
+
+curl -L -o iterm2.zip http://iterm2.com/downloads/stable/iTerm2_v1_0_0.zip
+unzip iterm2.zip
+mv iTerm2.app /Applications
+rm iterm2.zip
+
+
+echo ""
+cecho "====================================================================" $white
 cecho "KeePassX" $cyan
 cecho "====================================================================" $white
 
@@ -268,6 +289,16 @@ hdiutil unmount /Volumes/Minecraft
 drive=`diskutil list | grep Minecraft | awk '{print $6}'`
 hdiutil detach /dev/$drive
 rm minecraft.dmg
+
+
+echo ""
+cecho "====================================================================" $white
+cecho "SendToKindle for Mac" $cyan
+cecho "====================================================================" $white
+
+curl -L -o sendtokindle.pkg http://s3.amazonaws.com/sendtokindle/SendToKindleForMac-installer-v1.0.0.218.pkg
+sudo installer -pkg sendtokindle.pkg -target /
+rm sendtokindle.pkg
 
 
 echo ""
