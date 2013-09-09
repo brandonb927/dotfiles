@@ -290,6 +290,13 @@ drive=`diskutil list | grep Minecraft | awk '{print $6}'`
 hdiutil detach /dev/$drive
 rm minecraft.dmg
 
+echo ""
+cecho "====================================================================" $white
+cecho "Prey for Mac" $cyan
+cecho "====================================================================" $white
+
+curl -L -o prey.dmg https://preyproject.com/releases/0.6.0/prey-0.6.0-mac.dmg
+
 
 echo ""
 cecho "====================================================================" $white
