@@ -132,7 +132,7 @@ curl -L -o googlechrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlec
 echo "===================================================================="
 echo "Downloading iStatsmenus"
 echo ""
-curl -L -o istatsmenus.zip http://s3.amazonaws.com/bjango/files/istatmenus4/istatmenus4.06.zip
+curl -L -o istatmenus.zip http://s3.amazonaws.com/bjango/files/istatmenus4/istatmenus4.06.zip
 
 echo "===================================================================="
 echo "Downloading iTerm2"
@@ -293,8 +293,8 @@ hdiutil detach /dev/$drive
 echo ""
 echo "===================================================================="
 echo "Installing iStatsMenus"
-unzip -q ../downloads/istatsmenus.zip -d istatsmenus
-mv istatsmenus/iStats\ Menus.app /Applications
+unzip -q ../downloads/istatmenus.zip -d istatmenus
+mv istatmenus/iStat\ Menus.app /Applications
 
 echo ""
 echo "===================================================================="
