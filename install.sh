@@ -318,7 +318,7 @@ echo ""
 echo "===================================================================="
 echo "Installing iTerm2"
 unzip -q iterm2.zip
-mv iTerm2.app /Applications
+mv iTerm.app /Applications
 rm iterm2.zip
 
 echo ""
