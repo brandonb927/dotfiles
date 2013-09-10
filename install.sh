@@ -112,7 +112,7 @@ curl -L -o dropbox.dmg https://www.dropbox.com/download\?plat\=mac
 echo "===================================================================="
 echo "Downloading Firefox"
 echo ""
-curl -L -o firefox.dmg https://download.mozilla.org/?product=firefox-23.0.1&os=osx&lang=en-US
+curl -L -o firefox.dmg http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/mac/en-US/Firefox%2023.0.1.dmg
 
 echo "===================================================================="
 echo "Downloading Flowdock"
