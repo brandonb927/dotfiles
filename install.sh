@@ -73,77 +73,125 @@ echo "===================================================================="
 echo "Downloading apps"
 echo "===================================================================="
 
-echo ""
+
+echo "===================================================================="
 echo "Downloading android-sdk"
+echo ""
 curl -L -o android-sdk.zip http://dl.google.com/android/android-sdk_r22.0.5-macosx.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading AirPort Utility 5.6"
+echo ""
 curl -L -o AirPortUtility56.dmg http://support.apple.com/downloads/DL1482/en_US/AirPortUtility56.dmg
-echo ""
+
+echo "===================================================================="
 echo "Downloading Alfred"
+echo ""
 curl -L -o alfred.zip http://cachefly.alfredapp.com/Alfred_2.0.7_205.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading Appcleaner"
+echo ""
 curl -L -o appcleaner.zip http://www.freemacsoft.net/downloads/AppCleaner_2.2.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading Codekit"
+echo ""
 curl -L -o codekit.zip http://incident57.com/codekit/files/codekit-8322.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading Cyberduck"
+echo ""
 curl -L -o cyberduck.zip http://cyberduck.ch/Cyberduck-4.3.1.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading Daisydisk"
+echo ""
 curl -L -o daisydisk.zip http://www.daisydiskapp.com/downloads/DaisyDisk.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading Dropbox"
+echo ""
 curl -L -o dropbox.dmg https://www.dropbox.com/download\?plat\=mac
-echo ""
+
+echo "===================================================================="
 echo "Downloading Firefox"
+echo ""
 curl -L -o firefox.dmg https://download.mozilla.org/?product=firefox-23.0.1&os=osx&lang=en-US
-echo ""
+
+echo "===================================================================="
 echo "Downloading Flowdock"
+echo ""
 curl -L -o flowdock.zip https://d2ph5hv9wbwvla.cloudfront.net/mac/Flowdock_v1_1_0.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading Flux"
+echo ""
 curl -L -o Flux.zip https://justgetflux.com/mac/Flux.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading Googlechrome"
+echo ""
 curl -L -o googlechrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
-echo ""
+
+echo "===================================================================="
 echo "Downloading iStatsmenus"
+echo ""
 curl -L -o istatsmenus.zip http://s3.amazonaws.com/bjango/files/istatmenus4/istatmenus4.06.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading iTerm2"
+echo ""
 curl -L -o iterm2.zip http://iterm2.com/downloads/stable/iTerm2_v1_0_0.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading Keepassx"
+echo ""
 curl -L -o keepassx.dmg http://www.keepassx.org/dev/attachments/download/38/KeePassX-2.0-alpha4.dmg
-echo ""
+
+echo "===================================================================="
 echo "Downloading Minecraft"
+echo ""
 curl -L -o minecraft.dmg https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.dmg
-echo ""
+
+echo "===================================================================="
 echo "Downloading Prey"
+echo ""
 curl -L -o prey.dmg https://preyproject.com/releases/0.6.0/prey-0.6.0-mac.dmg
-echo ""
+
+echo "===================================================================="
 echo "Downloading Sendtokindle"
+echo ""
 curl -L -o sendtokindle.pkg http://s3.amazonaws.com/sendtokindle/SendToKindleForMac-installer-v1.0.0.218.pkg
-echo ""
+
+echo "===================================================================="
 echo "Downloading Skype"
+echo ""
 curl -L -o skype.dmg http://www.skype.com/go/getskype-macosx.dmg
-echo ""
+
+echo "===================================================================="
 echo "Downloading Sublime Text 2"
+echo ""
 curl -L -o sublimetext.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.dmg
-echo ""
+
+echo "===================================================================="
 echo "Downloading Transmit"
+echo ""
 curl -L -o transmit.zip http://www.panic.com/transmit/d/Transmit%204.4.1.zip
-echo ""
+
+echo "===================================================================="
 echo "Downloading uTorrent"
+echo ""
 curl -L -o utorrent.dmg http://download-new.utorrent.com/endpoint/utmac/os/osx/track/beta/
-echo ""
+
+echo "===================================================================="
 echo "Downloading Vlc"
-curl -L -o vlc.dmg http://get.videolan.org/vlc/2.0.8/macosx/vlc-2.0.8.dmg
 echo ""
+curl -L -o vlc.dmg http://get.videolan.org/vlc/2.0.8/macosx/vlc-2.0.8.dmg
+
+echo "===================================================================="
 echo "Downloading XtraFinder"
+echo ""
 curl -L -o XtraFinder.dmg http://www.trankynam.com/xtrafinder/downloads/XtraFinder.dmg
 
 
@@ -174,42 +222,42 @@ rm AirPortUtility56.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Alfred"
 unzip -q alfred.zip
 mv Alfred\ 2.app /Applications
 rm alfred.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Appcleaner"
 unzip -q appcleaner.zip
 mv AppCleaner.app /Applications
 rm appcleaner.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Codekit"
 unzip -q codekit.zip
 mv Codekit.app /Applications
 rm codekit.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Cyberduck"
 unzip -q cyberduck.zip
 mv Cyberduck.app /Applications
 rm cyberduck.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Daisydisk"
 unzip -q daisydisk.zip
 mv DaisyDisk.app /Applications
 rm daisydisk.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Dropbox"
 hdiutil mount dropbox.dmg
 cp -R /Volumes/Dropbox\ Installer/Dropbox.app /Applications
 hdiutil unmount /Volumes/Dropbox\ Installer
@@ -219,7 +267,7 @@ rm dropbox.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Firefox"
 hdiutil mount firefox.dmg
 cp -R /Volumes/Firefox/Firefox.app /Applications
 hdiutil unmount /Volumes/Firefox
@@ -229,29 +277,29 @@ rm firefox.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Flowdock"
 unzip -q flowdock.zip
 mv Flowdock.app /Applications
 rm flowdock.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Flux"
 unzip -q Flux.zip
 mv Flux.app /Applications
 rm Flux.zip
 
+# echo ""
+# echo "===================================================================="
+# echo "Installing FontPrep"
+# curl -L -o fontprep.zip http://fontprep.com/download
+# unzip fontprep.zip
+# mv FontPrep.app /Applications
+# rm fontprep.zip
+
 echo ""
 echo "===================================================================="
-
-#curl -L -o fontprep.zip http://fontprep.com/download
-#unzip fontprep.zip
-#mv FontPrep.app /Applications
-#rm fontprep.zip
-
-echo ""
-echo "===================================================================="
-
+echo "Installing Googlechrome"
 hdiutil mount googlechrome.dmg
 cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications
 hdiutil unmount /Volumes/Google\ Chrome
@@ -261,21 +309,21 @@ rm googlechrome.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing iStatsMenus"
 unzip -q istatsmenus.zip
 mv FontPrep.app /Applications
 rm istatsmenus.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing iTerm2"
 unzip -q iterm2.zip
 mv iTerm2.app /Applications
 rm iterm2.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing KeepassX"
 hdiutil mount keepassx.dmg
 cp -R /Volumes/KeePassX/KeePassX.app /Applications
 hdiutil unmount /Volumes/KeePassX
@@ -285,7 +333,7 @@ rm keepassx.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Minecraft"
 hdiutil mount minecraft.dmg
 cp -R /Volumes/Minecraft/Minecraft.app /Applications
 hdiutil unmount /Volumes/Minecraft
@@ -295,13 +343,13 @@ rm minecraft.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Sendtokindle"
 sudo installer -pkg sendtokindle.pkg -target /
 rm sendtokindle.pkg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Skype"
 hdiutil mount skype.dmg
 cp -R /Volumes/Skype/Skype.app /Applications
 hdiutil unmount /Volumes/Skype
@@ -311,7 +359,7 @@ rm skype.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Sublime Text 2"
 hdiutil mount sublimetext.dmg
 cp -R /Volumes/Sublime\ Text\ 2/Sublime\ Text\ 2.app /Applications
 hdiutil unmount /Volumes/Sublime\ Text\ 2
@@ -321,14 +369,14 @@ rm sublimetext.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing Transmit"
 unzip -q transmit.zip
 mv Transmit.app /Applications
 rm transmit.zip
 
 echo ""
 echo "===================================================================="
-
+echo "Installing uTorrent"
 hdiutil mount utorrent.dmg
 cp -R /Volumes/uTorrent/uTorrent.app /Applications
 hdiutil unmount /Volumes/uTorrent
@@ -338,7 +386,7 @@ rm utorrent.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing VLC"
 hdiutil mount vlc.dmg -mountpoint /Volumes/vlc-2.0.8
 cp -R /Volumes/vlc-2.0.8/VLC.app /Applications
 hdiutil unmount /Volumes/vlc-2.0.8
@@ -348,7 +396,7 @@ rm vlc.dmg
 
 echo ""
 echo "===================================================================="
-
+echo "Installing XtraFinder"
 hdiutil mount XtraFinder.dmg -mountpoint /Volumes/XtraFinder
 sudo installer -pkg /Volumes/XtraFinder -target /
 hdiutil unmount /Volumes/XtraFinder
@@ -357,8 +405,8 @@ hdiutil detach /dev/$drive
 rm XtraFinder.dmg
 
 
-echo ""
-echo "===================================================================="
-echo "VMWare Fusion"
-echo "===================================================================="
-#curl -L -O https://download2.vmware.com/software/fusion/VMware-Fusion-5.0.3-1040386-light.dmg?HashKey=509e091d887753698a35ffcedb78225e&params=%7B%22custnumber%22%3A%22amVAcHB0QGpoQA%3D%3D%22%2C%22sourcefilesize%22%3A%22207M%22%2C%22dlgcode%22%3A%22FUS-503%22%2C%22languagecode%22%3A%22en%22%2C%22source%22%3A%22DOWNLOADS%22%2C%22downloadtype%22%3A%22manual%22%2C%22eula%22%3A%22Y%22%2C%22downloaduuid%22%3A%22f45547ec-f9d7-42d8-9eb7-dc16cb18ff5d%22%2C%22purchased%22%3A%22N%22%2C%22dlgtype%22%3A%22Product+Binaries%22%2C%22productversion%22%3A%225.0.3%22%2C%22productfamily%22%3A%22VMware+Fusion%22%7D&AuthKey=1378708719_773c6cf4beb5310901f10687924aac0b
+# echo ""
+# echo "===================================================================="
+# echo "Downloading VMWare Fusion"
+# echo "===================================================================="
+# curl -L -O https://download2.vmware.com/software/fusion/VMware-Fusion-5.0.3-1040386-light.dmg?HashKey=509e091d887753698a35ffcedb78225e&params=%7B%22custnumber%22%3A%22amVAcHB0QGpoQA%3D%3D%22%2C%22sourcefilesize%22%3A%22207M%22%2C%22dlgcode%22%3A%22FUS-503%22%2C%22languagecode%22%3A%22en%22%2C%22source%22%3A%22DOWNLOADS%22%2C%22downloadtype%22%3A%22manual%22%2C%22eula%22%3A%22Y%22%2C%22downloaduuid%22%3A%22f45547ec-f9d7-42d8-9eb7-dc16cb18ff5d%22%2C%22purchased%22%3A%22N%22%2C%22dlgtype%22%3A%22Product+Binaries%22%2C%22productversion%22%3A%225.0.3%22%2C%22productfamily%22%3A%22VMware+Fusion%22%7D&AuthKey=1378708719_773c6cf4beb5310901f10687924aac0b
