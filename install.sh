@@ -323,7 +323,7 @@ hdiutil detach /dev/$drive
 echo ""
 echo "===================================================================="
 echo "Installing Sendtokindle"
-sudo installer -pkg sendtokindle.pkg -target /
+sudo installer -pkg ../downloads/sendtokindle.pkg -target /
 
 echo ""
 echo "===================================================================="
