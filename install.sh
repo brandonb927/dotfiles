@@ -311,7 +311,7 @@ echo ""
 echo "===================================================================="
 echo "Installing iStatsMenus"
 unzip -q istatsmenus.zip
-mv FontPrep.app /Applications
+mv iStats\ Menus.app /Applications
 rm istatsmenus.zip
 
 echo ""
