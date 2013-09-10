@@ -397,10 +397,10 @@ rm vlc.dmg
 echo ""
 echo "===================================================================="
 echo "Installing XtraFinder"
-hdiutil mount XtraFinder.dmg -mountpoint /Volumes/XtraFinder
+hdiutil mount XtraFinder.dmg
 sudo installer -pkg /Volumes/XtraFinder -target /
 hdiutil unmount /Volumes/XtraFinder
-drive=`diskutil list | XtraFinder | awk '{print $6}'`
+drive=`diskutil list | grep XtraFinder | awk '{print $6}'`
 hdiutil detach /dev/$drive
 rm XtraFinder.dmg
 
