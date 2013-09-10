@@ -169,7 +169,7 @@ select yn in "Yes" "No"; do
               curl -L -o googlechrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 
               echo "===================================================================="
-              echo "Downloading iStatsmenus"
+              echo "Downloading iStat Menus"
               echo ""
               curl -L -o istatmenus.zip http://s3.amazonaws.com/bjango/files/istatmenus4/istatmenus4.06.zip
 
@@ -343,7 +343,7 @@ select yn in "Yes" "No"; do
 
                 echo ""
                 echo "===================================================================="
-                echo "Installing iStatsMenus"
+                echo "Installing iStat Menus"
                 unzip -q ../downloads/istatmenus.zip -d istatmenus
                 mv istatmenus/iStat\ Menus.app /Applications
 
