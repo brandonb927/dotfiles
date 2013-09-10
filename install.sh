@@ -123,10 +123,10 @@ select yn in "Yes" "No"; do
               echo ""
               curl -L -o alfred.zip http://cachefly.alfredapp.com/Alfred_2.0.7_205.zip
 
-              echo "===================================================================="
-              echo "Downloading Appcleaner"
-              echo ""
-              curl -L -o appcleaner.zip http://www.freemacsoft.net/downloads/AppCleaner_2.2.zip
+            #   echo "===================================================================="
+            #   echo "Downloading Appcleaner"
+            #   echo ""
+            #   curl -L -o appcleaner.zip https://www.macupdate.com/download/25276/AppCleaner_2.2.zip
 
               echo "===================================================================="
               echo "Downloading Codekit"
@@ -270,11 +270,11 @@ select yn in "Yes" "No"; do
                 unzip -q ../downloads/alfred.zip -d alfred
                 mv alfred/Alfred\ 2.app /Applications
 
-                echo ""
-                echo "===================================================================="
-                echo "Installing Appcleaner"
-                unzip -q ../downloads/appcleaner.zip -d appcleaner
-                mv appcleaner/AppCleaner.app /Applications
+                # echo ""
+                # echo "===================================================================="
+                # echo "Installing Appcleaner"
+                # unzip -q ../downloads/appcleaner.zip -d appcleaner
+                # mv appcleaner/AppCleaner.app /Applications
 
                 echo ""
                 echo "===================================================================="
