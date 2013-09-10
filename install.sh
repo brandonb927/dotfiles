@@ -2,21 +2,26 @@
 
 echo ""
 echo "===================================================================="
-echo "Installing oh-my-zsh" $cyan
+echo "Install oh-my-zsh?" $cyan
 echo "===================================================================="
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+              # copy zsh files
+              cp zsh/.zshrc ~/.zshrc
+              cp zsh/.zprofile ~/.zprofile
 
-# copy zsh files
-cp zsh/.zshrc ~/.zshrc
-cp zsh/.zprofile ~/.zprofile
+              # copy ZSH theme
+              cp zsh/brandonbrown.zsh-theme ~/.oh-my-zsh/themes/brandonbrown.zsh-theme
 
-# copy ZSH theme
-cp zsh/brandonbrown.zsh-theme ~/.oh-my-zsh/themes/brandonbrown.zsh-theme
-
-# copy git files
-cp .gitconfig ~/.gitconfig
-cp .gitignore ~/.gitignore
+              # copy git files
+              cp .gitconfig ~/.gitconfig
+              cp .gitignore ~/.gitignore
+              break;;
+        No ) break;;
+    esac
+done
 
 echo ""
 echo "===================================================================="
