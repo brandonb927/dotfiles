@@ -126,7 +126,7 @@ select yn in "Yes" "No"; do
               echo "===================================================================="
               echo "Downloading Appcleaner"
               echo ""
-              curl -L -o appcleaner.zip http://www.freemacsoft.net/downloads/AppCleaner_2.2.zip
+              curl -L -o appcleaner.zip https://www.macupdate.com/download/25276/AppCleaner_2.2.zip
 
               echo "===================================================================="
               echo "Downloading Codekit"
