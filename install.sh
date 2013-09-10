@@ -70,7 +70,7 @@ cecho "====================================================================" $wh
 curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
 mv git-credential-osxkeychain ${HOME}/Downloads
 chmod +x ${HOME}/Downloads/git-credential-osxkeychain
-sudo mv ${HOME}/Downloadsgit-credential-osxkeychain /usr/bin/
+sudo mv ${HOME}/Downloads/git-credential-osxkeychain /usr/bin/
 git config --global credential.helper osxkeychain
 
 
