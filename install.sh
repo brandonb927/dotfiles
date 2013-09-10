@@ -19,26 +19,26 @@ cp .gitconfig ~/.gitconfig
 cp .gitignore ~/.gitignore
 
 echo ""
-cecho "====================================================================" $white
-cecho "🍺  Installing Brew" $cyan
-cecho "====================================================================" $white
+echo "===================================================================="
+echo "🍺  Installing Brew"
+echo "===================================================================="
 
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
 
 echo ""
-cecho "====================================================================" $white
-cecho "Installing Pip and VirtualEnv" $cyan
-cecho "====================================================================" $white
+echo "===================================================================="
+echo "Installing Pip and VirtualEnv"
+echo "===================================================================="
 
 sudo easy_install pip
 sudo pip install virtualenv
 
 
 echo ""
-cecho "====================================================================" $white
-cecho "Downloading & configuring git-credential-osxkeychain" $cyan
-cecho "====================================================================" $white
+echo "===================================================================="
+echo "Downloading & configuring git-credential-osxkeychain"
+echo "===================================================================="
 
 curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
 mv git-credential-osxkeychain ${HOME}/Downloads
@@ -48,9 +48,9 @@ git config --global credential.helper osxkeychain
 
 
 echo ""
-cecho "====================================================================" $white
-cecho "Downloading & installing ssh-copy-id" $cyan
-cecho "====================================================================" $white
+echo "===================================================================="
+echo "Downloading & installing ssh-copy-id"
+echo "===================================================================="
 
 curl https://raw.github.com/beautifulcode/ssh-copy-id-for-OSX/master/ssh-copy-id.sh -o ssh-copy-id
 # sudo mkdir /usr/local/bin
@@ -58,10 +58,10 @@ sudo mv ssh-copy-id /usr/local/bin/
 chmod +x /usr/local/bin/ssh-copy-id
 
 echo ""
-cecho "====================================================================" $white
-cecho "Downloading the OSX for Hackers script to hackers.sh" $cyan
-cecho "Remember to make it executable and run it afterwards!" $red
-cecho "====================================================================" $white
+echo "===================================================================="
+echo "Downloading the OSX for Hackers script to hackers.sh"
+echo "Remember to make it executable and run it afterwards!"
+echo "===================================================================="
 
 curl -o hackers.sh https://gist.github.com/brandonb927/3195465/raw/1718f3baa05219035c470218f69a7348be34c72b/gistfile1.sh
 
@@ -69,9 +69,9 @@ mkdir tmp
 cd tmp
 
 echo ""
-cecho "====================================================================" $white
-cecho "Downloading apps" $cyan
-cecho "====================================================================" $white
+echo "===================================================================="
+echo "Downloading apps"
+echo "===================================================================="
 
 curl -L -o android-sdk.zip http://dl.google.com/android/android-sdk_r22.0.5-macosx.zip
 curl -L -o AirPortUtility56.dmg http://support.apple.com/downloads/DL1482/en_US/AirPortUtility56.dmg
@@ -100,9 +100,9 @@ curl -L -o XtraFinder.dmg http://www.trankynam.com/xtrafinder/downloads/XtraFind
 
 
 echo ""
-cecho "====================================================================" $white
-cecho "Installing apps" $cyan
-cecho "====================================================================" $white
+echo "===================================================================="
+echo "Installing apps"
+echo "===================================================================="
 
 unzip android-sdk.zip
 mv android-sdk-macosx android-sdk
@@ -110,7 +110,7 @@ mv android-sdk /Applications/
 rm android-sdk.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount AirPortUtility56.dmg
 cp -R /Volumes/AirPortUtility/AirPortUtility56.pkg .
@@ -124,42 +124,42 @@ hdiutil detach /dev/$drive
 rm AirPortUtility56.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip alfred.zip
 mv Alfred\ 2.app /Applications
 rm alfred.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip appcleaner.zip
 mv AppCleaner.app /Applications
 rm appcleaner.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip codekit.zip
 mv Codekit.app /Applications
 rm codekit.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip cyberduck.zip
 mv Cyberduck.app /Applications
 rm cyberduck.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip daisydisk.zip
 mv DaisyDisk.app /Applications
 rm daisydisk.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount dropbox.dmg
 cp -R /Volumes/Dropbox\ Installer/Dropbox.app /Applications
@@ -169,7 +169,7 @@ hdiutil detach /dev/$drive
 rm dropbox.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount firefox.dmg
 cp -R /Volumes/Firefox/Firefox.app /Applications
@@ -179,21 +179,21 @@ hdiutil detach /dev/$drive
 rm firefox.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip flowdock.zip
 mv Flowdock.app /Applications
 rm flowdock.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip Flux.zip
 mv Flux.app /Applications
 rm Flux.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 #curl -L -o fontprep.zip http://fontprep.com/download
 #unzip fontprep.zip
@@ -201,7 +201,7 @@ cecho "====================================================================" $wh
 #rm fontprep.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount googlechrome.dmg
 cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications
@@ -211,21 +211,21 @@ hdiutil detach /dev/$drive
 rm googlechrome.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip istatsmenus.zip
 mv FontPrep.app /Applications
 rm istatsmenus.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip iterm2.zip
 mv iTerm2.app /Applications
 rm iterm2.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount keepassx.dmg
 cp -R /Volumes/KeePassX/KeePassX.app /Applications
@@ -235,7 +235,7 @@ hdiutil detach /dev/$drive
 rm keepassx.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount minecraft.dmg
 cp -R /Volumes/Minecraft/Minecraft.app /Applications
@@ -245,13 +245,13 @@ hdiutil detach /dev/$drive
 rm minecraft.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 sudo installer -pkg sendtokindle.pkg -target /
 rm sendtokindle.pkg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount skype.dmg
 cp -R /Volumes/Skype/Skype.app /Applications
@@ -261,7 +261,7 @@ hdiutil detach /dev/$drive
 rm skype.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount sublimetext.dmg
 cp -R /Volumes/Sublime\ Text\ 2/Sublime\ Text\ 2.app /Applications
@@ -271,14 +271,14 @@ hdiutil detach /dev/$drive
 rm sublimetext.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 unzip transmit.zip
 mv Transmit.app /Applications
 rm transmit.zip
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount utorrent.dmg
 cp -R /Volumes/uTorrent/uTorrent.app /Applications
@@ -288,7 +288,7 @@ hdiutil detach /dev/$drive
 rm utorrent.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount vlc.dmg -mountpoint /Volumes/vlc-2.0.8
 cp -R /Volumes/vlc-2.0.8/VLC.app /Applications
@@ -298,7 +298,7 @@ hdiutil detach /dev/$drive
 rm vlc.dmg
 
 echo ""
-cecho "====================================================================" $white
+echo "===================================================================="
 
 hdiutil mount XtraFinder.dmg -mountpoint /Volumes/XtraFinder
 sudo installer -pkg /Volumes/XtraFinder -target /
@@ -309,7 +309,7 @@ rm XtraFinder.dmg
 
 
 echo ""
-cecho "====================================================================" $white
-cecho "VMWare Fusion" $cyan
-cecho "====================================================================" $white
+echo "===================================================================="
+echo "VMWare Fusion"
+echo "===================================================================="
 #curl -L -O https://download2.vmware.com/software/fusion/VMware-Fusion-5.0.3-1040386-light.dmg?HashKey=509e091d887753698a35ffcedb78225e&params=%7B%22custnumber%22%3A%22amVAcHB0QGpoQA%3D%3D%22%2C%22sourcefilesize%22%3A%22207M%22%2C%22dlgcode%22%3A%22FUS-503%22%2C%22languagecode%22%3A%22en%22%2C%22source%22%3A%22DOWNLOADS%22%2C%22downloadtype%22%3A%22manual%22%2C%22eula%22%3A%22Y%22%2C%22downloaduuid%22%3A%22f45547ec-f9d7-42d8-9eb7-dc16cb18ff5d%22%2C%22purchased%22%3A%22N%22%2C%22dlgtype%22%3A%22Product+Binaries%22%2C%22productversion%22%3A%225.0.3%22%2C%22productfamily%22%3A%22VMware+Fusion%22%7D&AuthKey=1378708719_773c6cf4beb5310901f10687924aac0b
