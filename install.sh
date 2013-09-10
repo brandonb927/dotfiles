@@ -20,176 +20,216 @@ cp .gitignore ~/.gitignore
 
 echo ""
 echo "===================================================================="
-echo "🍺  Installing Brew"
+echo "🍺  Install Brew?"
 echo "===================================================================="
-
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+              break;;
+        No ) break;;
+    esac
+done
 
 
 echo ""
 echo "===================================================================="
-echo "Installing Pip and VirtualEnv"
+echo "Install Pip and VirtualEnv?"
 echo "===================================================================="
 
-sudo easy_install pip
-sudo pip install virtualenv
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) sudo easy_install pip
+              sudo pip install virtualenv
+              break;;
+        No ) break;;
+    esac
+done
 
 
 echo ""
 echo "===================================================================="
-echo "Downloading & configuring git-credential-osxkeychain"
+echo "Download & configure git-credential-osxkeychain?"
 echo "===================================================================="
 
-curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
-mv git-credential-osxkeychain ${HOME}/Downloads
-chmod +x ${HOME}/Downloads/git-credential-osxkeychain
-sudo mv ${HOME}/Downloads/git-credential-osxkeychain /usr/bin/
-git config --global credential.helper osxkeychain
-
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
+              mv git-credential-osxkeychain ${HOME}/Downloads
+              chmod +x ${HOME}/Downloads/git-credential-osxkeychain
+              sudo mv ${HOME}/Downloads/git-credential-osxkeychain /usr/bin/
+              git config --global credential.helper osxkeychain
+              break;;
+        No ) break;;
+    esac
+done
 
 echo ""
 echo "===================================================================="
-echo "Downloading & installing ssh-copy-id"
+echo "Download & install ssh-copy-id?"
 echo "===================================================================="
 
-curl https://raw.github.com/beautifulcode/ssh-copy-id-for-OSX/master/ssh-copy-id.sh -o ssh-copy-id
-# sudo mkdir /usr/local/bin
-sudo mv ssh-copy-id /usr/local/bin/
-chmod +x /usr/local/bin/ssh-copy-id
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) curl https://raw.github.com/beautifulcode/ssh-copy-id-for-OSX/master/ssh-copy-id.sh -o ssh-copy-id
+              # sudo mkdir /usr/local/bin
+              sudo mv ssh-copy-id /usr/local/bin/
+              chmod +x /usr/local/bin/ssh-copy-id
+              break;;
+        No ) break;;
+    esac
+done
 
 echo ""
 echo "===================================================================="
-echo "Downloading the OSX for Hackers script to hackers.sh"
-echo "Remember to make it executable and run it afterwards!"
-echo "===================================================================="
+echo "Download the OSX for Hackers script to hackers.sh?"
 
-curl -o hackers.sh https://gist.github.com/brandonb927/3195465/raw/1718f3baa05219035c470218f69a7348be34c72b/gistfile1.sh
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) curl -o hackers.sh https://gist.github.com/brandonb927/3195465/raw/1718f3baa05219035c470218f69a7348be34c72b/gistfile1.sh
+              echo "===================================================================="
+              echo "Remember to make it executable and run it afterwards!"
+              echo "===================================================================="
+              break;;
+        No ) break;;
+    esac
+done
 
-mkdir tmp
-mkdir downloads
-cd downloads
+mkdir -p tmp
+mkdir -p downloads
 
-echo "===================================================================="
-echo "Downloading android-sdk"
-echo ""
-curl -L -o android-sdk.zip http://dl.google.com/android/android-sdk_r22.0.5-macosx.zip
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) cd downloads
+              echo "===================================================================="
+              echo "Downloading android-sdk"
+              echo ""
+              curl -L -o android-sdk.zip http://dl.google.com/android/android-sdk_r22.0.5-macosx.zip
 
-echo "===================================================================="
-echo "Downloading AirPort Utility 5.6"
-echo ""
-curl -L -o AirPortUtility56.dmg http://support.apple.com/downloads/DL1482/en_US/AirPortUtility56.dmg
+              echo "===================================================================="
+              echo "Downloading AirPort Utility 5.6"
+              echo ""
+              curl -L -o AirPortUtility56.dmg http://support.apple.com/downloads/DL1482/en_US/AirPortUtility56.dmg
 
-echo "===================================================================="
-echo "Downloading Alfred"
-echo ""
-curl -L -o alfred.zip http://cachefly.alfredapp.com/Alfred_2.0.7_205.zip
+              echo "===================================================================="
+              echo "Downloading Alfred"
+              echo ""
+              curl -L -o alfred.zip http://cachefly.alfredapp.com/Alfred_2.0.7_205.zip
 
-echo "===================================================================="
-echo "Downloading Appcleaner"
-echo ""
-curl -L -o appcleaner.zip http://www.freemacsoft.net/downloads/AppCleaner_2.2.zip
+              echo "===================================================================="
+              echo "Downloading Appcleaner"
+              echo ""
+              curl -L -o appcleaner.zip http://www.freemacsoft.net/downloads/AppCleaner_2.2.zip
 
-echo "===================================================================="
-echo "Downloading Codekit"
-echo ""
-curl -L -o codekit.zip http://incident57.com/codekit/files/codekit-8322.zip
+              echo "===================================================================="
+              echo "Downloading Codekit"
+              echo ""
+              curl -L -o codekit.zip http://incident57.com/codekit/files/codekit-8322.zip
 
-echo "===================================================================="
-echo "Downloading Cyberduck"
-echo ""
-curl -L -o cyberduck.zip http://cyberduck.ch/Cyberduck-4.3.1.zip
+              echo "===================================================================="
+              echo "Downloading Cyberduck"
+              echo ""
+              curl -L -o cyberduck.zip http://cyberduck.ch/Cyberduck-4.3.1.zip
 
-echo "===================================================================="
-echo "Downloading Daisydisk"
-echo ""
-curl -L -o daisydisk.zip http://www.daisydiskapp.com/downloads/DaisyDisk.zip
+              echo "===================================================================="
+              echo "Downloading Daisydisk"
+              echo ""
+              curl -L -o daisydisk.zip http://www.daisydiskapp.com/downloads/DaisyDisk.zip
 
-echo "===================================================================="
-echo "Downloading Dropbox"
-echo ""
-curl -L -o dropbox.dmg https://www.dropbox.com/download\?plat\=mac
+              echo "===================================================================="
+              echo "Downloading Dropbox"
+              echo ""
+              curl -L -o dropbox.dmg https://www.dropbox.com/download\?plat\=mac
 
-echo "===================================================================="
-echo "Downloading Firefox"
-echo ""
-curl -L -o firefox.dmg http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/mac/en-US/Firefox%2023.0.1.dmg
+              echo "===================================================================="
+              echo "Downloading Firefox"
+              echo ""
+              curl -L -o firefox.dmg http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/mac/en-US/Firefox%2023.0.1.dmg
 
-echo "===================================================================="
-echo "Downloading Flowdock"
-echo ""
-curl -L -o flowdock.zip https://d2ph5hv9wbwvla.cloudfront.net/mac/Flowdock_v1_1_0.zip
+              echo "===================================================================="
+              echo "Downloading Flowdock"
+              echo ""
+              curl -L -o flowdock.zip https://d2ph5hv9wbwvla.cloudfront.net/mac/Flowdock_v1_1_0.zip
 
-echo "===================================================================="
-echo "Downloading Flux"
-echo ""
-curl -L -o Flux.zip https://justgetflux.com/mac/Flux.zip
+              echo "===================================================================="
+              echo "Downloading Flux"
+              echo ""
+              curl -L -o Flux.zip https://justgetflux.com/mac/Flux.zip
 
-echo "===================================================================="
-echo "Downloading Googlechrome"
-echo ""
-curl -L -o googlechrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+              echo "===================================================================="
+              echo "Downloading Googlechrome"
+              echo ""
+              curl -L -o googlechrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 
-echo "===================================================================="
-echo "Downloading iStatsmenus"
-echo ""
-curl -L -o istatmenus.zip http://s3.amazonaws.com/bjango/files/istatmenus4/istatmenus4.06.zip
+              echo "===================================================================="
+              echo "Downloading iStatsmenus"
+              echo ""
+              curl -L -o istatmenus.zip http://s3.amazonaws.com/bjango/files/istatmenus4/istatmenus4.06.zip
 
-echo "===================================================================="
-echo "Downloading iTerm2"
-echo ""
-curl -L -o iterm2.zip http://iterm2.com/downloads/stable/iTerm2_v1_0_0.zip
+              echo "===================================================================="
+              echo "Downloading iTerm2"
+              echo ""
+              curl -L -o iterm2.zip http://iterm2.com/downloads/stable/iTerm2_v1_0_0.zip
 
-echo "===================================================================="
-echo "Downloading Keepassx"
-echo ""
-curl -L -o keepassx.dmg http://www.keepassx.org/dev/attachments/download/38/KeePassX-2.0-alpha4.dmg
+              echo "===================================================================="
+              echo "Downloading Keepassx"
+              echo ""
+              curl -L -o keepassx.dmg http://www.keepassx.org/dev/attachments/download/38/KeePassX-2.0-alpha4.dmg
 
-echo "===================================================================="
-echo "Downloading Minecraft"
-echo ""
-curl -L -o minecraft.dmg https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.dmg
+              echo "===================================================================="
+              echo "Downloading Minecraft"
+              echo ""
+              curl -L -o minecraft.dmg https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.dmg
 
-echo "===================================================================="
-echo "Downloading Prey"
-echo ""
-curl -L -o prey.dmg https://preyproject.com/releases/0.6.0/prey-0.6.0-mac.dmg
+              echo "===================================================================="
+              echo "Downloading Prey"
+              echo ""
+              curl -L -o prey.dmg https://preyproject.com/releases/0.6.0/prey-0.6.0-mac.dmg
 
-echo "===================================================================="
-echo "Downloading Sendtokindle"
-echo ""
-curl -L -o sendtokindle.pkg http://s3.amazonaws.com/sendtokindle/SendToKindleForMac-installer-v1.0.0.218.pkg
+              echo "===================================================================="
+              echo "Downloading Sendtokindle"
+              echo ""
+              curl -L -o sendtokindle.pkg http://s3.amazonaws.com/sendtokindle/SendToKindleForMac-installer-v1.0.0.218.pkg
 
-echo "===================================================================="
-echo "Downloading Skype"
-echo ""
-curl -L -o skype.dmg http://www.skype.com/go/getskype-macosx.dmg
+              echo "===================================================================="
+              echo "Downloading Skype"
+              echo ""
+              curl -L -o skype.dmg http://www.skype.com/go/getskype-macosx.dmg
 
-echo "===================================================================="
-echo "Downloading Sublime Text 2"
-echo ""
-curl -L -o sublimetext.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.dmg
+              echo "===================================================================="
+              echo "Downloading Sublime Text 2"
+              echo ""
+              curl -L -o sublimetext.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.dmg
 
-echo "===================================================================="
-echo "Downloading Transmit"
-echo ""
-curl -L -o transmit.zip http://www.panic.com/transmit/d/Transmit%204.4.1.zip
+              echo "===================================================================="
+              echo "Downloading Transmit"
+              echo ""
+              curl -L -o transmit.zip http://www.panic.com/transmit/d/Transmit%204.4.1.zip
 
-echo "===================================================================="
-echo "Downloading uTorrent"
-echo ""
-curl -L -o utorrent.dmg http://download-new.utorrent.com/endpoint/utmac/os/osx/track/beta/
+              echo "===================================================================="
+              echo "Downloading uTorrent"
+              echo ""
+              curl -L -o utorrent.dmg http://download-new.utorrent.com/endpoint/utmac/os/osx/track/beta/
 
-echo "===================================================================="
-echo "Downloading Vlc"
-echo ""
-curl -L -o vlc.dmg http://get.videolan.org/vlc/2.0.8/macosx/vlc-2.0.8.dmg
+              echo "===================================================================="
+              echo "Downloading Vlc"
+              echo ""
+              curl -L -o vlc.dmg http://get.videolan.org/vlc/2.0.8/macosx/vlc-2.0.8.dmg
 
-echo "===================================================================="
-echo "Downloading XtraFinder"
-echo ""
-curl -L -o XtraFinder.dmg http://www.trankynam.com/xtrafinder/downloads/XtraFinder.dmg
+              echo "===================================================================="
+              echo "Downloading XtraFinder"
+              echo ""
+              curl -L -o XtraFinder.dmg http://www.trankynam.com/xtrafinder/downloads/XtraFinder.dmg
 
-cd ../tmp
+              cd ../tmp
+              break;;
+
+        No )  echo "===================================================================="
+              echo "Assuming that all files necessary have been downloaded"
+              echo ""
+              break;;
+    esac
+done
+
 
 echo ""
 echo "===================================================================="
