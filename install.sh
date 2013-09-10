@@ -73,30 +73,79 @@ echo "===================================================================="
 echo "Downloading apps"
 echo "===================================================================="
 
+echo ""
+echo "Downloading android-sdk"
 curl -L -o android-sdk.zip http://dl.google.com/android/android-sdk_r22.0.5-macosx.zip
+echo ""
+echo "Downloading AirPort Utility 5.6"
 curl -L -o AirPortUtility56.dmg http://support.apple.com/downloads/DL1482/en_US/AirPortUtility56.dmg
+echo ""
+echo "Downloading Alfred"
 curl -L -o alfred.zip http://cachefly.alfredapp.com/Alfred_2.0.7_205.zip
+echo ""
+echo "Downloading Appcleaner"
 curl -L -o appcleaner.zip http://www.freemacsoft.net/downloads/AppCleaner_2.2.zip
+echo ""
+echo "Downloading Codekit"
 curl -L -o codekit.zip http://incident57.com/codekit/files/codekit-8322.zip
+echo ""
+echo "Downloading Cyberduck"
 curl -L -o cyberduck.zip http://cyberduck.ch/Cyberduck-4.3.1.zip
+echo ""
+echo "Downloading Daisydisk"
 curl -L -o daisydisk.zip http://www.daisydiskapp.com/downloads/DaisyDisk.zip
+echo ""
+echo "Downloading Dropbox"
 curl -L -o dropbox.dmg https://www.dropbox.com/download\?plat\=mac
+echo ""
+echo "Downloading Firefox"
 curl -L -o firefox.dmg https://download.mozilla.org/?product=firefox-23.0.1&os=osx&lang=en-US
+echo ""
+echo "Downloading Flowdock"
 curl -L -o flowdock.zip https://d2ph5hv9wbwvla.cloudfront.net/mac/Flowdock_v1_1_0.zip
+echo ""
+echo "Downloading Flux"
 curl -L -o Flux.zip https://justgetflux.com/mac/Flux.zip
+echo ""
+echo "Downloading Googlechrome"
 curl -L -o googlechrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+echo ""
+echo "Downloading iStatsmenus"
 curl -L -o istatsmenus.zip http://s3.amazonaws.com/bjango/files/istatmenus4/istatmenus4.06.zip
+echo ""
+echo "Downloading iTerm2"
 curl -L -o iterm2.zip http://iterm2.com/downloads/stable/iTerm2_v1_0_0.zip
+echo ""
+echo "Downloading Keepassx"
 curl -L -o keepassx.dmg http://www.keepassx.org/dev/attachments/download/38/KeePassX-2.0-alpha4.dmg
+echo ""
+echo "Downloading Minecraft"
 curl -L -o minecraft.dmg https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.dmg
+echo ""
+echo "Downloading Prey"
 curl -L -o prey.dmg https://preyproject.com/releases/0.6.0/prey-0.6.0-mac.dmg
+echo ""
+echo "Downloading Sendtokindle"
 curl -L -o sendtokindle.pkg http://s3.amazonaws.com/sendtokindle/SendToKindleForMac-installer-v1.0.0.218.pkg
+echo ""
+echo "Downloading Skype"
 curl -L -o skype.dmg http://www.skype.com/go/getskype-macosx.dmg
+echo ""
+echo "Downloading Sublime Text 2"
 curl -L -o sublimetext.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.dmg
+echo ""
+echo "Downloading Transmit"
 curl -L -o transmit.zip http://www.panic.com/transmit/d/Transmit%204.4.1.zip
+echo ""
+echo "Downloading uTorrent"
 curl -L -o utorrent.dmg http://download-new.utorrent.com/endpoint/utmac/os/osx/track/beta/
+echo ""
+echo "Downloading Vlc"
 curl -L -o vlc.dmg http://get.videolan.org/vlc/2.0.8/macosx/vlc-2.0.8.dmg
+echo ""
+echo "Downloading XtraFinder"
 curl -L -o XtraFinder.dmg http://www.trankynam.com/xtrafinder/downloads/XtraFinder.dmg
+
 
 
 echo ""
