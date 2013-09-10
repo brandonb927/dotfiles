@@ -422,7 +422,7 @@ select yn in "Yes" "No"; do
                 echo "===================================================================="
                 echo "Installing XtraFinder"
                 hdiutil mount ../downloads/XtraFinder.dmg
-                sudo installer -pkg /Volumes/XtraFinder -target /
+                sudo installer -pkg /Volumes/XtraFinder.pkg -target /
                 hdiutil unmount /Volumes/XtraFinder
                 drive=`diskutil list | grep XtraFinder | awk '{print $6}'`
                 hdiutil detach /dev/$drive
