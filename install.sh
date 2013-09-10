@@ -87,6 +87,7 @@ done
 echo ""
 echo "===================================================================="
 echo "Download the OSX for Hackers script to hackers.sh?"
+echo "===================================================================="
 
 select yn in "Yes" "No"; do
     case $yn in
@@ -99,12 +100,14 @@ select yn in "Yes" "No"; do
     esac
 done
 
-mkdir -p tmp
-mkdir -p downloads
-
+echo ""
+echo "===================================================================="
+echo "Download apps?"
+echo "===================================================================="
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) cd downloads
+        Yes ) mkdir -p downloads
+              cd downloads
               echo "===================================================================="
               echo "Downloading android-sdk"
               echo ""
@@ -225,7 +228,7 @@ select yn in "Yes" "No"; do
               echo ""
               curl -L -o XtraFinder.dmg http://www.trankynam.com/xtrafinder/downloads/XtraFinder.dmg
 
-              cd ../tmp
+              cd ..
               break;;
 
         No ) break;;
@@ -239,7 +242,9 @@ echo "Are all apps downloaded?"
 echo "===================================================================="
 select yn in "Yes" "No"; do
     case $yn in
-        Yes )   echo ""
+        Yes )   mkdir -p tmp
+                cd tmp
+                echo ""
                 echo "===================================================================="
                 echo "Installing Android SDK for Mac"
                 unzip -q ../downloads/android-sdk.zip -d android-sdk
@@ -432,5 +437,3 @@ select yn in "Yes" "No"; do
         No ) break;;
     esac
 done
-
-
