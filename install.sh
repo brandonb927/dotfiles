@@ -223,202 +223,209 @@ select yn in "Yes" "No"; do
               cd ../tmp
               break;;
 
-        No )  echo "===================================================================="
-              echo "Assuming that all files necessary have been downloaded"
-              echo ""
-              break;;
+        No ) break;;
     esac
 done
 
 
 echo ""
 echo "===================================================================="
-echo "Installing apps"
+echo "Are all apps downloaded?"
 echo "===================================================================="
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes )   echo ""
+                echo "===================================================================="
+                echo "Installing Android SDK for Mac"
+                unzip -q ../downloads/android-sdk.zip -d android-sdk
+                mv android-sdk /Applications/
 
-unzip -q ../downloads/android-sdk.zip -d android-sdk
-mv android-sdk /Applications/
+                echo ""
+                echo "===================================================================="
+                echo "Installing Airport Utility 5.6"
 
-echo ""
-echo "===================================================================="
-echo "Installing Airpot Utility 5.6"
+                hdiutil mount ../downloads/AirPortUtility56.dmg
+                cp -R /Volumes/AirPortUtility/AirPortUtility56.pkg .
+                xar -x -f AirPortUtility56.pkg Payload
+                gzcat AirPortUtility56Lion.pkg/Payload | tar -xf -
+                sudo mv Applications/Utilities/AirPort\ Utility\ 5.6.app /Applications/Utilities
+                rm -rf Applications Library System AirPortUtility56.pkg AirPortUtility56Lion.pkg
+                hdiutil unmount /Volumes/AirPortUtility
+                drive=`diskutil list | grep AirPortUtility | awk '{print $6}'`
+                hdiutil detach /dev/$drive
 
-hdiutil mount ../downloads/AirPortUtility56.dmg
-cp -R /Volumes/AirPortUtility/AirPortUtility56.pkg .
-xar -x -f AirPortUtility56.pkg Payload
-gzcat AirPortUtility56Lion.pkg/Payload | tar -xf -
-sudo mv Applications/Utilities/AirPort\ Utility\ 5.6.app /Applications/Utilities
-rm -rf Applications Library System AirPortUtility56.pkg AirPortUtility56Lion.pkg
-hdiutil unmount /Volumes/AirPortUtility
-drive=`diskutil list | grep AirPortUtility | awk '{print $6}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing Alfred"
+                unzip -q ../downloads/alfred.zip -d alfred
+                mv alfred/Alfred\ 2.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing Alfred"
-unzip -q ../downloads/alfred.zip -d alfred
-mv alfred/Alfred\ 2.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing Appcleaner"
+                unzip -q ../downloads/appcleaner.zip -d appcleaner
+                mv appcleaner/AppCleaner.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing Appcleaner"
-unzip -q ../downloads/appcleaner.zip -d appcleaner
-mv appcleaner/AppCleaner.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing Codekit"
+                unzip -q ../downloads/codekit.zip -d codekit
+                mv codekit/Codekit.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing Codekit"
-unzip -q ../downloads/codekit.zip -d codekit
-mv codekit/Codekit.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing Cyberduck"
+                unzip -q ../downloads/cyberduck.zip -d cyberduck
+                mv cyberduck/Cyberduck.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing Cyberduck"
-unzip -q ../downloads/cyberduck.zip -d cyberduck
-mv cyberduck/Cyberduck.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing Daisydisk"
+                unzip -q ../downloads/daisydisk.zip -d daisydisk
+                mv daisydisk/DaisyDisk.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing Daisydisk"
-unzip -q ../downloads/daisydisk.zip -d daisydisk
-mv daisydisk/DaisyDisk.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing Dropbox"
+                hdiutil mount ../downloads/dropbox.dmg
+                cp -R /Volumes/Dropbox\ Installer/Dropbox.app /Applications
+                hdiutil unmount /Volumes/Dropbox\ Installer
+                drive=`diskutil list | grep 'Dropbox Installer' | awk '{print $7}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing Dropbox"
-hdiutil mount ../downloads/dropbox.dmg
-cp -R /Volumes/Dropbox\ Installer/Dropbox.app /Applications
-hdiutil unmount /Volumes/Dropbox\ Installer
-drive=`diskutil list | grep 'Dropbox Installer' | awk '{print $7}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing Firefox"
+                hdiutil mount ../downloads/firefox.dmg
+                cp -R /Volumes/Firefox/Firefox.app /Applications
+                hdiutil unmount /Volumes/Firefox
+                diskutil list | grep Firefox | awk '{print $6}'
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing Firefox"
-hdiutil mount ../downloads/firefox.dmg
-cp -R /Volumes/Firefox/Firefox.app /Applications
-hdiutil unmount /Volumes/Firefox
-diskutil list | grep Firefox | awk '{print $6}'
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing Flowdock"
+                unzip -q ../downloads/flowdock.zip -d flowdock
+                mv flowdock/Flowdock.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing Flowdock"
-unzip -q ../downloads/flowdock.zip -d flowdock
-mv flowdock/Flowdock.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing Flux"
+                unzip -q ../downloads/Flux.zip -d Flux
+                mv Flux/Flux.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing Flux"
-unzip -q ../downloads/Flux.zip -d Flux
-mv Flux/Flux.app /Applications
+                # echo ""
+                # echo "===================================================================="
+                # echo "Installing FontPrep"
+                # curl -L -o fontprep.zip http://fontprep.com/download
+                # unzip fon../downloads/tprep.zip -d tprep
+                # tprep/mv FontPrep.app /Applications
+                # rm fontprep.zip
 
-# echo ""
-# echo "===================================================================="
-# echo "Installing FontPrep"
-# curl -L -o fontprep.zip http://fontprep.com/download
-# unzip fon../downloads/tprep.zip -d tprep
-# tprep/mv FontPrep.app /Applications
-# rm fontprep.zip
+                echo ""
+                echo "===================================================================="
+                echo "Installing Googlechrome"
+                hdiutil mount ../downloads/googlechrome.dmg
+                cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications
+                hdiutil unmount /Volumes/Google\ Chrome
+                drive=`diskutil list | grep Google\ Chrome | awk '{print $7}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing Googlechrome"
-hdiutil mount ../downloads/googlechrome.dmg
-cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications
-hdiutil unmount /Volumes/Google\ Chrome
-drive=`diskutil list | grep Google\ Chrome | awk '{print $7}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing iStatsMenus"
+                unzip -q ../downloads/istatmenus.zip -d istatmenus
+                mv istatmenus/iStat\ Menus.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing iStatsMenus"
-unzip -q ../downloads/istatmenus.zip -d istatmenus
-mv istatmenus/iStat\ Menus.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing iTerm2"
+                unzip -q ../downloads/iterm2.zip -d iterm2
+                mv iterm2/iTerm.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing iTerm2"
-unzip -q ../downloads/iterm2.zip -d iterm2
-mv iterm2/iTerm.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing KeepassX"
+                hdiutil mount ../downloads/keepassx.dmg
+                cp -R /Volumes/KeePassX/KeePassX.app /Applications
+                hdiutil unmount /Volumes/KeePassX
+                drive=`diskutil list | grep KeePassX | awk '{print $6}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing KeepassX"
-hdiutil mount ../downloads/keepassx.dmg
-cp -R /Volumes/KeePassX/KeePassX.app /Applications
-hdiutil unmount /Volumes/KeePassX
-drive=`diskutil list | grep KeePassX | awk '{print $6}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing Minecraft"
+                hdiutil mount ../downloads/minecraft.dmg
+                cp -R /Volumes/Minecraft/Minecraft.app /Applications
+                hdiutil unmount /Volumes/Minecraft
+                drive=`diskutil list | grep Minecraft | awk '{print $6}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing Minecraft"
-hdiutil mount ../downloads/minecraft.dmg
-cp -R /Volumes/Minecraft/Minecraft.app /Applications
-hdiutil unmount /Volumes/Minecraft
-drive=`diskutil list | grep Minecraft | awk '{print $6}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing Sendtokindle"
+                sudo installer -pkg ../downloads/sendtokindle.pkg -target /
 
-echo ""
-echo "===================================================================="
-echo "Installing Sendtokindle"
-sudo installer -pkg ../downloads/sendtokindle.pkg -target /
+                echo ""
+                echo "===================================================================="
+                echo "Installing Skype"
+                hdiutil mount ../downloads/skype.dmg
+                cp -R /Volumes/Skype/Skype.app /Applications
+                hdiutil unmount /Volumes/Skype
+                drive=`diskutil list | grep Skype | awk '{print $6}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing Skype"
-hdiutil mount ../downloads/skype.dmg
-cp -R /Volumes/Skype/Skype.app /Applications
-hdiutil unmount /Volumes/Skype
-drive=`diskutil list | grep Skype | awk '{print $6}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing Sublime Text 2"
+                hdiutil mount ../downloads/sublimetext.dmg
+                cp -R /Volumes/Sublime\ Text\ 2/Sublime\ Text\ 2.app /Applications
+                hdiutil unmount /Volumes/Sublime\ Text\ 2
+                drive=`diskutil list | grep Sublime\ Text\ 2 | awk '{print $8}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing Sublime Text 2"
-hdiutil mount ../downloads/sublimetext.dmg
-cp -R /Volumes/Sublime\ Text\ 2/Sublime\ Text\ 2.app /Applications
-hdiutil unmount /Volumes/Sublime\ Text\ 2
-drive=`diskutil list | grep Sublime\ Text\ 2 | awk '{print $8}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing Transmit"
+                unzip -q ../downloads/transmit.zip -d transmit
+                mv transmit/Transmit.app /Applications
 
-echo ""
-echo "===================================================================="
-echo "Installing Transmit"
-unzip -q ../downloads/transmit.zip -d transmit
-mv transmit/Transmit.app /Applications
+                echo ""
+                echo "===================================================================="
+                echo "Installing uTorrent"
+                hdiutil mount ../downloads/utorrent.dmg
+                cp -R /Volumes/uTorrent/uTorrent.app /Applications
+                hdiutil unmount /Volumes/uTorrent
+                drive=`diskutil list | grep uTorrent | awk '{print $6}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing uTorrent"
-hdiutil mount ../downloads/utorrent.dmg
-cp -R /Volumes/uTorrent/uTorrent.app /Applications
-hdiutil unmount /Volumes/uTorrent
-drive=`diskutil list | grep uTorrent | awk '{print $6}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing VLC"
+                hdiutil mount ../downloads/vlc.dmg -mountpoint /Volumes/vlc-2.0.8
+                cp -R /Volumes/vlc-2.0.8/VLC.app /Applications
+                hdiutil unmount /Volumes/vlc-2.0.8
+                drive=`diskutil list | grep vlc-2.0.8 | awk '{print $6}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing VLC"
-hdiutil mount ../downloads/vlc.dmg -mountpoint /Volumes/vlc-2.0.8
-cp -R /Volumes/vlc-2.0.8/VLC.app /Applications
-hdiutil unmount /Volumes/vlc-2.0.8
-drive=`diskutil list | grep vlc-2.0.8 | awk '{print $6}'`
-hdiutil detach /dev/$drive
+                echo ""
+                echo "===================================================================="
+                echo "Installing XtraFinder"
+                hdiutil mount ../downloads/XtraFinder.dmg
+                sudo installer -pkg /Volumes/XtraFinder -target /
+                hdiutil unmount /Volumes/XtraFinder
+                drive=`diskutil list | grep XtraFinder | awk '{print $6}'`
+                hdiutil detach /dev/$drive
 
-echo ""
-echo "===================================================================="
-echo "Installing XtraFinder"
-hdiutil mount ../downloads/XtraFinder.dmg
-sudo installer -pkg /Volumes/XtraFinder -target /
-hdiutil unmount /Volumes/XtraFinder
-drive=`diskutil list | grep XtraFinder | awk '{print $6}'`
-hdiutil detach /dev/$drive
+                # echo ""
+                # echo "===================================================================="
+                # echo "Downloading VMWare Fusion"
+                # echo "===================================================================="
+                # curl -L -O https://download2.vmware.com/software/fusion/VMware-Fusion-5.0.3-1040386-light.dmg?HashKey=509e091d887753698a35ffcedb78225e&params=%7B%22custnumber%22%3A%22amVAcHB0QGpoQA%3D%3D%22%2C%22sourcefilesize%22%3A%22207M%22%2C%22dlgcode%22%3A%22FUS-503%22%2C%22languagecode%22%3A%22en%22%2C%22source%22%3A%22DOWNLOADS%22%2C%22downloadtype%22%3A%22manual%22%2C%22eula%22%3A%22Y%22%2C%22downloaduuid%22%3A%22f45547ec-f9d7-42d8-9eb7-dc16cb18ff5d%22%2C%22purchased%22%3A%22N%22%2C%22dlgtype%22%3A%22Product+Binaries%22%2C%22productversion%22%3A%225.0.3%22%2C%22productfamily%22%3A%22VMware+Fusion%22%7D&AuthKey=1378708719_773c6cf4beb5310901f10687924aac0b
+
+                break;;
+        No ) break;;
+    esac
+done
 
 
-# echo ""
-# echo "===================================================================="
-# echo "Downloading VMWare Fusion"
-# echo "===================================================================="
-# curl -L -O https://download2.vmware.com/software/fusion/VMware-Fusion-5.0.3-1040386-light.dmg?HashKey=509e091d887753698a35ffcedb78225e&params=%7B%22custnumber%22%3A%22amVAcHB0QGpoQA%3D%3D%22%2C%22sourcefilesize%22%3A%22207M%22%2C%22dlgcode%22%3A%22FUS-503%22%2C%22languagecode%22%3A%22en%22%2C%22source%22%3A%22DOWNLOADS%22%2C%22downloadtype%22%3A%22manual%22%2C%22eula%22%3A%22Y%22%2C%22downloaduuid%22%3A%22f45547ec-f9d7-42d8-9eb7-dc16cb18ff5d%22%2C%22purchased%22%3A%22N%22%2C%22dlgtype%22%3A%22Product+Binaries%22%2C%22productversion%22%3A%225.0.3%22%2C%22productfamily%22%3A%22VMware+Fusion%22%7D&AuthKey=1378708719_773c6cf4beb5310901f10687924aac0b
