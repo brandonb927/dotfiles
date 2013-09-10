@@ -363,7 +363,7 @@ echo "Installing Sublime Text 2"
 hdiutil mount sublimetext.dmg
 cp -R /Volumes/Sublime\ Text\ 2/Sublime\ Text\ 2.app /Applications
 hdiutil unmount /Volumes/Sublime\ Text\ 2
-drive=`diskutil list | grep Sublime\ Text\ 2 | awk '{print $6}'`
+drive=`diskutil list | grep Sublime\ Text\ 2 | awk '{print $8}'`
 hdiutil detach /dev/$drive
 rm sublimetext.dmg
 
