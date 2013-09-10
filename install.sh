@@ -153,7 +153,7 @@ echo "===================================================================="
 echo "Installing apps"
 echo "===================================================================="
 
-unzip android-sdk.zip
+unzip -q android-sdk.zip
 mv android-sdk-macosx android-sdk
 mv android-sdk /Applications/
 rm android-sdk.zip
@@ -175,35 +175,35 @@ rm AirPortUtility56.dmg
 echo ""
 echo "===================================================================="
 
-unzip alfred.zip
+unzip -q alfred.zip
 mv Alfred\ 2.app /Applications
 rm alfred.zip
 
 echo ""
 echo "===================================================================="
 
-unzip appcleaner.zip
+unzip -q appcleaner.zip
 mv AppCleaner.app /Applications
 rm appcleaner.zip
 
 echo ""
 echo "===================================================================="
 
-unzip codekit.zip
+unzip -q codekit.zip
 mv Codekit.app /Applications
 rm codekit.zip
 
 echo ""
 echo "===================================================================="
 
-unzip cyberduck.zip
+unzip -q cyberduck.zip
 mv Cyberduck.app /Applications
 rm cyberduck.zip
 
 echo ""
 echo "===================================================================="
 
-unzip daisydisk.zip
+unzip -q daisydisk.zip
 mv DaisyDisk.app /Applications
 rm daisydisk.zip
 
@@ -230,14 +230,14 @@ rm firefox.dmg
 echo ""
 echo "===================================================================="
 
-unzip flowdock.zip
+unzip -q flowdock.zip
 mv Flowdock.app /Applications
 rm flowdock.zip
 
 echo ""
 echo "===================================================================="
 
-unzip Flux.zip
+unzip -q Flux.zip
 mv Flux.app /Applications
 rm Flux.zip
 
@@ -262,14 +262,14 @@ rm googlechrome.dmg
 echo ""
 echo "===================================================================="
 
-unzip istatsmenus.zip
+unzip -q istatsmenus.zip
 mv FontPrep.app /Applications
 rm istatsmenus.zip
 
 echo ""
 echo "===================================================================="
 
-unzip iterm2.zip
+unzip -q iterm2.zip
 mv iTerm2.app /Applications
 rm iterm2.zip
 
@@ -322,7 +322,7 @@ rm sublimetext.dmg
 echo ""
 echo "===================================================================="
 
-unzip transmit.zip
+unzip -q transmit.zip
 mv Transmit.app /Applications
 rm transmit.zip
 
