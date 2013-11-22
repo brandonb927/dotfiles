@@ -43,8 +43,7 @@ echo "===================================================================="
 
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) sudo easy_install pip
-              sudo pip install virtualenv
+        Yes ) sudo easy_install pip && sudo pip install virtualenv
               break;;
         No ) break;;
     esac
