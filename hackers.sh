@@ -438,10 +438,10 @@ echo "Do you use Sublime Text as your editor of choice and is it installed?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes ) echo ""
-              echo "Linking Sublime Text 2 command line"
-              ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /bin/subl
+              echo "Linking Sublime Text 3 command line"
+              ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /bin/subl
               echo ""
-              echo "Setting Git to use Sublime Text 2 as default editor"
+              echo "Setting Git to use Sublime Text 3 as default editor"
               git config --global core.editor "subl -n -w"
               break;;
         No ) break;;
