@@ -1,9 +1,10 @@
-Dotfiles
-=======
+# Dotfiles
 
-Pre-requisites
+## Prerequisites
 
 - XCode with Command Line Tools
+
+----------
 
 This is my set of dotfiles. Currently, I've got basic customizations for zsh and git.
 
