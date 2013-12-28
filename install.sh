@@ -22,7 +22,11 @@ cecho() {
     return
 }
 
-# Install zsh
+echo ""
+cecho "====================================================================" $white
+cecho "Installing zsh" $blue
+cecho "====================================================================" $white
+echo ""
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
 # copy zsh files
@@ -38,18 +42,30 @@ cp .gitignore ~/.gitignore
 
 echo ""
 cecho "====================================================================" $white
-cecho "🍺  Installing Brew" $blue
+cecho "🍺  Installing homebrew, pip, and virtualenv" $blue
 cecho "====================================================================" $white
 echo ""
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+sudo easy_install pip
+sudo pip install virtualenv
 echo ""
 cecho "====================================================================" $white
 
-# Download the OSX for Hackers script
+echo ""
+cecho "====================================================================" $white
+cecho "Downloading the OSX for Hackers script to hackers.sh" $blue
+cecho "Remember to make it executable and run it afterwards!" $red
+cecho "====================================================================" $white
 echo ""
 curl -o hackers.sh https://gist.github.com/brandonb927/3195465/raw/1718f3baa05219035c470218f69a7348be34c72b/gistfile1.sh
 
 echo ""
 cecho "====================================================================" $white
-cecho "Remember to make hackers.sh executable and run it!" $red
+cecho "Configuring git-credential-osxkeychain" $blue
 cecho "====================================================================" $white
+echo ""
+curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
+mv git-credential-osxkeychain ${HOME}/Downloads
+chmod +x ${HOME}/Downloads/git-credential-osxkeychain
+sudo mv ${HOME}/Downloadsgit-credential-osxkeychain /usr/bin/
+git config --global credential.helper osxkeychain
