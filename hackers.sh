@@ -122,7 +122,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 
 echo ""
-echo "I'm in yer computer, hax0ring yr passwords!"
+echo "I'm in yer computer, hax0ring yer passwords!"
 echo "Requiring password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
@@ -194,54 +194,25 @@ select yn in "Yes" "No"; do
 done
 
 echo ""
-echo "Finder: show all filename extensions?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-              break;;
-        No ) break;;
-    esac
-done
+echo "Finder: showing all filename extensions?"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 echo ""
-echo "Finder: show status bar?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) defaults write com.apple.finder ShowStatusBar -bool true
-              break;;
-        No ) break;;
-    esac
-done
+echo "Finder: showing status bar"
+defaults write com.apple.finder ShowStatusBar -bool true
 
 echo ""
-echo "Finder: allow text selection in Quick Look/Preview?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) defaults write com.apple.finder QLEnableTextSelection -bool true
-              break;;
-        No ) break;;
-    esac
-done
+echo "Finder: allowing text selection in Quick Look/Preview"
+defaults write com.apple.finder QLEnableTextSelection -bool true
 
 echo ""
-echo "Display full POSIX path as Finder window title?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-              break;;
-        No ) break;;
-    esac
-done
+echo "Displaying full POSIX path as Finder window title"
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 echo ""
-echo "Disable the warning when changing a file extension?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-              break;;
-        No ) break;;
-    esac
-done
+echo "Disabling the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
 
 echo ""
 echo "Avoiding creating stupid .DS_Store files on network volumes"
@@ -272,16 +243,10 @@ select yn in "Yes" "No"; do
 done
 
 echo ""
-echo "Enable snap-to-grid for icons on the desktop and in other icon views?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-              /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-              /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-              break;;
-        No ) break;;
-    esac
-done
+echo "Enabling snap-to-grid for icons on the desktop and in other icon views?"
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 echo ""
 echo "Setting Trash to empty securely by default"
@@ -323,14 +288,8 @@ echo "Enabling iTunes track notifications in the Dock"
 defaults write com.apple.dock itunes-notifications -bool true
 
 echo ""
-echo "Reset Launchpad?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
-              break;;
-        No ) break;;
-    esac
-done
+echo "Resetting Launchpad"
+find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -371,14 +330,8 @@ echo "Enabling Dashboard dev mode (allows keeping widgets on the desktop)"
 defaults write com.apple.dashboard devmode -bool true
 
 echo ""
-echo "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
-              break;;
-        No ) break;;
-    esac
-done
+echo "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app"
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 echo ""
 echo "Enabling the debug menu in Disk Utility"
@@ -420,15 +373,9 @@ echo "Speed up wake from sleep to 24 hours from an hour"
 pmset -a standbydelay 86400
 
 echo ""
-echo "Disable OS X logging of downloaded files? (highly advised)"
+echo "Disabling OS X logging of downloaded files"
 echo "For more info visit http://www.macgasm.net/2013/01/18/good-morning-your-mac-keeps-a-log-of-all-your-downloads/"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) defaults write com.apple.LaunchServices LSQuarantine -bool NO
-              break;;
-        No ) break;;
-    esac
-done
+defaults write com.apple.LaunchServices LSQuarantine -bool NO
 
 ###############################################################################
 # Sublime Text 2                                                              #
@@ -452,15 +399,8 @@ done
 # Git                                                                         #
 ###############################################################################
 echo ""
-echo "Create a nicely formatted git log command accessible via 'git lg'?"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) echo "Creating nice git log command"
-              git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-              break;;
-        No ) break;;
-    esac
-done
+echo "Creating a nicely formatted git log command accessible via 'git lg'"
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 ###############################################################################
 # Kill affected applications                                                  #
