@@ -42,14 +42,15 @@ cp ./.gitignore ~/.gitignore
 
 echo ""
 cecho "====================================================================" $white
-cecho "🍺  Installing homebrew, pip, and virtualenv" $blue
+cecho "🍺  Installing homebrew, ssh-copy-id, wget, pip, and virtualenv" $blue
 cecho "====================================================================" $white
 echo ""
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+brew doctor
+brew update
+brew install ssh-copy-id wget
 sudo easy_install pip
 sudo pip install virtualenv
-echo ""
-cecho "====================================================================" $white
 
 echo ""
 cecho "====================================================================" $white
