@@ -11,14 +11,6 @@ if [[ $EUID -ne 0 ]]; then
     exit
 fi
 
-# select yn in "Yes" "No"; do
-#     case $yn in
-#         Yes )
-#               break;;
-#         No ) break;;
-#     esac
-# done
-
 echo ""
 echo "#####################################"
 echo "## This script will make your Mac awesome."

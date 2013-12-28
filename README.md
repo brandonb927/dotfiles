@@ -1,6 +1,10 @@
 Dotfiles
 =======
 
+Pre-requisites
+
+- XCode with Command Line Tools
+
 This is my set of dotfiles. Currently, I've got basic customizations for zsh and git.
 
 You probably won't find anything too useful here. If you want to use these dotfiles as a base for your own:
