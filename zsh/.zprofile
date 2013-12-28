@@ -1,15 +1,8 @@
 export PATH=/usr/local/share/npm/bin:/Users/brandon/bin:/Users/brandon/Dropbox/Work/scripts:$PATH
 export EDITOR='subl -w'
-#export PATH=$PATH:$HOME/.caffeine
-
-# XAMPP virtualhosts
-#alias vhosts='subl /Applications/XAMPP/etc/extra/httpd-vhosts.conf'
 
 # Sublime text open current directory
 alias e='subl . &'
-
-# password generator
-alias genpasswd='openssl rand -base64 12'
 
 # Parenting changing perms on / #
 alias chown='chown --preserve-root'
@@ -29,10 +22,6 @@ alias df='df -H'
 alias du='du -ch'
 
 alias hosts='sudo subl /etc/hosts'
-
-# `cat` with beautiful colors. requires Pygments installed.
-#  sudo easy_install Pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
