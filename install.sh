@@ -45,7 +45,7 @@ cecho "====================================================================" $wh
 cecho "🍺  Installing homebrew, ssh-copy-id, wget, pip, and virtualenv" $blue
 cecho "====================================================================" $white
 echo ""
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew doctor
 brew update
 brew install ssh-copy-id wget
