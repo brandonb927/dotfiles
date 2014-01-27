@@ -34,8 +34,8 @@ select yn in "Yes" "No"; do
               scutil --set ComputerName $comp_name
               scutil --set HostName $comp_name
               scutil --set LocalHostName $comp_name
-              break;;
-        No ) break;;
+              break;
+        No ) break;
     esac
 done
 
@@ -183,8 +183,8 @@ echo "Finder: show hidden files by default?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes ) defaults write com.apple.Finder AppleShowAllFiles -bool true
-              break;;
-        No ) break;;
+              break;
+        No ) break;
     esac
 done
 
@@ -193,8 +193,8 @@ echo "Finder: show dotfiles?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes ) defaults write com.apple.finder AppleShowAllFiles TRUE
-              break;;
-        No ) break;;
+              break;
+        No ) break;
     esac
 done
 
@@ -258,8 +258,8 @@ echo "the Dock to launch apps and use a quickluancher like Alfred"
 select yn in "Yes" "No"; do
     case $yn in
         Yes ) defaults write com.apple.dock persistent-apps -array
-              break;;
-        No ) break;;
+              break;
+        No ) break;
     esac
 done
 
@@ -326,8 +326,8 @@ echo "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example
 select yn in "Yes" "No"; do
     case $yn in
         Yes ) defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
-              break;;
-        No ) break;;
+              break;
+        No ) break;
     esac
 done
 
@@ -375,6 +375,16 @@ echo "Disabling OS X logging of downloaded files"
 echo "For more info visit http://www.macgasm.net/2013/01/18/good-morning-your-mac-keeps-a-log-of-all-your-downloads/"
 defaults write com.apple.LaunchServices LSQuarantine -bool NO
 
+echo ""
+echo "Install XCode command line tools?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) xcode-select --install
+              break;
+        No ) break;
+    esac
+done
+
 ###############################################################################
 # Sublime Text 3                                                              #
 ###############################################################################
@@ -388,8 +398,8 @@ select yn in "Yes" "No"; do
               echo ""
               echo "Setting Git to use Sublime Text as default editor"
               git config --global core.editor "subl -n -w"
-              break;;
-        No ) break;;
+              break;
+        No ) break;
     esac
 done
 
@@ -402,10 +412,11 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes ) echo "Creating nice git log command"
               git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-              break;;
-        No ) break;;
+              break;
+        No ) break;
     esac
 done
+
 
 ###############################################################################
 # Kill affected applications                                                  #
