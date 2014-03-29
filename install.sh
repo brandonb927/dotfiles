@@ -24,6 +24,13 @@ cecho() {
 
 echo ""
 cecho "====================================================================" $white
+cecho "In order to install oh-my-zsh, you\'ll need XCode Command Line Tools" $blue
+cecho "====================================================================" $white
+echo ""
+xcode-select --install
+
+echo ""
+cecho "====================================================================" $white
 cecho "Installing zsh" $blue
 cecho "====================================================================" $white
 echo ""
@@ -59,14 +66,3 @@ cecho "Remember to make it executable and run it afterwards!" $red
 cecho "====================================================================" $white
 echo ""
 curl -o hackers.sh https://gist.githubusercontent.com/brandonb927/3195465/raw/48cfea2e7267350616873a7cb04416c9fc99e2ae/osx-for-hackers.sh
-
-echo ""
-cecho "====================================================================" $white
-cecho "Configuring git-credential-osxkeychain" $blue
-cecho "====================================================================" $white
-echo ""
-curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
-mv git-credential-osxkeychain ${HOME}/Downloads
-chmod +x ${HOME}/Downloads/git-credential-osxkeychain
-sudo mv ${HOME}/Downloadsgit-credential-osxkeychain /usr/bin/
-git config --global credential.helper osxkeychain
