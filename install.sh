@@ -58,7 +58,7 @@ cecho "Downloading the OSX for Hackers script to hackers.sh" $blue
 cecho "Remember to make it executable and run it afterwards!" $red
 cecho "====================================================================" $white
 echo ""
-curl -o hackers.sh https://gist.github.com/brandonb927/3195465/raw/1718f3baa05219035c470218f69a7348be34c72b/gistfile1.sh
+curl -o hackers.sh https://gist.githubusercontent.com/brandonb927/3195465/raw/48cfea2e7267350616873a7cb04416c9fc99e2ae/osx-for-hackers.sh
 
 echo ""
 cecho "====================================================================" $white
