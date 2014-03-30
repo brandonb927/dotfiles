@@ -24,45 +24,75 @@ cecho() {
 
 echo ""
 cecho "====================================================================" $white
-cecho "In order to install oh-my-zsh, you\'ll need XCode Command Line Tools" $blue
+cecho "Checking if XCode Command Line Tools is installed" $blue
 cecho "====================================================================" $white
 echo ""
-xcode-select --install
+
+if pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | grep -q "No receipt"; then
+  echo "Installing XCode Command Line Tools" $green
+  xcode-select --install
+else
+  echo "Command Line Tools installed, continuing 👍 "
+fi
 
 echo ""
 cecho "====================================================================" $white
-cecho "Installing zsh" $blue
+cecho "Install oh-my-zsh?" $blue
 cecho "====================================================================" $white
-echo ""
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+read -r response
+case $response in
+  [yY][eE][sS]|[yY])
+    echo ""
+    cecho "Installing zsh" $blue
+    curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+    
+    # copy zsh config files
+    cp ./zsh/.zshrc ~/.zshrc
+    cp ./zsh/.zprofile ~/.zprofile
 
-# copy zsh files
-cp ./zsh/.zshrc ~/.zshrc
-cp ./zsh/.zprofile ~/.zprofile
-
-# copy ZSH theme
-cp ./zsh/brandonbrown.zsh-theme ~/.oh-my-zsh/themes/brandonbrown.zsh-theme
+    # copy oh-my-zsh theme
+    cp ./zsh/brandonbrown.zsh-theme ~/.oh-my-zsh/themes/brandonbrown.zsh-theme
+    ;;
+  *)
+    ;;
+esac
 
 # copy git files
-cp ./.gitconfig ~/.gitconfig
-cp ./.gitignore ~/.gitignore
+cp .gitconfig ~/.gitconfig
+cp .gitignore ~/.gitignore
 
 echo ""
 cecho "====================================================================" $white
-cecho "🍺  Installing homebrew, ssh-copy-id, wget, pip, and virtualenv" $blue
+cecho "Install homebrew and other utilities?" $blue
 cecho "====================================================================" $white
-echo ""
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-brew doctor
-brew update
-brew install ssh-copy-id wget
-sudo easy_install pip
-sudo pip install virtualenv
+read -r response
+case $response in
+  [yY][eE][sS]|[yY])
+    echo ""
+    cecho "🍺  Installing homebrew, ssh-copy-id, wget, pip, and virtualenv" $blue
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    brew doctor
+    brew update
+    brew install ssh-copy-id wget
+    sudo easy_install pip
+    sudo pip install virtualenv
+    ;;
+  *)
+    ;;
+esac
 
 echo ""
 cecho "====================================================================" $white
-cecho "Downloading the OSX for Hackers script to hackers.sh" $blue
-cecho "Remember to make it executable and run it afterwards!" $red
+cecho "Download OSX for Hackers: Mavericks Edition script?" $blue
 cecho "====================================================================" $white
-echo ""
-curl -o hackers.sh https://gist.githubusercontent.com/brandonb927/3195465/raw/48cfea2e7267350616873a7cb04416c9fc99e2ae/osx-for-hackers.sh
+read -r response
+case $response in
+  [yY][eE][sS]|[yY])
+    echo ""
+    cecho "Remember to make it executable and run it afterwards!" $red
+    curl -o hackers.sh https://gist.githubusercontent.com/brandonb927/3195465/raw/48cfea2e7267350616873a7cb04416c9fc99e2ae/osx-for-hackers.sh
+    ;;
+  *)
+    ;;
+esac
+
