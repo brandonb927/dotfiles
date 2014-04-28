@@ -42,3 +42,12 @@ alias fs="stat -f \"%z bytes\""
 
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
+
+# get latest tags in git
+alias glt='git describe --abbrev=0 --tags'
+
+# Set npm package torrent-mount to not make zsh parse magnet lings as URLs
+alias torrent-mount='noglob torrent-mount'
+
+# Add github SSH key to ssh-agent whenever a new terminal starts
+{ ssh-add ~/.ssh/github } &>/dev/null
