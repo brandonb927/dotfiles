@@ -1,5 +1,5 @@
 export PATH=/usr/local/share/npm/bin:/Users/brandon/bin:/Users/brandon/Dropbox/Work/scripts:$PATH
-export EDITOR='subl -w'
+export EDITOR='/usr/local/bin/subl'
 
 # Sublime text open current directory
 alias e='subl . &'
