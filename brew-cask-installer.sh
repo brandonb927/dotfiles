@@ -23,5 +23,6 @@ echo '- '
 brew cask install onepassword \
   alfred appcleaner atom cakebrew daisydisk dropbox \
   firefox flowdock fluid flux google-chrome iterm2 \
-  licecap onyx radiant-player steam transmission vlc \
+  licecap onyx radiant-player steam send-to-kindle \
+  transmission vlc \
   
