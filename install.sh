@@ -74,6 +74,7 @@ case $response in
     brew doctor
     brew update
     brew install ssh-copy-id wget
+    brew install caskroom/cask/brew-cask
     sudo easy_install pip
     sudo pip install virtualenv
     ;;
