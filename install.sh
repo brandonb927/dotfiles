@@ -76,7 +76,7 @@ case $response in
     brew install ssh-copy-id wget
     brew install caskroom/cask/brew-cask
     sudo easy_install pip
-    sudo pip install virtualenv
+    sudo pip install virtualenv pygments
     ;;
   *)
     ;;
