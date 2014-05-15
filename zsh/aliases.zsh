@@ -39,3 +39,7 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 # Global ps, awesome
 alias gps="ps -c -r -ax -o command,pid,pcpu,time | sed 's/\(PID *\)%/\1 %/' | head -n 11 && echo && ps -c -m -ax -o command,pid,pmem,rss=RSIZE | sed 's/\(.\{23\}\)/\1 /' | head -n 9"
+
+# Smart defaults
+alias mkdir='mkdir -p'
+alias pyserve='python -m SimpleHTTPServer'
