@@ -27,3 +27,4 @@ brew cask install onepassword \
   licecap onyx radiant-player steam send-to-kindle \
   transmission vlc \
   
+brew cask cleanup
