@@ -42,4 +42,9 @@ alias gps="ps -c -r -ax -o command,pid,pcpu,time | sed 's/\(PID *\)%/\1 %/' | he
 
 # Smart defaults
 alias mkdir='mkdir -p'
+
+# Easy python webserver
 alias pyserve='python -m SimpleHTTPServer'
+
+# Easy fileserver
+alias share='ip addr | grep inet; python -m http.server'
