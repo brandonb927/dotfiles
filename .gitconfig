@@ -1,47 +1,50 @@
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
 [core]
-	editor = subl -n -w
-    autocrlf = input
-	quotepath = false
-	# http://stackoverflow.com/questions/136178/git-diff-handling-long-lines
-	pager = less -r
-	# if ↑ doesn’t work, try: pager = less -+$LESS -FRX
+  editor = subl -w
+  autocrlf = input
+  quotepath = false
+  # http://stackoverflow.com/questions/136178/git-diff-handling-long-lines
+  pager = less -r
+  excludesfile = /Users/brandon/.gitignore
+  # if ↑ doesn’t work, try: pager = less -+$LESS -FRX
 
 [alias]
-	s = status
-	c = commit
-	cm = commit -m
-	ca = commit --amend # careful
-	ac = !git add . && git commit
-	acm = !git add . && git commit -m
-	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-	ll = log --stat --abbrev-commit
-	d = diff --color-words
-	dh = diff --color-words head
+  s = status
+  c = commit
+  cm = commit -m
+  ca = commit --amend # careful
+  ac = !git add . && git commit
+  acm = !git add . && git commit -m
+  l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  ll = log --stat --abbrev-commit
+  d = diff --color-words
+  dh = diff --color-words head
 
 [color]
-	ui = auto # covers diff = true, status = auto, branch = auto
-	interactive = auto
+  ui = auto # covers diff = true, status = auto, branch = auto
+  interactive = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [user]
-	name = [name for commits]
-	email = [email for commits]
+  name = ""
+  email = ""
 
 [github]
-	user = [GH username]
-	token = [API token from https://github.com/account/admin]
+  user = ""
+
+[push]
+  default = simple
