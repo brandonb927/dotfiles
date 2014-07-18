@@ -48,3 +48,9 @@ alias pyserve='python -m SimpleHTTPServer'
 
 # Easy fileserver
 alias share='ip addr | grep inet; python -m http.server'
+
+# Start screen saver
+alias afk="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+
+# Log off
+alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
