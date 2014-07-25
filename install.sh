@@ -45,6 +45,9 @@ case $response in
     echo ""
     cecho "Installing zsh" $blue
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+    curl -L https://raw.githubusercontent.com/tamul/solarized-osx-terminal-colors/master/xterm-256color/Solarized%20Dark.terminal
+    
+    cp Solarized\ Dark.terminal ~/Desktop/Solarized\ Dark.terminal
     
     # copy zsh config files
     cp ./zsh/.zshrc ~/.zshrc
