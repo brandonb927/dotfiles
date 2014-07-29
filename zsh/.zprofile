@@ -56,5 +56,6 @@ alias glt="git describe --abbrev=0 --tags"
 # Delete the branch
 alias gbd="git branch -d"
 
-# Add github SSH key to ssh-agent whenever a new terminal starts
+# Add SSH keys to ssh-agent whenever a new terminal starts
 { ssh-add ~/.ssh/github } &>/dev/null
+{ ssh-add ~/.ssh/heroku } &>/dev/null
