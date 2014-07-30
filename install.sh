@@ -96,7 +96,7 @@ case $response in
   [yY][eE][sS]|[yY])
     echo ""
     cecho "Remember to make it executable and run it afterwards!" $red
-    curl -o hackers.sh https://gist.githubusercontent.com/brandonb927/3195465/raw/48cfea2e7267350616873a7cb04416c9fc99e2ae/osx-for-hackers.sh
+    curl -o hackers.sh https://gist.githubusercontent.com/brandonb927/3195465/raw/fedb247088daada948efba6b9db4c8d5f54d1759/osx-for-hackers.sh
     ;;
   *)
     ;;
