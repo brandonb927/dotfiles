@@ -72,14 +72,16 @@ read -r response
 case $response in
   [yY][eE][sS]|[yY])
     echo ""
-    cecho "🍺  Installing homebrew, ssh-copy-id, wget, pip, and virtualenv" $blue
+    cecho "🍺  Installing homebrew, ssh-copy-id, wget, node, mongodb, caskroom, pip, and virtualenv" $blue
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     brew doctor
     brew update
-    brew install ssh-copy-id wget
+    brew install ssh-copy-id wget node mongodb
     brew install caskroom/cask/brew-cask
     sudo easy_install pip
     sudo pip install virtualenv pygments
+    cecho "Installing npm modules globally" $blue
+    npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli
     ;;
   *)
     ;;
