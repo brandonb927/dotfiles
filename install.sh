@@ -45,8 +45,8 @@ case $response in
     echo ""
     cecho "Installing zsh" $blue
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-    curl -L https://raw.githubusercontent.com/tamul/solarized-osx-terminal-colors/master/xterm-256color/Solarized%20Dark.terminal
     
+    curl -o Tomorrow\ Night\ Eighties.terminal https://raw.githubusercontent.com/tamul/solarized-osx-terminal-colors/master/xterm-256color/Tomorrow%20Night%20Eighties.terminal
     cp Tomorrow\ Night\ Eighties.terminal ~/Desktop/Tomorrow\ Night\ Eighties.terminal
     
     # copy zsh config files
@@ -54,7 +54,7 @@ case $response in
     cp ./zsh/.zprofile ~/.zprofile
 
     # copy oh-my-zsh theme
-    cp ./zsh/brandonbrown.zsh-theme ~/.oh-my-zsh/themes/brandonbrown.zsh-theme
+    # cp ./zsh/brandonbrown.zsh-theme ~/.oh-my-zsh/themes/brandonbrown.zsh-theme
     ;;
   *)
     ;;
