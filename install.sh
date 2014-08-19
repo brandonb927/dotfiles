@@ -47,7 +47,7 @@ case $response in
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     curl -L https://raw.githubusercontent.com/tamul/solarized-osx-terminal-colors/master/xterm-256color/Solarized%20Dark.terminal
     
-    cp Solarized\ Dark.terminal ~/Desktop/Solarized\ Dark.terminal
+    cp Tomorrow\ Night\ Eighties.terminal ~/Desktop/Tomorrow\ Night\ Eighties.terminal
     
     # copy zsh config files
     cp ./zsh/.zshrc ~/.zshrc
