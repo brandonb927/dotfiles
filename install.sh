@@ -89,16 +89,5 @@ esac
 
 echo ""
 cecho "====================================================================" $white
-cecho "Download OSX for Hackers: Mavericks Edition script?" $blue
+cecho "Remember to download the OSX for Hackers script: https://gist.github.com/brandonb927/3195465" $blue
 cecho "====================================================================" $white
-read -r response
-case $response in
-  [yY][eE][sS]|[yY])
-    echo ""
-    cecho "Remember to make it executable and run it afterwards!" $red
-    curl -o hackers.sh https://gist.githubusercontent.com/brandonb927/3195465/raw/896b202389f2002a21b29e02f10c6f898838c777/osx-for-hackers.sh
-    ;;
-  *)
-    ;;
-esac
-
