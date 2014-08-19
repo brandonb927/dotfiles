@@ -46,7 +46,7 @@ case $response in
     cecho "Installing zsh" $blue
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     
-    curl -o Tomorrow\ Night\ Eighties.terminal https://raw.githubusercontent.com/tamul/solarized-osx-terminal-colors/master/xterm-256color/Tomorrow%20Night%20Eighties.terminal
+    curl -o Tomorrow\ Night\ Eighties.terminal https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal
     cp Tomorrow\ Night\ Eighties.terminal ~/Desktop/Tomorrow\ Night\ Eighties.terminal
     
     # copy zsh config files
