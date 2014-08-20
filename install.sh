@@ -76,7 +76,19 @@ case $response in
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     brew doctor
     brew update
-    brew install ssh-copy-id wget python node mongodb rabbitmq httpie libevent libmemcached chruby ruby-install imagemagick
+    brew install ssh-copy-id wget python node rabbitmq httpie libevent chruby ruby-install imagemagick
+    
+    cecho "Initializing and loading LaunchControl services from previously installed utilities" $blue
+    ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+    ln -sfv /usr/local/opt/rabbitmq/*.plist ~/Library/LaunchAgents
+    ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgentsauth
+    
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+
+    cecho "On Yosemite Public Beta? Remember to install MongoDB after changing the system version in /System/Library/CoreServices/" $red
+    cecho "Also, install libmemcached this way: brew install https://raw.github.com/denji/homebrew/56eaf3c/Library/Formula/libmemcached.rb" $red
     brew install caskroom/cask/brew-cask
     sudo easy_install pip
     sudo pip install virtualenv pygments
