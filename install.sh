@@ -76,7 +76,7 @@ case $response in
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     brew doctor
     brew update
-    brew install ssh-copy-id wget python node rabbitmq httpie libevent chruby ruby-install imagemagick postgresql
+    brew install ssh-copy-id wget curl python node rabbitmq httpie libevent chruby ruby-install imagemagick postgresql
     
     cecho "Initializing and loading LaunchControl services from previously installed utilities" $blue
     ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
