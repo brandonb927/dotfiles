@@ -94,7 +94,7 @@ case $response in
     sudo pip install virtualenv pygments
     
     cecho "Installing some global npm modules" $blue
-    npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli
+    npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli keybase-installer
     
     cecho "Installing Sublime Text 3" $blue
     #curl -o SublimeText.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203059.dmg
