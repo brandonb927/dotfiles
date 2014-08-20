@@ -89,6 +89,7 @@ case $response in
     hdiutil mount SublimeText.dmg
     sudo cp -R /Volumes/Sublime\ Text/Sublime\ Text.app /Applications
     hdiutil unmount /Volumes/Sublime\ Text
+    rm SublimeText.dmg
     ;;
   *)
     ;;
