@@ -11,7 +11,7 @@ echo '- '
 brew cask install \
   air-video-server-hd airserver airdisplay alfred appcleaner atom cakebrew cinch \
   daisydisk dropbox evernote \
-  firefox fluid flux google-chrome iterm2 istat-menus \
+  firefox flux google-chrome iterm2 istat-menus \
   licecap onepassword postgres steam send-to-kindle \
   transmission vlc \
   
