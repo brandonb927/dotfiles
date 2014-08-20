@@ -97,7 +97,8 @@ case $response in
     npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli
     
     cecho "Installing Sublime Text 3" $blue
-    curl -o SublimeText.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203059.dmg
+    #curl -o SublimeText.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203059.dmg
+    curl -o SublimeText.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203062.dmg
     hdiutil mount SublimeText.dmg
     sudo cp -R /Volumes/Sublime\ Text/Sublime\ Text.app /Applications
     hdiutil unmount /Volumes/Sublime\ Text
