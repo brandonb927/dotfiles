@@ -76,7 +76,7 @@ case $response in
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     brew doctor
     brew update
-    brew install ssh-copy-id wget node mongodb rabbitmq httpie
+    brew install ssh-copy-id wget python node mongodb rabbitmq httpie libevent libmemcached chruby ruby-install imagemagick
     brew install caskroom/cask/brew-cask
     sudo easy_install pip
     sudo pip install virtualenv pygments
