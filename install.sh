@@ -76,12 +76,19 @@ case $response in
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     brew doctor
     brew update
-    brew install ssh-copy-id wget node mongodb rabbitmq
+    brew install ssh-copy-id wget node mongodb rabbitmq httpie
     brew install caskroom/cask/brew-cask
     sudo easy_install pip
     sudo pip install virtualenv pygments
-    cecho "Installing npm modules globally" $blue
+    
+    cecho "Installing some global npm modules" $blue
     npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli
+    
+    cecho "Installing Sublime Text 3" $blue
+    curl -o SublimeText.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203059.dmg
+    hdiutil mount SublimeText.dmg
+    sudo cp -R /Volumes/Sublime\ Text/Sublime\ Text.app /Applications
+    hdiutil unmount /Volumes/Sublime\ Text
     ;;
   *)
     ;;
