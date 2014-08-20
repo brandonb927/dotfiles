@@ -16,8 +16,8 @@ echo '- '
 
 brew cask install onepassword \
   alfred appcleaner atom cakebrew daisydisk dropbox \
-  firefox flowdock fluid flux google-chrome iterm2 \
-  licecap onyx postgres radiant-player steam send-to-kindle \
+  firefox fluid flux google-chrome iterm2 \
+  licecap postgres steam send-to-kindle \
   transmission vlc \
   
 brew cask cleanup
