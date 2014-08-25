@@ -21,6 +21,7 @@
   ll = log --stat --abbrev-commit
   d = diff --color-words
   dh = diff --color-words head
+  really-pull = !git stash && git pull --rebase && git stash pop
 
 [color]
   ui = auto # covers diff = true, status = auto, branch = auto
