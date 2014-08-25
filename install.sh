@@ -95,7 +95,7 @@ case $response in
     cecho "brew install https://raw.github.com/denji/homebrew/56eaf3c/Library/Formula/libmemcached.rb" $red
     brew install caskroom/cask/brew-cask
     sudo easy_install pip
-    sudo pip install virtualenv pygments
+    pip install virtualenv virtualenvwrapper pygments speedtest-cli
     
     cecho "Installing some global npm modules" $blue
     npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli keybase-installer
