@@ -77,7 +77,8 @@ case $response in
     brew doctor
     brew update
     brew install ssh-copy-id wget curl python node rabbitmq httpie libevent \
-                 chruby ruby-install imagemagick postgresql heroku-toolbelt
+                 chruby ruby-install imagemagick postgresql heroku-toolbelt \
+                 launchrocket
     
     cecho "Initializing and loading LaunchControl services from previously installed utilities" $blue
     ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
