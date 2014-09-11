@@ -98,7 +98,8 @@ case $response in
     pip install virtualenv virtualenvwrapper pygments speedtest-cli
     
     cecho "Installing some global npm modules" $blue
-    npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli keybase-installer npm-release
+    npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli keybase-installer npm-release \
+        duo peerflix
     
     cecho "Installing Sublime Text 3" $blue
     #curl -o SublimeText.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203059.dmg
