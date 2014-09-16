@@ -1,5 +1,8 @@
-# Password generator
-alias genpasswd='openssl rand -base64 12'
+# Sublime Text
+alias e='subl . &'                        # open current directory
+alias hosts='sudo /bin/subl /etc/hosts'   # Edit hosts file
+
+alias genpasswd='openssl rand -base64 12' # Password generator
 
 # Parenting changing perms on / #
 alias chown='chown --preserve-root'
@@ -11,8 +14,6 @@ alias wget='wget -c'
 
 alias df='df -H'
 alias du='du -ch'
-
-alias hosts='sudo /bin/subl /etc/hosts'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -54,3 +55,8 @@ alias afk="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSave
 
 # Log off
 alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Nice git aliases
+alias glt="git describe --abbrev=0 --tags"  # Get latest Git tag in project
+alias gbd="git branch -d"                   # Delete the branch
+alias gfp="git fetch -p"                    # Fetch the latest upstream changes
