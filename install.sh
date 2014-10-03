@@ -29,9 +29,9 @@ cecho "====================================================================" $wh
 echo ""
 select yn in "Yes" "No"; do
   case $yn in
-    Yes ) xcode-select --install
-          break;;
-    No ) break;;
+    Yes ) break;;
+    No ) xcode-select --install
+         break;;
   esac
 done
 
