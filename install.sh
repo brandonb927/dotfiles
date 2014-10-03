@@ -26,12 +26,12 @@ echo ""
 cecho "====================================================================" $white
 cecho "Are the XCode Command Line Tools installed?" $blue
 cecho "====================================================================" $white
-echo ""
-select yn in "Yes" "No"; do
-  case $yn in
-    Yes ) break;;
-    No ) xcode-select --install
-         break;;
+read -r response
+case $response in
+  [yY][eE][sS]|[yY])
+    ;;
+  *) xcode-select --install
+    ;;
   esac
 done
 
