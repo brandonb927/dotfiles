@@ -24,16 +24,16 @@ cecho() {
 
 echo ""
 cecho "====================================================================" $white
-cecho "Checking if XCode Command Line Tools is installed" $blue
+cecho "Are the XCode Command Line Tools installed?" $blue
 cecho "====================================================================" $white
 echo ""
-
-if pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | grep -q "No receipt"; then
-  echo "Installing XCode Command Line Tools" $green
-  xcode-select --install
-else
-  echo "Command Line Tools installed, continuing 👍 "
-fi
+select yn in "Yes" "No"; do
+  case $yn in
+    Yes ) xcode-select --install
+          break;;
+    No ) break;;
+  esac
+done
 
 echo ""
 cecho "====================================================================" $white
@@ -43,18 +43,14 @@ read -r response
 case $response in
   [yY][eE][sS]|[yY])
     echo ""
-    cecho "Installing zsh" $blue
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-    
+
     curl -o Tomorrow\ Night\ Eighties.terminal https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal
     cp Tomorrow\ Night\ Eighties.terminal ~/Desktop/Tomorrow\ Night\ Eighties.terminal
-    
+
     # copy zsh config files
     cp ./zsh/.zshrc ~/.zshrc
     cp ./zsh/.zprofile ~/.zprofile
-
-    # copy oh-my-zsh theme
-    # cp ./zsh/brandonbrown.zsh-theme ~/.oh-my-zsh/themes/brandonbrown.zsh-theme
     ;;
   *)
     ;;
@@ -76,45 +72,57 @@ case $response in
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     brew doctor
     brew update
-    brew install ssh-copy-id wget curl python node rabbitmq httpie libevent \
-                 chruby ruby-install imagemagick postgresql heroku-toolbelt \
-                 launchrocket
-    
+    brew install bash coreutils curl findutils heroku-toolbelt httpie imagemagick launchrocket \
+      mongodb node python rabbitmq ssh-copy-id wget
+
     cecho "Initializing and loading LaunchControl services from previously installed utilities" $blue
     ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
     ln -sfv /usr/local/opt/rabbitmq/*.plist ~/Library/LaunchAgents
     ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgentsauth
-    
+
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
-    cecho "On Yosemite Public Beta? Remember to install MongoDB after" $red
-    cecho "changing the system version in /System/Library/CoreServices/SystemVersion.plist" $red
-    echo ""
-    cecho "Also, install libmemcached this way:" $red
-    cecho "brew install https://raw.github.com/denji/homebrew/56eaf3c/Library/Formula/libmemcached.rb" $red
-    brew install caskroom/cask/brew-cask
+    cecho "Installing pip and some python packages" $blue
     sudo easy_install pip
     pip install virtualenv virtualenvwrapper pygments speedtest-cli
-    
+
     cecho "Installing some global npm modules" $blue
-    npm install -g grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli keybase-installer npm-release \
+    npm install -g n grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli keybase-installer npm-release \
         duo nsm
-    
-    cecho "Installing Sublime Text 3" $blue
-    #curl -o SublimeText.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203059.dmg
-    curl -o SublimeText.dmg http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203062.dmg
-    hdiutil mount SublimeText.dmg
-    sudo cp -R /Volumes/Sublime\ Text/Sublime\ Text.app /Applications
-    hdiutil unmount /Volumes/Sublime\ Text
-    rm SublimeText.dmg
+
+    cecho "Installing node stable and latest" $blue
+    n stable
+    n latest
+
+    cecho "Installing brew-cask" $blue
+    brew tap caskroom/versions
+    brew install brew-cask
+
+    echo 'Installing items not installed here (most likely from App store, or other sources):'
+    echo '- Airmail (app store)'
+    echo '- Instashare (app store)'
+    echo '- Tweetdeck (app store)'
+    echo '- XCode (app store)'
+    echo '- '
+
+    echo 'Installing apps'
+    brew cask install \
+      air-video-server-hd airserver airdisplay alfred android-studio appcleaner atom \
+      cakebrew cinch daisydisk dropbox evernote \
+      firefox firefox-aurora flux google-chrome google-chrome-canary iterm2 istat-menus \
+      licecap mou onepassword postgres steam send-to-kindle \
+      skype sublime-text3 transmission vlc virtualbox
+
+    brew cask cleanup
     ;;
   *)
     ;;
 esac
 
 echo ""
-cecho "====================================================================" $white
-cecho "Remember to download the OSX for Hackers script: https://gist.github.com/brandonb927/3195465" $blue
+cecho "===================================================" $white
+cecho "Remember to download the OSX for Hackers script:" $blue
+cecho "https://gist.github.com/brandonb927/3195465" $blue
 cecho "====================================================================" $white
