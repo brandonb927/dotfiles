@@ -23,9 +23,9 @@ cecho() {
 }
 
 echo ""
-cecho "====================================================================" $white
+cecho "===================================================" $white
 cecho "Are the XCode Command Line Tools installed?" $blue
-cecho "====================================================================" $white
+cecho "===================================================" $white
 read -r response
 case $response in
   [yY][eE][sS]|[yY])
@@ -36,9 +36,9 @@ case $response in
 done
 
 echo ""
-cecho "====================================================================" $white
+cecho "===================================================" $white
 cecho "Install oh-my-zsh?" $blue
-cecho "====================================================================" $white
+cecho "===================================================" $white
 read -r response
 case $response in
   [yY][eE][sS]|[yY])
@@ -61,9 +61,9 @@ cp .gitconfig ~/.gitconfig
 cp .gitignore ~/.gitignore
 
 echo ""
-cecho "====================================================================" $white
+cecho "===================================================" $white
 cecho "Install homebrew and other utilities?" $blue
-cecho "====================================================================" $white
+cecho "===================================================" $white
 read -r response
 case $response in
   [yY][eE][sS]|[yY])
@@ -125,4 +125,4 @@ echo ""
 cecho "===================================================" $white
 cecho "Remember to download the OSX for Hackers script:" $blue
 cecho "https://gist.github.com/brandonb927/3195465" $blue
-cecho "====================================================================" $white
+cecho "===================================================" $white
