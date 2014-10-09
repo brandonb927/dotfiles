@@ -1,30 +1,44 @@
-# Sublime Text
-alias e='subl . &'                        # open current directory
-alias hosts='sudo /bin/subl /etc/hosts'   # Edit hosts file
+# Sublime text open current directory
+alias e='subl . &'
 
-alias genpasswd='openssl rand -base64 12' # Password generator
+# password generator
+alias genpasswd='openssl rand -base64 12'
+
+# brew cask for easy app installing
+alias cask="brew cask"
+
+# Get OS X Software Updates, and update Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g;'
 
 # Parenting changing perms on / #
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-# Resume wget
+# reboot / halt / poweroff
+alias reboot='sudo /sbin/reboot'
+alias poweroff='sudo /sbin/poweroff'
+alias halt='sudo /sbin/halt'
+alias shutdown='sudo /sbin/shutdown'
+
+## Resume wget
 alias wget='wget -c'
 
 alias df='df -H'
 alias du='du -ch'
 
+alias hosts='sudo subl /etc/hosts'
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
-alias flushdns="dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias flushdns="dscacheutil -flushcache"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
@@ -35,28 +49,16 @@ alias fs="stat -f \"%z bytes\""
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 
-# Alias cat to use pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
-# Global ps, awesome
-alias gps="ps -c -r -ax -o command,pid,pcpu,time | sed 's/\(PID *\)%/\1 %/' | head -n 11 && echo && ps -c -m -ax -o command,pid,pmem,rss=RSIZE | sed 's/\(.\{23\}\)/\1 /' | head -n 9"
 
-# Smart defaults
-alias mkdir='mkdir -p'
-
-# Easy python webserver
-alias pyserve='python -m SimpleHTTPServer'
-
-# Easy fileserver
-alias share='ip addr | grep inet; python -m http.server'
-
-# Start screen saver
-alias afk="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
-
-# Log off
-alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
-# Nice git aliases
+# Git aliases
+# ============
 alias glt="git describe --abbrev=0 --tags"  # Get latest Git tag in project
 alias gbd="git branch -d"                   # Delete the branch
 alias gfp="git fetch -p"                    # Fetch the latest upstream changes
+
+# Add SSH keys to ssh-agent whenever a new terminal starts
+{ ssh-add ~/.ssh/github } &>/dev/null
+{ ssh-add ~/.ssh/heroku } &>/dev/null
