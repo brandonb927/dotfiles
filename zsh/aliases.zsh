@@ -7,9 +7,6 @@ alias genpasswd='openssl rand -base64 12'
 # brew cask for easy app installing
 alias cask="brew cask"
 
-# Get OS X Software Updates, and update Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g;'
-
 # Parenting changing perms on / #
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
