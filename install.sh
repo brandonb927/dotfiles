@@ -24,105 +24,213 @@ cecho() {
 
 echo ""
 cecho "===================================================" $white
-cecho "Are the XCode Command Line Tools installed?" $blue
+cecho "Install the XCode Command-line Tools? (y/n)" $blue
 cecho "===================================================" $white
 read -r response
 case $response in
-  [yY][eE][sS]|[yY])
-    ;;
-  *) xcode-select --install
-    ;;
-  esac
-done
-
-echo ""
-cecho "===================================================" $white
-cecho "Install oh-my-zsh?" $blue
-cecho "===================================================" $white
-read -r response
-case $response in
-  [yY][eE][sS]|[yY])
+  [yY])
     echo ""
-    curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-
-    curl -o Tomorrow\ Night\ Eighties.terminal https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal
-    cp Tomorrow\ Night\ Eighties.terminal ~/Desktop/Tomorrow\ Night\ Eighties.terminal
-
-    # copy zsh config files
-    cp ./zsh/.zshrc ~/.zshrc
-    cp ./zsh/.zprofile ~/.zprofile
-    ;;
+    echo "Installing the Xcode Command-line tools"
+    xcode-select --install
+    break;;
   *)
-    ;;
+    break;;
 esac
 
-# copy git files
-cp .gitconfig ~/.gitconfig
-cp .gitignore ~/.gitignore
-
 echo ""
 cecho "===================================================" $white
-cecho "Install homebrew and other utilities?" $blue
+cecho "Install oh-my-zsh and Tomorrow Night Eighties theme? (y/n)" $blue
 cecho "===================================================" $white
 read -r response
 case $response in
-  [yY][eE][sS]|[yY])
+  [yY])
     echo ""
-    cecho "🍺  Installing homebrew and other utilities" $blue
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    echo "Installing oh-my-zsh"
+    curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+    echo ""
+    echo "Copying terminal theme to desktop"
+    curl -o Tomorrow\ Night\ Eighties.terminal https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal
+    cp Tomorrow\ Night\ Eighties.terminal ~/Desktop/Tomorrow\ Night\ Eighties.terminal
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $white
+cecho " 🍺  Install homebrew? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew doctor
     brew update
-    brew install bash coreutils curl findutils heroku-toolbelt httpie imagemagick launchrocket \
-      mongodb node python rabbitmq ssh-copy-id wget
+    break;;
+  *) break;;
+esac
 
-    cecho "Initializing and loading LaunchControl services from previously installed utilities" $blue
-    ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
-    ln -sfv /usr/local/opt/rabbitmq/*.plist ~/Library/LaunchAgents
-    ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgentsauth
+echo ""
+cecho "===================================================" $white
+cecho "Install brew utilities? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    binaries=(
+      bash
+      coreutils
+      curl
+      findutils
+      git
+      heroku-toolbelt
+      httpie
+      imagemagick
+      python
+      ssh-copy-id
+      wget
+    )
 
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+    brew install ${binaries[@]}
+    break;;
+  *) break;;
+esac
 
-    cecho "Installing pip and some python packages" $blue
-    sudo easy_install pip
-    pip install virtualenv virtualenvwrapper pygments speedtest-cli
+echo ""
+cecho "===================================================" $white
+cecho "Install node and npm? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing node (without npm)" $blue
+    # For more info, see here https://gist.github.com/DanHerbert/9520689
+    brew install node --without-npm
+    echo prefix=~/.node >> ~/.npmrc
+    curl -L https://www.npmjs.org/install.sh | sh
+    export PATH="$HOME/.node/bin:$PATH"
+  *) break;;
+esac
 
-    cecho "Installing some global npm modules" $blue
+echo ""
+cecho "===================================================" $white
+cecho "Install npm modules? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing some global modules" $blue
     npm install -g n grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli keybase-installer npm-release \
         duo nsm
 
+    echo ""
     cecho "Installing node stable and latest" $blue
     n stable
     n latest
+  *) break;;
+esac
 
-    cecho "Installing brew-cask" $blue
+echo ""
+cecho "===================================================" $white
+cecho "Install pip and python packages? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing pip and some python packages" $blue
+    sudo easy_install pip
+    sudo pip install mackup pygments speedtest-cli virtualenv virtualenvwrapper flake8
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $white
+cecho "Install brew cask and apps? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing cask" $blue
     brew tap caskroom/versions
-    brew install brew-cask
+    brew install caskroom/cask/brew-cask
 
-    echo 'Installing items not installed here (most likely from App store, or other sources):'
-    echo '- Airmail (app store)'
-    echo '- Instashare (app store)'
-    echo '- Tweetdeck (app store)'
-    echo '- XCode (app store)'
-    echo '- '
+    echo ""
+    echo "Installing brew-cask apps"
+    apps=(
+      air-video-server-hd
+      airserver
+      airdisplay
+      airmail-beta
+      alfred
+      appcleaner
+      authy-bluetooth
+      atom
+      cakebrew
+      chromecast
+      cinch
+      daisydisk
+      dropbox
+      evernote-beta
+      firefox
+      flux
+      gifrocket
+      google-chrome
+      iterm2-nightly
+      istat-menus
+      licecap
+      mailbox
+      onepassword
+      skitch
+      skype
+      slack
+      steam
+      sublime-text3
+      teamviewer
+      transmission
+      vlc
+      virtualbox
+    )
 
-    echo 'Installing apps'
-    brew cask install \
-      air-video-server-hd airserver airdisplay alfred android-studio appcleaner atom \
-      cakebrew cinch daisydisk dropbox evernote \
-      firefox firefox-aurora flux google-chrome google-chrome-canary iterm2 istat-menus \
-      licecap mou onepassword postgres steam send-to-kindle \
-      skype sublime-text3 transmission vlc virtualbox
-
+    brew cask install --appdir="/Applications" ${apps[@]}
     brew cask cleanup
-    ;;
-  *)
-    ;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $white
+cecho "Install fonts? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
+    echo "Installing brew-cask fonts"
+    brew tap caskroom/fonts
+    fonts=(
+      font-comic-neue
+      font-droid-sans
+      font-droid-sans-mono
+      font-fira-sans
+      font-open-sans
+      font-open-sans-condensed
+      font-roboto
+      font-source-code-pro
+    )
+
+    brew cask install ${fonts[@]}
+    break;;
+
+  *) break;;
 esac
 
 echo ""
 cecho "===================================================" $white
 cecho "Remember to download the OSX for Hackers script:" $blue
 cecho "https://gist.github.com/brandonb927/3195465" $blue
+echo ""
+cecho "Also, once you run Alfred remember to run: brew cask alfred link" $blue
 cecho "===================================================" $white
