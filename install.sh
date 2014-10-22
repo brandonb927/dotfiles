@@ -110,6 +110,7 @@ case $response in
     echo prefix=~/.node >> ~/.npmrc
     curl -L https://www.npmjs.org/install.sh | sh
     export PATH="$HOME/.node/bin:$PATH"
+    break;;
   *) break;;
 esac
 
