@@ -33,8 +33,7 @@ case $response in
     echo "Installing the Xcode Command-line tools"
     xcode-select --install
     break;;
-  *)
-    break;;
+  *) break;;
 esac
 
 echo ""
@@ -198,6 +197,7 @@ case $response in
 
     brew cask install --appdir="/Applications" ${apps[@]}
     brew cask cleanup
+    break;;
   *) break;;
 esac
 
