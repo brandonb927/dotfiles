@@ -129,6 +129,7 @@ case $response in
     cecho "Installing node stable and latest" $blue
     n stable
     n latest
+    break;;
   *) break;;
 esac
 
@@ -143,6 +144,7 @@ case $response in
     cecho "Installing pip and some python packages" $blue
     sudo easy_install pip
     sudo pip install mackup pygments speedtest-cli virtualenv virtualenvwrapper flake8
+    break;;
   *) break;;
 esac
 
