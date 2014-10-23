@@ -171,6 +171,7 @@ case $response in
       appcleaner
       authy-bluetooth
       atom
+      beamer
       cakebrew
       chromecast
       cinch
@@ -226,7 +227,6 @@ case $response in
 
     brew cask install ${fonts[@]}
     break;;
-
   *) break;;
 esac
 
