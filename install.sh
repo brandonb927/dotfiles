@@ -50,7 +50,6 @@ case $response in
     echo ""
     echo "Copying terminal theme to desktop"
     curl -o Tomorrow\ Night\ Eighties.terminal https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal
-    cp Tomorrow\ Night\ Eighties.terminal ~/Desktop/Tomorrow\ Night\ Eighties.terminal
     break;;
   *) break;;
 esac
@@ -187,6 +186,7 @@ case $response in
       licecap
       mailbox
       onepassword
+      recordit
       skitch
       skype
       slack
