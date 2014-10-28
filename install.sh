@@ -219,6 +219,7 @@ case $response in
       font-droid-sans
       font-droid-sans-mono
       font-fira-sans
+      font-meslo-lg
       font-open-sans
       font-open-sans-condensed
       font-roboto
