@@ -122,7 +122,7 @@ case $response in
     echo ""
     cecho "Installing some global modules" $blue
     npm install -g n grunt-cli gulp hicat js-beautify uglify-js pure-prompt resume-cli keybase-installer npm-release \
-        duo nsm
+        duo nsm bower
 
     echo ""
     cecho "Installing node stable and latest" $blue
@@ -186,6 +186,7 @@ case $response in
       licecap
       mailbox
       onepassword
+      pixlr
       recordit
       skitch
       skype
