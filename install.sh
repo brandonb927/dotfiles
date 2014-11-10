@@ -178,6 +178,7 @@ case $response in
       dropbox
       evernote-beta
       firefox
+      firefoxdeveloperedition
       flux
       gifrocket
       google-chrome
