@@ -27,7 +27,7 @@ cecho "===================================================" $white
 cecho "Install the XCode Command-line Tools? (y/n)" $blue
 cecho "===================================================" $white
 read -r response
-case $response in
+case $response inn
   [yY])
     echo ""
     echo "Installing the Xcode Command-line tools"
@@ -121,7 +121,7 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some global modules" $blue
-    npm install -g bower n gulp grunt-cli hicat js-beautify jscs json jspm less npm-release nsm \
+    npm install -g bower n gulp grunt-cli hicat js-beautify jscs json jspm less npm-release npm-check-updates nsm \
                    pleeease pageres resume-cli uglify-js vtop watchy
                    
 
