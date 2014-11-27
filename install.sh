@@ -122,7 +122,7 @@ case $response in
     echo ""
     cecho "Installing some global modules" $blue
     npm install -g bower n gulp grunt-cli hicat js-beautify jscs json jspm less npm-release npm-check-updates nsm \
-                   pleeease pageres resume-cli uglify-js vtop watchy
+                   pleeease pageres resume-cli uglify-js vtop watchy write-good
                    
 
     echo ""
