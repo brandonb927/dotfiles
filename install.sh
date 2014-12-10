@@ -121,8 +121,9 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some global modules" $blue
-    npm install -g bower n gulp grunt-cli hicat js-beautify jscs json jspm less npm-release npm-check-updates nsm \
-                   pleeease pageres resume-cli uglify-js vtop watchy write-good
+    npm install -g bower duo grunt grunt-cli gulp hicat js-beautify jscs jspm keybase-installer less \
+                             markdown-live n npm npm-check-updates npm-release peerflix pleeease pure-prompt \
+                             resume-cli uglify-js vtop write-good
                    
 
     echo ""
