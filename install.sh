@@ -187,6 +187,7 @@ case $response in
       iterm2-nightly
       istat-menus
       licecap
+      liteitcon
       mailbox
       onepassword
       pixlr
