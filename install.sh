@@ -27,7 +27,7 @@ cecho "===================================================" $white
 cecho "Install the XCode Command-line Tools? (y/n)" $blue
 cecho "===================================================" $white
 read -r response
-case $response inn
+case $response in
   [yY])
     echo ""
     echo "Installing the Xcode Command-line tools"
