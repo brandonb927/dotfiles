@@ -166,24 +166,24 @@ case $response in
     apps=(
       air-video-server-hd
       airserver
-      airdisplay
-      airmail-beta
       alfred
+      angry-ip-scanner
       appcleaner
       authy-bluetooth
       atom
       beamer
-      cakebrew
       chromecast
       cinch
       daisydisk
       dropbox
-      evernote-beta
+      duet
+      evernote
       firefox
       firefoxdeveloperedition
       flux
       gifrocket
       google-chrome
+      google-chrome-canary
       iterm2-nightly
       istat-menus
       licecap
