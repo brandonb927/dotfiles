@@ -81,6 +81,7 @@ case $response in
       curl
       findutils
       git
+      gitignore
       heroku-toolbelt
       httpie
       imagemagick
@@ -88,8 +89,15 @@ case $response in
       ssh-copy-id
       wget
     )
-
+    
+    echo ""
+    echo "Tapping for Joe (for .gitignore)"
+    brew tap karan/karan
+    
+    echo ""
+    echo "Installing brew packages"
     brew install ${binaries[@]}
+    
     break;;
   *) break;;
 esac
@@ -160,7 +168,7 @@ case $response in
     cecho "Installing cask" $blue
     brew tap caskroom/versions
     brew install caskroom/cask/brew-cask
-
+    
     echo ""
     echo "Installing brew-cask apps"
     apps=(
