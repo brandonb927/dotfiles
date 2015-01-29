@@ -137,6 +137,9 @@ case $response in
     echo ""
     cecho "Installing nvm to manage node" $blue
     curl https://raw.githubusercontent.com/creationix/nvm/v0.23.2/install.sh | bash
+    nvm install 0.10
+    nvm install 0.11
+    nvm install iojs
     break;;
   *) break;;
 esac
