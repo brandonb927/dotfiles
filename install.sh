@@ -130,14 +130,13 @@ case $response in
     echo ""
     cecho "Installing some global modules" $blue
     npm install -g bower castnow duo grunt grunt-cli gulp hicat js-beautify jscs jspm keybase-installer less \
-                             markdown-live n npm npm-check-updates npm-release peerflix pleeease pure-prompt \
+                             markdown-live npm npm-check-updates npm-release peerflix pleeease pure-prompt \
                              resume-cli uglify-js vtop write-good
                    
 
     echo ""
-    cecho "Installing node stable and latest" $blue
-    n stable
-    n latest
+    cecho "Installing nvm to manage node" $blue
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.23.2/install.sh | bash
     break;;
   *) break;;
 esac
