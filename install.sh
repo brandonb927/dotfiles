@@ -85,6 +85,7 @@ case $response in
       heroku-toolbelt
       httpie
       imagemagick
+      parallel
       python
       ssh-copy-id
       wget
