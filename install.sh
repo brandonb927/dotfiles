@@ -243,6 +243,11 @@ case $response in
     )
 
     brew cask install ${fonts[@]}
+    
+    echo ""
+    echo "Installing all Google Web Fonts"
+    curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
+    
     break;;
   *) break;;
 esac
