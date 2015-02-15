@@ -8,7 +8,7 @@ yellow='\033[0;33m'
 blue='\033[0;34m'
 magenta='\033[0;35m'
 cyan='\033[0;36m'
-
+h
 
 alias Reset="tput sgr0"      #  Reset text attributes to normal
                              #+ without clearing screen.
@@ -91,6 +91,8 @@ case $response in
       wget
     )
     
+    brew install --HEAD hub
+    
     echo ""
     echo "Tapping for Joe (for .gitignore)"
     brew tap karan/karan
@@ -130,7 +132,7 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some global modules" $blue
-    npm install -g bower castnow grunt grunt-cli gulp hicat hub js-beautify jscs jspm \
+    npm install -g bower castnow grunt grunt-cli gulp hicat js-beautify jscs jspm \
                              keybase-installer less markdown-live \
                              npm-check-updates npm-release peerflix \
                              resume-cli uglify-js vtop write-good
