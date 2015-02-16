@@ -132,7 +132,7 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some global modules" $blue
-    npm install -g bower castnow grunt grunt-cli gulp hicat js-beautify jscs jspm \
+    npm install -g bower castnow git-stats grunt grunt-cli gulp hicat js-beautify jscs jspm \
                              keybase-installer less markdown-live \
                              npm-check-updates npm-release peerflix \
                              resume-cli uglify-js vtop write-good
