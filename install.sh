@@ -219,6 +219,10 @@ case $response in
 
     brew cask install --appdir="/Applications" ${apps[@]}
     brew cask cleanup
+    
+    echo ""
+    echo "Installing asciinema"
+    curl -sL https://asciinema.org/install | sh
     break;;
   *) break;;
 esac
