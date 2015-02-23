@@ -158,7 +158,8 @@ case $response in
     echo ""
     cecho "Installing pip and some python packages" $blue
     sudo easy_install pip
-    sudo pip install mackup pygments speedtest-cli virtualenv virtualenvwrapper flake8
+    sudo pip install flake8 mackup pygments requests speedtest-cli virtualenv virtualenvwrapper
+    sudo pip install python-gist # installed after everything because it needs request
     break;;
   *) break;;
 esac
