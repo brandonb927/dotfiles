@@ -8,7 +8,6 @@ yellow='\033[0;33m'
 blue='\033[0;34m'
 magenta='\033[0;35m'
 cyan='\033[0;36m'
-h
 
 alias Reset="tput sgr0"      #  Reset text attributes to normal
                              #+ without clearing screen.
@@ -88,6 +87,7 @@ case $response in
       parallel
       python
       ssh-copy-id
+      ttyrec
       wget
     )
     
