@@ -14,7 +14,7 @@ alias Reset="tput sgr0"      #  Reset text attributes to normal
 
 # Color-echo.
 # Argument $1 = message
-# Argument $2 = Color
+# Argument $2 = Colortt
 cecho() {
     echo "${2}${1}"
     Reset # Reset to normal.
@@ -89,6 +89,7 @@ case $response in
       ssh-copy-id
       ttyrec
       wget
+      'brew install https://raw.githubusercontent.com/icholy/ttygif/master/ttygif.rb'
     )
     
     brew install --HEAD hub
