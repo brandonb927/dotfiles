@@ -141,10 +141,9 @@ case $response in
 
     echo ""
     cecho "Installing nvm to manage node" $blue
-    curl https://raw.githubusercontent.com/creationix/nvm/v0.23.2/install.sh | bash
-    nvm install 0.10
-    nvm install 0.11
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash
     nvm install iojs
+    nvm install 0.12
     break;;
   *) break;;
 esac
