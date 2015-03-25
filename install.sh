@@ -137,7 +137,7 @@ case $response in
                              js-beautify js2coffee jscs jspm \
                              keybase-installer less markdown-live \
                              npm-check-updates npm-release peerflix \
-                             resume-cli surge uglify-js vtop
+                             resume-cli surge uglify-js unsplash-svc vtop
                    
 
     echo ""
