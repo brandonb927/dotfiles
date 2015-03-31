@@ -202,8 +202,9 @@ case $response in
       gifrocket
       google-chrome
       google-chrome-canary
-      iterm2-nightly
+      imageoptim
       istat-menus
+      iterm2-nightly
       licecap
       liteitcon
       mailbox
