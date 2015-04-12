@@ -138,7 +138,7 @@ case $response in
                              keybase-installer less markdown-live \
                              npm-check-updates npm-release peerflix \
                              resume-cli surge uglify-js unsplash-svc vtop \
-                             yo
+                             wallpaper yo
                    
 
     echo ""
