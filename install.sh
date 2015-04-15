@@ -115,7 +115,8 @@ case $response in
     cecho "Installing node (without npm)" $blue
     # For more info, see here https://gist.github.com/DanHerbert/9520689
     brew install node --without-npm
-    #echo prefix=~/.node >> ~/.npmrc
+    # Because nvm is used, might not need this now?
+    #echo prefix=~/.node >> ~/.npmrc 
     #curl -L https://www.npmjs.org/install.sh | sh
     #export PATH="$HOME/.node/bin:$PATH"
     break;;
@@ -142,12 +143,7 @@ case $response in
     
     echo ""
     cecho "Installing some global modules" $blue
-    npm install -g bower bower-update castnow foreman-gui ghrepo grunt grunt-cli gulp generator-gruntplugin \ 
-                             hicat js-beautify js2coffee jscs jspm \
-                             keybase-installer less markdown-live \
-                             npm-check-updates npm-release peerflix \
-                             resume-cli surge uglify-js unsplash-svc vtop \
-                             wallpaper yo
+    npm install -g bower bower-update castnow foreman-gui ghrepo grunt grunt-cli gulp generator-gruntplugin hicat js-beautify js2coffee jscs jspm keybase-installer less markdown-live npm-check-updates npm-release peerflix resume-cli surge uglify-js unsplash-svc vtop wallpaper yo
     break;;
   *) break;;
 esac
@@ -161,7 +157,7 @@ case $response in
   [yY])
     echo ""
     cecho "Installing pip and some python packages" $blue
-    sudo easy_install pip
+    # sudo easy_install pip # If pip wasn't installed with brew, install it here
     sudo pip install flake8 mackup requests speedtest-cli virtualenv virtualenvwrapper
     sudo pip install doge
     break;;
