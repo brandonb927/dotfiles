@@ -115,9 +115,9 @@ case $response in
     cecho "Installing node (without npm)" $blue
     # For more info, see here https://gist.github.com/DanHerbert/9520689
     brew install node --without-npm
-    echo prefix=~/.node >> ~/.npmrc
-    curl -L https://www.npmjs.org/install.sh | sh
-    export PATH="$HOME/.node/bin:$PATH"
+    #echo prefix=~/.node >> ~/.npmrc
+    #curl -L https://www.npmjs.org/install.sh | sh
+    #export PATH="$HOME/.node/bin:$PATH"
     break;;
   *) break;;
 esac
@@ -137,6 +137,7 @@ case $response in
     nvm install 0.10
     nvm alias stable 0.12
     nvm alias default iojs
+    nvm use 0.12
     
     
     echo ""
