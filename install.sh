@@ -118,7 +118,7 @@ read -r response
 case $response in
   [yY])
     echo ""
-    cecho "" $blue
+    cecho "Installing pyenv" $blue
     curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
     pyenv update
     pip install --egg pyenv
