@@ -109,12 +109,23 @@ case $response in
     echo "Installing brew packages"
     brew install ${binaries[@]}
     
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $white
+cecho "Install various versions of python 2.7.x? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
     echo ""
-    echo "Installing various versions of python"
+    cecho "Installing python versions" $blue
+    pyenv install 2.7.6
     pyenv install 2.7.7
     pyenv install 2.7.8
     pyenv install 2.7.9
-    
     break;;
   *) break;;
 esac
