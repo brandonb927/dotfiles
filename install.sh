@@ -85,7 +85,6 @@ case $response in
       httpie
       imagemagick
       parallel
-      python
       ssh-copy-id
       wget
     )
@@ -113,14 +112,16 @@ esac
 
 echo ""
 cecho "===================================================" $white
-cecho "Install node and npm? (y/n)" $blue
+cecho "Install pyenv? (y/n)" $blue
 cecho "===================================================" $white
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho "Install pyenv for python version management" $blue
+    cecho "" $blue
     curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+    pyenv update
+    pip install --egg pyenv
     break;;
   *) break;;
 esac
