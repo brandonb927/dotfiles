@@ -87,9 +87,7 @@ case $response in
       parallel
       python
       ssh-copy-id
-      ttyrec
       wget
-      'brew install https://raw.githubusercontent.com/icholy/ttygif/master/ttygif.rb'
     )
     
     brew install --HEAD hub
