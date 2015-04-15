@@ -244,6 +244,10 @@ case $response in
     echo "Installing all Google Web Fonts"
     curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
     
+    echo ""
+    echo "Downloading and installing Powerline fonts"
+    curl https://github.com/powerline/fonts/archive/master.zip | unzip
+    ./fonts-master/install.sh
     break;;
   *) break;;
 esac
