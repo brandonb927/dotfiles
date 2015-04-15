@@ -150,7 +150,23 @@ case $response in
     
     echo ""
     cecho "Installing some global modules" $blue
-    npm install -g bower bower-update castnow coffee-script foreman-gui ghrepo grunt grunt-cli gulp generator-gruntplugin hicat js-beautify js2coffee jscs jspm keybase-installer less markdown-live npm-check-updates npm-release peerflix resume-cli surge uglify-js unsplash-svc vtop wallpaper yo
+    npm install -g bower bower-update 
+    npm install -g castnow clean-css coffee-script 
+    npm install -g foreman-gui 
+    npm install -g ghrepo grunt grunt-cli gulp generator-gruntplugin 
+    npm install -g hicat html-minifier
+    npm install -g js-beautify js2coffee jscs jspm 
+    npm install -g keybase-installer 
+    npm install -g less 
+    npm install -g markdown-live 
+    npm install -g npm-check-updates npm-release 
+    npm install -g peerflix 
+    npm install -g resume-cli 
+    npm install -g surge svgo 
+    npm install -g uglifycss uglify-js unsplash-svc 
+    npm install -g vtop 
+    npm install -g wallpaper 
+    npm install -g yo
     break;;
   *) break;;
 esac
