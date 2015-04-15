@@ -13,7 +13,7 @@ alias Reset="tput sgr0"      #  Reset text attributes to normal
                              #+ without clearing screen.
 
 # Color-echo.
-# Argument $1 = message
+# Argument $1 = messageu
 # Argument $2 = Colortt
 cecho() {
     echo "${2}${1}"
@@ -95,6 +95,13 @@ case $response in
     echo ""
     echo "Tapping for Joe (for .gitignore)"
     brew tap karan/karan
+    
+    echo ""
+    echo "Installing sudolikeaboss"
+    brew tap ravenac95/sudolikeaboss
+    brew install sudolikeaboss
+    brew install sudolikeaboss-workaround
+    sudolikeaboss-setup-workaround
     
     echo ""
     echo "Installing brew packages"
