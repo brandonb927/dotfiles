@@ -119,6 +119,20 @@ read -r response
 case $response in
   [yY])
     echo ""
+    cecho "Install pyenv for python version management" $blue
+    curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $white
+cecho "Install node and npm? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
     cecho "Installing node (without npm)" $blue
     # For more info, see here https://gist.github.com/DanHerbert/9520689
     brew install node --without-npm
