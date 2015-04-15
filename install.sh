@@ -109,6 +109,12 @@ case $response in
     echo "Installing brew packages"
     brew install ${binaries[@]}
     
+    echo ""
+    echo "Installing various versions of python"
+    pyenv install 2.7.7
+    pyenv install 2.7.8
+    pyenv install 2.7.9
+    
     break;;
   *) break;;
 esac
