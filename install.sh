@@ -130,6 +130,16 @@ read -r response
 case $response in
   [yY])
     echo ""
+    cecho "Installing nvm to manage node" $blue
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
+    nvm install iojs
+    nvm install 0.12
+    nvm install 0.10
+    nvm alias stable 0.12
+    nvm alias default iojs
+    
+    
+    echo ""
     cecho "Installing some global modules" $blue
     npm install -g bower bower-update castnow foreman-gui ghrepo grunt grunt-cli gulp generator-gruntplugin \ 
                              hicat js-beautify js2coffee jscs jspm \
@@ -137,13 +147,6 @@ case $response in
                              npm-check-updates npm-release peerflix \
                              resume-cli surge uglify-js unsplash-svc vtop \
                              wallpaper yo
-                   
-
-    echo ""
-    cecho "Installing nvm to manage node" $blue
-    curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
-    nvm install iojs
-    nvm install 0.12
     break;;
   *) break;;
 esac
@@ -158,8 +161,7 @@ case $response in
     echo ""
     cecho "Installing pip and some python packages" $blue
     sudo easy_install pip
-    sudo pip install flake8 mackup pygments requests speedtest-cli virtualenv virtualenvwrapper
-    sudo pip install pypthon-gist # installed after everything because it needs request
+    sudo pip install flake8 mackup requests speedtest-cli virtualenv virtualenvwrapper
     sudo pip install doge
     break;;
   *) break;;
@@ -214,10 +216,6 @@ case $response in
 
     brew cask install --appdir="/Applications" ${apps[@]}
     brew cask cleanup
-    
-    echo ""
-    echo "Installing asciinema"
-    curl -sL https://asciinema.org/install | sh
     break;;
   *) break;;
 esac
@@ -236,7 +234,6 @@ case $response in
       font-comic-neue
       font-droid-sans
       font-droid-sans-mono
-      font-fira-sans
       font-meslo-lg
       font-open-sans
       font-open-sans-condensed
@@ -258,6 +255,4 @@ echo ""
 cecho "===================================================" $white
 cecho "Remember to download the OSX for Hackers script:" $blue
 cecho "https://gist.github.com/brandonb927/3195465" $blue
-echo ""
-cecho "Also, once you run Alfred remember to run: brew cask alfred link" $blue
 cecho "===================================================" $white
