@@ -85,6 +85,7 @@ case $response in
       httpie
       imagemagick
       parallel
+      pyenv
       ssh-copy-id
       wget
     )
@@ -106,22 +107,6 @@ case $response in
     echo "Installing brew packages"
     brew install ${binaries[@]}
     
-    break;;
-  *) break;;
-esac
-
-echo ""
-cecho "===================================================" $white
-cecho "Install pyenv? (y/n)" $blue
-cecho "===================================================" $white
-read -r response
-case $response in
-  [yY])
-    echo ""
-    cecho "Installing pyenv" $blue
-    curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-    pyenv update
-    pip install --egg pyenv
     break;;
   *) break;;
 esac
