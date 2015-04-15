@@ -86,6 +86,8 @@ case $response in
       imagemagick
       parallel
       pyenv
+      pyenv-virtualenv
+      pyenv-virtualenvwrapper
       ssh-copy-id
       wget
     )
