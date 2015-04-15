@@ -143,7 +143,7 @@ case $response in
 
     echo ""
     cecho "Installing nvm to manage node" $blue
-    curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
     nvm install iojs
     nvm install 0.12
     break;;
@@ -182,15 +182,12 @@ case $response in
     echo ""
     echo "Installing brew-cask apps"
     apps=(
+      1password
       air-video-server-hd
-      airserver
       alfred
-      angry-ip-scanner
       appcleaner
-      authy-bluetooth
       atom
       beamer
-      chromecast
       cinch
       daisydisk
       dropbox
@@ -199,18 +196,13 @@ case $response in
       firefox
       firefoxdeveloperedition
       flux
-      gifrocket
       google-chrome
       google-chrome-canary
       imageoptim
       istat-menus
       iterm2-nightly
       licecap
-      liteitcon
       mailbox
-      onepassword
-      pixlr
-      recordit
       skitch
       skype
       slack
