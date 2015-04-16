@@ -84,6 +84,7 @@ case $response in
       heroku-toolbelt
       httpie
       imagemagick
+      mackup
       parallel
       pyenv
       pyenv-virtualenv
@@ -145,7 +146,30 @@ case $response in
     #echo prefix=~/.node >> ~/.npmrc 
     #curl -L https://www.npmjs.org/install.sh | sh
     #export PATH="$HOME/.node/bin:$PATH"
+    
+    echo ""
+    cecho "Installing nvm to manage node" $blue
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
     break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $white
+cecho "Install node/iojs versions? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
+    cecho Installing node and iojs” $blue
+    nvm install iojs
+    nvm install 0.12
+    nvm install 0.10
+    nvm alias stable 0.12
+    nvm alias default iojs
+    nvm use 0.12
+     break;;
   *) break;;
 esac
 
@@ -156,17 +180,6 @@ cecho "===================================================" $white
 read -r response
 case $response in
   [yY])
-    echo ""
-    cecho "Installing nvm to manage node" $blue
-    curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
-    nvm install iojs
-    nvm install 0.12
-    nvm install 0.10
-    nvm alias stable 0.12
-    nvm alias default iojs
-    nvm use 0.12
-    
-    
     echo ""
     cecho "Installing some global modules" $blue
     npm install -g bower bower-update 
@@ -192,16 +205,15 @@ esac
 
 echo ""
 cecho "===================================================" $white
-cecho "Install pip and python packages? (y/n)" $blue
+cecho "Install python packages? (y/n)" $blue
 cecho "===================================================" $white
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho "Installing pip and some python packages" $blue
-    # sudo easy_install pip # If pip wasn't installed with brew, install it here
-    sudo pip install flake8 mackup requests speedtest-cli virtualenv virtualenvwrapper
-    sudo pip install doge
+    cecho "Installing some python packages" $blue
+    sudo easy_install pip # If pip wasn't installed with brew, install it here
+    sudo pip install flake8 doge
     break;;
   *) break;;
 esac
@@ -230,7 +242,6 @@ case $response in
       cinch
       daisydisk
       dropbox
-      duet
       evernote
       firefox
       firefoxdeveloperedition
@@ -282,14 +293,15 @@ case $response in
 
     brew cask install ${fonts[@]}
     
-    echo ""
+    echo ""du
     echo "Installing all Google Web Fonts"
     curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
     
     echo ""
     echo "Downloading and installing Powerline fonts"
-    curl https://github.com/powerline/fonts/archive/master.zip | unzip
+    wget https://github.com/powerline/fonts/archive/master.zip -O fonts.zip && unzip fonts.zip
     ./fonts-master/install.sh
+    rm -r fonts.zip && rm -r fonts-master
     break;;
   *) break;;
 esac
