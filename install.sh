@@ -213,7 +213,7 @@ case $response in
     echo ""
     cecho "Installing some python packages" $blue
     sudo easy_install pip # If pip wasn't installed with brew, install it here
-    sudo pip install flake8 doge fuck
+    sudo pip install flake8 doge thefuck
     break;;
   *) break;;
 esac
