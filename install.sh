@@ -188,8 +188,9 @@ case $response in
     npm install -g ghrepo grunt grunt-cli gulp generator-gruntplugin 
     npm install -g hicat html-minifier
     npm install -g js-beautify js2coffee jscs jspm 
-    npm install -g keybase-installer 
-    npm install -g less 
+    npm install -g keybase-installer
+    npm install -g less
+    npm install -g nodemon 
     npm install -g markdown-live 
     npm install -g npm-check-updates npm-release 
     npm install -g peerflix 
