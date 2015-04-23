@@ -183,7 +183,7 @@ case $response in
     echo ""
     cecho "Installing some global modules" $blue
     npm install -g bower bower-update 
-    npm install -g castnow clean-css coffee-script csslint
+    npm install -g castnow chokidar-cli clean-css coffee-script csslint
     npm install -g foreman-gui 
     npm install -g ghrepo grunt grunt-cli gulp generator-gruntplugin 
     npm install -g hicat html-minifier
