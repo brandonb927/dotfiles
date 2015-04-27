@@ -84,6 +84,7 @@ case $response in
       heroku-toolbelt
       httpie
       imagemagick
+      imagesnap
       mackup
       parallel
       pyenv
@@ -102,8 +103,7 @@ case $response in
     echo ""
     echo "Installing sudolikeaboss"
     brew tap ravenac95/sudolikeaboss
-    brew install sudolikeaboss
-    brew install sudolikeaboss-workaround
+    brew install sudolikeaboss sudolikeaboss-workaround
     sudolikeaboss-setup-workaround
     
     echo ""
