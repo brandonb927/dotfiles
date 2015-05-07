@@ -116,7 +116,7 @@ esac
 
 echo ""
 cecho "===================================================" $white
-cecho "Install various versions of python 2.7.x? (y/n)" $blue
+cecho "Install various versions of python? (y/n)" $blue
 cecho "===================================================" $white
 read -r response
 case $response in
@@ -267,6 +267,22 @@ case $response in
 
     brew cask install --appdir="/Applications" ${apps[@]}
     brew cask cleanup
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $white
+cecho "Install various utilities? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
+    echo "Installing some various utilities"
+    mkdir -p ~/bin
+    curl -o ~/bin/git-land https://raw.githubusercontent.com/bazaarvoice/git-land/master/git-land
+    chmod +x ~/bin/git-land
     break;;
   *) break;;
 esac
