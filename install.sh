@@ -107,6 +107,11 @@ case $response in
     sudolikeaboss-setup-workaround
     
     echo ""
+    echo "Installing GNU version of grep"
+    brew tap homebrew/dupes
+    brew install homebrew/dupes/grep
+    
+    echo ""
     echo "Installing brew packages"
     brew install ${binaries[@]}
     
