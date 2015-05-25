@@ -110,6 +110,8 @@ case $response in
     echo "Installing GNU version of grep"
     brew tap homebrew/dupes
     brew install homebrew/dupes/grep
+    mkdir -p ~/bin
+    ln -s /usr/local/Cellar/grep/2.21/bin/ggrep ~/bin/ggrep
     
     echo ""
     echo "Installing brew packages"
