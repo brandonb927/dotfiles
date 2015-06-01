@@ -261,6 +261,7 @@ case $response in
       iterm2-nightly
       licecap
       mailbox
+      qlmarkdown
       skitch
       skype
       slack
