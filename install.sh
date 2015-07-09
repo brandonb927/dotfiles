@@ -131,9 +131,8 @@ case $response in
     echo ""
     cecho "Installing python versions" $blue
     pyenv install 2.7.6
-    pyenv install 2.7.7
     pyenv install 2.7.8
-    pyenv install 2.7.9
+    pyenv install 2.7.10
     break;;
   *) break;;
 esac
@@ -190,9 +189,8 @@ case $response in
     echo ""
     cecho "Installing some global modules" $blue
     npm install -g bower bower-update 
-    npm install -g castnow chokidar-cli clean-css coffee-script csslint
-    npm install -g foreman-gui 
-    npm install -g ghrepo grunt grunt-cli gulp generator-gruntplugin 
+    npm install -g castnow clean-css coffee-script csslint
+    npm install -g grunt grunt-cli gulp generator-gruntplugin 
     npm install -g hicat html-minifier
     npm install -g js-beautify js2coffee jscs jspm 
     npm install -g keybase-installer
@@ -202,7 +200,7 @@ case $response in
     npm install -g npm-check-updates npm-release 
     npm install -g peerflix 
     npm install -g resume-cli 
-    npm install -g surge svgo 
+    npm install -g standard surge svgo 
     npm install -g uglifycss uglify-js unsplash-svc 
     npm install -g vtop 
     npm install -g wallpaper 
@@ -221,7 +219,7 @@ case $response in
     echo ""
     cecho "Installing some python packages" $blue
     sudo easy_install pip # If pip wasn't installed with brew, install it here
-    sudo pip install flake8 doge thefuck awslogs
+    sudo pip install flake8 doge thefuck
     break;;
   *) break;;
 esac
@@ -261,12 +259,10 @@ case $response in
       iterm2-nightly
       licecap
       mailbox
-      qlmarkdown
       skitch
       skype
       slack
       steam
-      sublime-text3
       teamviewer
       transmission
       vlc
@@ -289,8 +285,8 @@ case $response in
     echo ""
     echo "Installing some various utilities"
     mkdir -p ~/bin
-    curl -o ~/bin/git-land https://raw.githubusercontent.com/bazaarvoice/git-land/master/git-land
-    chmod +x ~/bin/git-land
+    #curl -o ~/bin/git-land https://raw.githubusercontent.com/bazaarvoice/git-land/master/git-land
+    #chmod +x ~/bin/git-land
     break;;
   *) break;;
 esac
