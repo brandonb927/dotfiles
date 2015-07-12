@@ -47,9 +47,11 @@ case $response in
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
     echo ""
-    echo "Copying terminal theme to desktop"
-    curl -o Tomorrow\ Night\ Eighties.terminal https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal
-    break;;
+    echo "Installing oh-my-zsh"
+    cd ~/.oh-my-zsh/custom/plugins
+    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+    cd ~/
+
   *) break;;
 esac
 
@@ -76,6 +78,7 @@ case $response in
   [yY])
     binaries=(
       bash
+      chruby
       coreutils
       curl
       findutils
@@ -85,38 +88,37 @@ case $response in
       httpie
       imagemagick
       imagesnap
-      mackup
-      parallel
       pyenv
       pyenv-virtualenv
       pyenv-virtualenvwrapper
+      ruby-install
       ssh-copy-id
       wget
     )
-    
+
     brew install --HEAD hub
-    
+
     echo ""
     echo "Tapping for Joe (for .gitignore)"
     brew tap karan/karan
-    
+
     echo ""
     echo "Installing sudolikeaboss"
     brew tap ravenac95/sudolikeaboss
     brew install sudolikeaboss sudolikeaboss-workaround
     sudolikeaboss-setup-workaround
-    
+
     echo ""
     echo "Installing GNU version of grep"
     brew tap homebrew/dupes
     brew install homebrew/dupes/grep
     mkdir -p ~/bin
     ln -s /usr/local/Cellar/grep/2.21/bin/ggrep ~/bin/ggrep
-    
+
     echo ""
     echo "Installing brew packages"
     brew install ${binaries[@]}
-    
+
     break;;
   *) break;;
 esac
@@ -133,6 +135,21 @@ case $response in
     pyenv install 2.7.6
     pyenv install 2.7.8
     pyenv install 2.7.10
+    pyenve global 2.7.10
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $white
+cecho "Install python packages? (y/n)" $blue
+cecho "===================================================" $white
+read -r response
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing some python packages" $blue
+    sudo pip install flake8 doge thefuck
     break;;
   *) break;;
 esac
@@ -148,11 +165,7 @@ case $response in
     cecho "Installing node (without npm)" $blue
     # For more info, see here https://gist.github.com/DanHerbert/9520689
     brew install node --without-npm
-    # Because nvm is used, might not need this now?
-    #echo prefix=~/.node >> ~/.npmrc 
-    #curl -L https://www.npmjs.org/install.sh | sh
-    #export PATH="$HOME/.node/bin:$PATH"
-    
+
     echo ""
     cecho "Installing nvm to manage node" $blue
     curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
@@ -168,12 +181,12 @@ read -r response
 case $response in
   [yY])
     echo ""
-    cecho Installing node and iojs” $blue
+    cecho Installing node versions” $blue
+    . ~/.nvm/nvm.sh > /dev/null
     nvm install iojs
     nvm install 0.12
-    nvm install 0.10
     nvm alias stable 0.12
-    nvm alias default iojs
+    nvm alias default 0.12
     nvm use 0.12
      break;;
   *) break;;
@@ -188,38 +201,23 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some global modules" $blue
-    npm install -g bower bower-update 
-    npm install -g castnow clean-css coffee-script csslint
-    npm install -g grunt grunt-cli gulp generator-gruntplugin 
+    npm install -g bower bower-update
+    npm install -g clean-css coffee-script csslint
+    npm install -g grunt grunt-cli gulp generator-gruntplugin
     npm install -g hicat html-minifier
-    npm install -g js-beautify js2coffee jscs jspm 
+    npm install -g js-beautify js2coffee jscs jspm
     npm install -g keybase-installer
     npm install -g less
-    npm install -g nodemon 
-    npm install -g markdown-live 
-    npm install -g npm-check-updates npm-release 
-    npm install -g peerflix 
-    npm install -g resume-cli 
-    npm install -g standard surge svgo 
-    npm install -g uglifycss uglify-js unsplash-svc 
-    npm install -g vtop 
-    npm install -g wallpaper 
+    npm install -g nodemon
+    npm install -g markdown-live
+    npm install -g npm-check-updates npm-release
+    npm install -g peerflix
+    npm install -g resume-cli
+    npm install -g standard surge svgo
+    npm install -g uglifycss uglify-js
+    npm install -g vtop
+    npm install -g wallpaper
     npm install -g yo
-    break;;
-  *) break;;
-esac
-
-echo ""
-cecho "===================================================" $white
-cecho "Install python packages? (y/n)" $blue
-cecho "===================================================" $white
-read -r response
-case $response in
-  [yY])
-    echo ""
-    cecho "Installing some python packages" $blue
-    sudo easy_install pip # If pip wasn't installed with brew, install it here
-    sudo pip install flake8 doge thefuck
     break;;
   *) break;;
 esac
@@ -235,7 +233,7 @@ case $response in
     cecho "Installing cask" $blue
     brew tap caskroom/versions
     brew install caskroom/cask/brew-cask
-    
+
     echo ""
     echo "Installing brew-cask apps"
     apps=(
@@ -244,6 +242,7 @@ case $response in
       alfred
       appcleaner
       atom
+      bartender
       beamer
       cinch
       daisydisk
@@ -277,22 +276,6 @@ esac
 
 echo ""
 cecho "===================================================" $white
-cecho "Install various utilities? (y/n)" $blue
-cecho "===================================================" $white
-read -r response
-case $response in
-  [yY])
-    echo ""
-    echo "Installing some various utilities"
-    mkdir -p ~/bin
-    #curl -o ~/bin/git-land https://raw.githubusercontent.com/bazaarvoice/git-land/master/git-land
-    #chmod +x ~/bin/git-land
-    break;;
-  *) break;;
-esac
-
-echo ""
-cecho "===================================================" $white
 cecho "Install fonts? (y/n)" $blue
 cecho "===================================================" $white
 read -r response
@@ -313,11 +296,11 @@ case $response in
     )
 
     brew cask install ${fonts[@]}
-    
-    echo ""du
+
+    echo ""
     echo "Installing all Google Web Fonts"
     curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
-    
+
     echo ""
     echo "Downloading and installing Powerline fonts"
     wget https://github.com/powerline/fonts/archive/master.zip -O fonts.zip && unzip fonts.zip
