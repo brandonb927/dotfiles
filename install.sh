@@ -1,13 +1,21 @@
 #! /bin/sh
 
 black='\033[0;30m'
-white='\033[0;37m'
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
 blue='\033[0;34m'
-magenta='\033[0;35m'
+green='\033[0;32m'
 cyan='\033[0;36m'
+red='\033[0;31m'
+purple='\033[0;35m'
+brown='\033[0;33m'
+gray='\033[0;37m'
+dark_gray='\033[1;30m'
+light_blue='\033[1;34m'
+light_green='\033[1;32m'
+light_cyan='\033[1;36m'
+light_red='\033[1;31m'
+light_purple='\033[1;35m'
+yellow='\033[1;33m'
+white='\033[1;37m'
 
 alias Reset="tput sgr0"      #  Reset text attributes to normal
                              #+ without clearing screen.
@@ -22,9 +30,9 @@ cecho() {
 }
 
 echo ""
-cecho "===================================================" $white
-cecho "Install the XCode Command-line Tools? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install the XCode Command-line Tools? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
@@ -36,9 +44,9 @@ case $response in
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install oh-my-zsh and Tomorrow Night Eighties theme? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install oh-my-zsh? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
@@ -48,17 +56,20 @@ case $response in
 
     echo ""
     echo "Installing oh-my-zsh"
+    mkdir -p ~/.oh-my-zsh/custom/plugins
     cd ~/.oh-my-zsh/custom/plugins
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-    cd ~/
+    cd ~
+
+    break;;
 
   *) break;;
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho " 🍺  Install homebrew? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install homebrew? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
@@ -70,9 +81,9 @@ case $response in
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install brew utilities? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install brew utilities? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
@@ -96,6 +107,7 @@ case $response in
       wget
     )
 
+    # Install latest version of hub and zsh completion
     brew install --HEAD hub
 
     echo ""
@@ -124,14 +136,14 @@ case $response in
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install various versions of python? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install various versions of python? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho "Installing python versions" $blue
+    cecho "Installing python versions" $gray
     pyenv install 2.7.6
     pyenv install 2.7.8
     pyenv install 2.7.10
@@ -141,47 +153,47 @@ case $response in
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install python packages? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install python packages? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho "Installing some python packages" $blue
+    cecho "Installing some python packages" $gray
     sudo pip install flake8 doge thefuck
     break;;
   *) break;;
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install node and npm? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install node and npm? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho "Installing node (without npm)" $blue
+    cecho "Installing node (without npm)" $gray
     # For more info, see here https://gist.github.com/DanHerbert/9520689
     brew install node --without-npm
 
     echo ""
-    cecho "Installing nvm to manage node" $blue
+    cecho "Installing nvm to manage node" $gray
     curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
     break;;
   *) break;;
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install node/iojs versions? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install node/iojs versions? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho Installing node versions” $blue
+    cecho Installing node versions” $gray
     . ~/.nvm/nvm.sh > /dev/null
     nvm install iojs
     nvm install 0.12
@@ -193,14 +205,14 @@ case $response in
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install npm modules? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install npm modules? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho "Installing some global modules" $blue
+    cecho "Installing some global modules" $gray
     npm install -g bower bower-update
     npm install -g clean-css coffee-script csslint
     npm install -g grunt grunt-cli gulp generator-gruntplugin
@@ -223,14 +235,14 @@ case $response in
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install brew cask and apps? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install brew cask and apps? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho "Installing cask" $blue
+    cecho "Installing cask" $gray
     brew tap caskroom/versions
     brew install caskroom/cask/brew-cask
 
@@ -275,9 +287,9 @@ case $response in
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Install fonts? (y/n)" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Install fonts? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
@@ -311,7 +323,7 @@ case $response in
 esac
 
 echo ""
-cecho "===================================================" $white
-cecho "Remember to download the OSX for Hackers script:" $blue
-cecho "https://gist.github.com/brandonb927/3195465" $blue
-cecho "===================================================" $white
+cecho "===================================================" $dark_gray
+cecho "Remember to download the OSX for Hackers script:" $gray
+cecho "https://gist.github.com/brandonb927/3195465" $gray
+cecho "===================================================" $dark_gray
