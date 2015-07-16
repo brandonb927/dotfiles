@@ -93,6 +93,7 @@ case $response in
       coreutils
       curl
       findutils
+      figlet
       git
       gitignore
       heroku-toolbelt
