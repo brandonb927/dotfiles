@@ -257,6 +257,7 @@ case $response in
       atom
       bartender
       beamer
+      betterzipql
       cinch
       daisydisk
       dropbox
@@ -271,14 +272,23 @@ case $response in
       iterm2-nightly
       licecap
       mailbox
+      qlcolorcode
+      qlstephen
+      qlmarkdown
+      qlprettypatch
+      quicklook-csv
+      quicklook-json
+      qlimagesize
       skitch
       skype
       slack
       steam
+      suspicious-package
       teamviewer
       transmission
       vlc
       virtualbox
+      webpquicklook
     )
 
     brew cask install --appdir="/Applications" ${apps[@]}
