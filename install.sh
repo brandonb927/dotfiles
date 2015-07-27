@@ -100,11 +100,13 @@ case $response in
       httpie
       imagemagick
       imagesnap
+      pv
       pyenv
       pyenv-virtualenv
       pyenv-virtualenvwrapper
       ruby-install
       ssh-copy-id
+      watch
       wget
     )
 
