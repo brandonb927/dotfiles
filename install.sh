@@ -94,6 +94,7 @@ case $response in
       curl
       findutils
       figlet
+      ffmpeg
       git
       gitignore
       heroku-toolbelt
@@ -113,6 +114,9 @@ case $response in
 
     # Install latest version of hub
     brew install --HEAD hub
+    
+    # Fix ffmpeg install
+    brew reinstall ffmpeg --with-faac
 
     echo ""
     echo "Tapping for Joe (for .gitignore)"
