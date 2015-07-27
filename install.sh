@@ -4,7 +4,7 @@ black='\033[0;30m'
 blue='\033[0;34m'
 green='\033[0;32m'
 cyan='\033[0;36m'
-red='\033[0;31m'
+red='\033[0;31m'br
 purple='\033[0;35m'
 brown='\033[0;33m'
 gray='\033[0;37m'
@@ -106,11 +106,12 @@ case $response in
       pyenv-virtualenvwrapper
       ruby-install
       ssh-copy-id
+      youtube-dl
       watch
       wget
     )
 
-    # Install latest version of hub and zsh completion
+    # Install latest version of hub
     brew install --HEAD hub
 
     echo ""
