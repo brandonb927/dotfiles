@@ -281,6 +281,7 @@ case $response in
       iterm2-nightly
       licecap
       mailbox
+      mojibar
       qlcolorcode
       qlstephen
       qlmarkdown
