@@ -98,6 +98,7 @@ case $response in
       git
       gitignore
       heroku-toolbelt
+      htop
       httpie
       imagemagick
       imagesnap
