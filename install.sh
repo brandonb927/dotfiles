@@ -122,6 +122,10 @@ case $response in
     echo ""
     echo "Tapping for Joe (for .gitignore)"
     brew tap karan/karan
+    
+    echo ""
+    echo "Install iTerm2 layout helpers"
+    brew install TomAnthony/brews/itermocil
 
     echo ""
     echo "Installing sudolikeaboss"
