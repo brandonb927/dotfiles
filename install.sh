@@ -31,14 +31,14 @@ cecho() {
 
 echo ""
 cecho "===================================================" $dark_gray
-cecho "Install the XCode Command-line Tools? (y/n)" $gray
+cecho "Install homebrew? (y/n)" $gray
 cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
-    echo ""
-    echo "Installing the Xcode Command-line tools"
-    xcode-select --install
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew doctor
+    brew update
     break;;
   *) break;;
 esac
@@ -63,20 +63,6 @@ case $response in
 
     break;;
 
-  *) break;;
-esac
-
-echo ""
-cecho "===================================================" $dark_gray
-cecho "Install homebrew? (y/n)" $gray
-cecho "===================================================" $dark_gray
-read -r response
-case $response in
-  [yY])
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew doctor
-    brew update
-    break;;
   *) break;;
 esac
 
