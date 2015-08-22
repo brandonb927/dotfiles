@@ -280,6 +280,7 @@ case $response in
       quicklook-csv
       quicklook-json
       qlimagesize
+      sizeup
       skitch
       skype
       slack
