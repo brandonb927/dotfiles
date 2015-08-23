@@ -222,7 +222,7 @@ case $response in
     npm install -g keybase-installer
     npm install -g less
     npm install -g nodemon
-    npm install -g markdown-live
+    npm install -g maildev markdown-live
     npm install -g npm-check-updates npm-release
     npm install -g peerflix perfschool public-ip
     npm install -g release-it resume-cli
