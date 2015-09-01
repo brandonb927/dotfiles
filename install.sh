@@ -288,6 +288,7 @@ case $response in
       suspicious-package
       teamviewer
       transmission
+      vagrant
       vlc
       virtualbox
       webpquicklook
