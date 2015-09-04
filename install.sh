@@ -88,6 +88,7 @@ case $response in
       httpie
       imagemagick
       imagesnap
+      ncdu
       pv
       pyenv
       pyenv-virtualenv
@@ -160,7 +161,7 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some python packages" $gray
-    sudo pip install flake8 doge thefuck
+    sudo pip install flake8 doge thefuck glances
     break;;
   *) break;;
 esac
