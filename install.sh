@@ -93,6 +93,7 @@ case $response in
       pyenv-virtualenv
       pyenv-virtualenvwrapper
       rbenv
+      ruby-build
       ssh-copy-id
       youtube-dl
       watch
