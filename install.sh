@@ -75,7 +75,6 @@ case $response in
   [yY])
     binaries=(
       bash
-      chruby
       coreutils
       curl
       findutils
@@ -93,7 +92,7 @@ case $response in
       pyenv
       pyenv-virtualenv
       pyenv-virtualenvwrapper
-      ruby-install
+      rbenv
       ssh-copy-id
       youtube-dl
       watch
