@@ -161,7 +161,7 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some python packages" $gray
-    sudo pip install flake8 doge thefuck glances
+    sudo pip install flake8 doge thefuck glances saws
     break;;
   *) break;;
 esac
