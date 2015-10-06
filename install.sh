@@ -279,9 +279,12 @@ case $response in
       skitch
       skype
       slack
+      spectacle
+      stay
       steam
       teamviewer
       transmission
+      unetbootin
       vagrant
       vlc
       virtualbox
