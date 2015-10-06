@@ -283,6 +283,7 @@ case $response in
       stay
       steam
       teamviewer
+      telegram
       transmission
       unetbootin
       vagrant
