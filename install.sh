@@ -61,6 +61,10 @@ case $response in
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
     cd ~
 
+    echo ""
+    echo "SHML - Shell Markup Language"
+    curl -s https://raw.githubusercontent.com/maxcdn/shml/master/shml.sh -o /usr/local/bin/shml && chmod +x /usr/local/bin/shml
+    
     break;;
 
   *) break;;
@@ -147,7 +151,7 @@ case $response in
     pyenv install 2.7.6
     pyenv install 2.7.8
     pyenv install 2.7.10
-    pyenve global 2.7.10
+    pyenv global 2.7.10
     break;;
   *) break;;
 esac
@@ -179,7 +183,7 @@ case $response in
     brew install node --without-npm
 
     echo ""
-    cecho "Installing nvm to manage node" $gray
+    cecho "Installing nvm to manage node versions" $gray
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
     break;;
   *) break;;
@@ -187,19 +191,19 @@ esac
 
 echo ""
 cecho "===================================================" $dark_gray
-cecho "Install node/iojs versions? (y/n)" $gray
+cecho "Install node versions? (y/n)" $gray
 cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho Installing node versions” $gray
+    cecho "Installing node versions" $gray
     . ~/.nvm/nvm.sh > /dev/null
-    nvm install iojs
     nvm install 0.12
-    nvm alias stable 0.12
-    nvm alias default 0.12
-    nvm use 0.12
+    nvm install 4
+    nvm alias stable 4
+    nvm alias default 4
+    nvm use 4
      break;;
   *) break;;
 esac
