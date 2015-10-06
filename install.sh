@@ -8,7 +8,7 @@ red='\033[0;31m'br
 purple='\033[0;35m'
 brown='\033[0;33m'
 gray='\033[0;37m'
-dark_gray='\033[1;30m'
+dark_gray='\033[1;30m'n
 light_blue='\033[1;34m'
 light_green='\033[1;32m'
 light_cyan='\033[1;36m'
@@ -262,7 +262,6 @@ case $response in
       atom
       bartender
       beamer
-      betterzipql
       cinch
       daisydisk
       dropbox
@@ -277,26 +276,15 @@ case $response in
       iterm2-nightly
       licecap
       mailbox
-      mojibar
-      qlcolorcode
-      qlstephen
-      qlmarkdown
-      qlprettypatch
-      quicklook-csv
-      quicklook-json
-      qlimagesize
-      sizeup
       skitch
       skype
       slack
       steam
-      suspicious-package
       teamviewer
       transmission
       vagrant
       vlc
       virtualbox
-      webpquicklook
     )
 
     brew cask install --appdir="/Applications" ${apps[@]}
