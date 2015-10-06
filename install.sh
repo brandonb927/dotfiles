@@ -220,7 +220,7 @@ case $response in
     npm install -g bower bower-update
     npm install -g caniuse-cmd clean-css coffee-script csslint
     npm install -g empty-trash
-    npm install -g github-labeller grunt grunt-cli gulp generator-gruntplugin
+    npm install -g git-auto github-labeller grunt grunt-cli gulp generator-gruntplugin
     npm install -g hicat html-minifier http-server
     npm install -g is-up
     npm install -g js-beautify js2coffee jscs jspm
