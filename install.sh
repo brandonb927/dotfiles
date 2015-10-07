@@ -84,6 +84,7 @@ case $response in
       findutils
       figlet
       ffmpeg
+      ghi
       git
       gitignore
       heroku-toolbelt
