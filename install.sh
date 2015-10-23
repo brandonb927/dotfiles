@@ -259,16 +259,22 @@ case $response in
       1password
       air-video-server-hd
       alfred
+      amazon-cloud-drive
       appcleaner
       atom
       bartender
       beamer
+      cdock
+      cheatsheet
       cinch
+      cyberduck
       daisydisk
       dropbox
+      easysimbl
       evernote
       firefox
       firefoxdeveloperedition
+      fluid
       flux
       google-chrome
       google-chrome-canary
@@ -276,7 +282,7 @@ case $response in
       istat-menus
       iterm2-nightly
       licecap
-      mailbox
+      otto
       skitch
       skype
       slack
@@ -286,8 +292,8 @@ case $response in
       teamviewer
       telegram
       transmission
-      unetbootin
       vagrant
+      vagrant-manager
       vlc
       virtualbox
     )
