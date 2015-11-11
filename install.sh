@@ -270,6 +270,7 @@ case $response in
       cyberduck
       daisydisk
       dropbox
+      drop-to-gif
       easysimbl
       evernote
       firefox
