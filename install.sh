@@ -84,7 +84,6 @@ case $response in
       findutils
       figlet
       ffmpeg
-      ghi
       git
       gitignore
       heroku-toolbelt
@@ -92,16 +91,10 @@ case $response in
       httpie
       imagemagick
       imagesnap
-      ncdu
-      pv
       pyenv
       pyenv-virtualenv
-      pyenv-virtualenvwrapper
       rbenv
       ruby-build
-      ssh-copy-id
-      youtube-dl
-      watch
       wget
     )
 
@@ -117,13 +110,13 @@ case $response in
     
     echo ""
     echo "Install iTerm2 layout helpers"
-    brew install TomAnthony/brews/itermocil
+    # brew install TomAnthony/brews/itermocil
 
     echo ""
     echo "Installing sudolikeaboss"
-    brew tap ravenac95/sudolikeaboss
-    brew install sudolikeaboss sudolikeaboss-workaround
-    sudolikeaboss-setup-workaround
+    # brew tap ravenac95/sudolikeaboss
+    # brew install sudolikeaboss sudolikeaboss-workaround
+    # sudolikeaboss-setup-workaround
 
     echo ""
     echo "Installing GNU version of grep"
@@ -149,7 +142,6 @@ case $response in
   [yY])
     echo ""
     cecho "Installing python versions" $gray
-    pyenv install 2.7.6
     pyenv install 2.7.8
     pyenv install 2.7.10
     pyenv global 2.7.10
@@ -200,11 +192,10 @@ case $response in
     echo ""
     cecho "Installing node versions" $gray
     . ~/.nvm/nvm.sh > /dev/null
-    nvm install 0.12
-    nvm install 4
-    nvm alias stable 4
-    nvm alias default 4
-    nvm use 4
+    nvm install 5
+    nvm alias stable 5
+    nvm alias default 5
+    nvm use 5
      break;;
   *) break;;
 esac
@@ -220,22 +211,17 @@ case $response in
     cecho "Installing some global modules" $gray
     npm install -g bower bower-update
     npm install -g caniuse-cmd clean-css coffee-script csslint
-    npm install -g empty-trash
-    npm install -g git-auto github-labeller grunt grunt-cli gulp generator-gruntplugin
-    npm install -g hicat html-minifier http-server
-    npm install -g is-up
+    npm install -g grunt-cli gulp 
+    npm install -g hicat html-minifier
     npm install -g js-beautify js2coffee jscs jspm
     npm install -g keybase-installer
     npm install -g less
     npm install -g nodemon
-    npm install -g maildev markdown-live
     npm install -g npm-check-updates npm-release
-    npm install -g peerflix perfschool public-ip
-    npm install -g release-it reveal-md resume-cli
-    npm install -g sshync speed-test standard surge svgo
-    npm install -g uglifycss uglify-js underscore-cli
+    npm install -g release-it resume-cli
+    npm install -g speed-test standard surge svgo
+    npm install -g uglifycss uglify-js
     npm install -g vtop
-    npm install -g wallpaper
     npm install -g yo
     break;;
   *) break;;
@@ -257,41 +243,32 @@ case $response in
     echo "Installing brew-cask apps"
     apps=(
       1password
-      air-video-server-hd
       alfred
-      amazon-cloud-drive
       appcleaner
       atom
       bartender
       beamer
       cdock
       cheatsheet
-      cinch
-      cyberduck
       daisydisk
       dropbox
       drop-to-gif
       easysimbl
       evernote
       firefox
-      firefoxdeveloperedition
       fluid
       flux
       google-chrome
-      google-chrome-canary
       imageoptim
       istat-menus
       iterm2-nightly
       licecap
-      otto
-      skitch
       skype
       slack
       spectacle
       stay
       steam
       teamviewer
-      telegram
       transmission
       vagrant
       vagrant-manager
