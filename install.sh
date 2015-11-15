@@ -177,7 +177,7 @@ case $response in
 
     echo ""
     cecho "Installing nvm to manage node versions" $gray
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
     break;;
   *) break;;
 esac
