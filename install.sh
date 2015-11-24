@@ -60,10 +60,6 @@ case $response in
     cd ~/.oh-my-zsh/custom/plugins
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
     cd ~
-
-    echo ""
-    echo "SHML - Shell Markup Language"
-    curl -s https://raw.githubusercontent.com/maxcdn/shml/master/shml.sh -o /usr/local/bin/shml && chmod +x /usr/local/bin/shml
     
     break;;
 
@@ -95,6 +91,7 @@ case $response in
       pyenv-virtualenv
       rbenv
       ruby-build
+      shml
       wget
     )
 
