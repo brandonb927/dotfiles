@@ -82,9 +82,11 @@ case $response in
       ffmpeg
       git
       gitignore
+      git-extras
       heroku-toolbelt
       htop
       httpie
+      hub
       imagemagick
       imagesnap
       pyenv
@@ -94,9 +96,6 @@ case $response in
       shml
       wget
     )
-
-    # Install latest version of hub
-    brew install --HEAD hub
     
     # Fix ffmpeg install
     brew reinstall ffmpeg --with-faac
