@@ -205,7 +205,7 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some global modules" $gray
-    npm install -g bower bower-update
+    npm install -g bower
     npm install -g caniuse-cmd clean-css coffee-script csslint
     npm install -g grunt-cli gulp 
     npm install -g hicat html-minifier
