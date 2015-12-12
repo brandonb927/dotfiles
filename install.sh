@@ -262,6 +262,7 @@ case $response in
       skype
       slack
       spectacle
+      spotify
       stay
       steam
       teamviewer
