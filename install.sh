@@ -208,7 +208,7 @@ case $response in
     cecho "Installing some global modules" $gray
     npm install -g bower
     npm install -g caniuse-cmd clean-css coffee-script csslint
-    npm install -g grunt-cli gulp 
+    npm install -g grunt-cli gulp-cli 
     npm install -g hicat html-minifier
     npm install -g js-beautify js2coffee jscs jspm
     npm install -g keybase-installer
