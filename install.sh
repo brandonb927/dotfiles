@@ -89,6 +89,7 @@ case $response in
       hub
       imagemagick
       imagesnap
+      normalize
       pyenv
       pyenv-virtualenv
       rbenv
