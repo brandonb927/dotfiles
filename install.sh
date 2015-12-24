@@ -251,7 +251,6 @@ case $response in
       dropbox
       drop-to-gif
       easysimbl
-      evernote
       firefox
       fluid
       flux
