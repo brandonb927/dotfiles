@@ -206,20 +206,39 @@ case $response in
   [yY])
     echo ""
     cecho "Installing some global modules" $gray
-    npm install -g bower
-    npm install -g caniuse-cmd clean-css coffee-script csslint
-    npm install -g grunt-cli gulp-cli 
-    npm install -g hicat html-minifier
-    npm install -g js-beautify js2coffee jscs jspm
-    npm install -g keybase-installer
-    npm install -g less
-    npm install -g nodemon
-    npm install -g npm-check-updates npm-release
-    npm install -g release-it resume-cli
-    npm install -g speed-test standard surge svgo
-    npm install -g uglifycss uglify-js
-    npm install -g vtop
-    npm install -g yo
+    packages=(
+      bower
+      caniuse-cmd
+      clean-css
+      coffee-script
+      csslint
+      grunt-cli
+      gulp-cli
+      hicat
+      html-minifier
+      js-beautify
+      js2coffee
+      jscs
+      jspm
+      keybase-installer
+      less
+      nodemon
+      npm-check-updates
+      npm-release
+      release-it
+      resume-cli
+      speed-test
+      standard
+      surge
+      svgo
+      tldr
+      uglifycss
+      uglify-js
+      vtop
+      yo
+    )
+    
+    npm install -g ${packages[@])
     break;;
   *) break;;
 esac
