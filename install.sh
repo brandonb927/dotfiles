@@ -121,6 +121,12 @@ case $response in
     brew install homebrew/dupes/grep
     mkdir -p ~/bin
     ln -s /usr/local/Cellar/grep/2.21/bin/ggrep ~/bin/ggrep
+    
+    echo ""
+    echo "Installing slackcat"
+    curl -Lo ~/Downloads/slackcat https://github.com/vektorlab/slackcat/releases/download/v0.7/slackcat-0.7-darwin-amd64
+    mv ~/Downloads/slackcat ~/bin
+    chmod +x ~/bin/slackcat
 
     echo ""
     echo "Installing brew packages"
