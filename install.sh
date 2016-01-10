@@ -271,10 +271,8 @@ case $response in
       bartender
       beamer
       cdock
-      cheatsheet
       daisydisk
       dropbox
-      drop-to-gif
       easysimbl
       firefox
       fluid
@@ -284,6 +282,7 @@ case $response in
       istat-menus
       iterm2-nightly
       licecap
+      screenflick
       skype
       slack
       spectacle
