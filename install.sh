@@ -89,12 +89,14 @@ case $response in
       hub
       imagemagick
       imagesnap
+      jp2a
       normalize
       pyenv
       pyenv-virtualenv
       rbenv
       ruby-build
       shml
+      spaceman-diff
       wget
     )
     
