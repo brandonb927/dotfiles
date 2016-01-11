@@ -49,7 +49,7 @@ cecho "Install oh-my-zsh? (y/n)" $gray
 cecho "===================================================" $dark_gray
 read -r response
 case $response in
-  [yY])
+  [yY])br
     echo ""
     echo "Installing oh-my-zsh"
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
@@ -98,6 +98,7 @@ case $response in
       shml
       spaceman-diff
       wget
+      youtube-dl
     )
     
     # Fix ffmpeg install
@@ -107,12 +108,12 @@ case $response in
     echo "Tapping for Joe (for .gitignore)"
     brew tap karan/karan
     
-    echo ""
-    echo "Install iTerm2 layout helpers"
+    # echo ""
+    # echo "Install iTerm2 layout helpers"
     # brew install TomAnthony/brews/itermocil
 
-    echo ""
-    echo "Installing sudolikeaboss"
+    # echo ""
+    # echo "Installing sudolikeaboss"
     # brew tap ravenac95/sudolikeaboss
     # brew install sudolikeaboss sudolikeaboss-workaround
     # sudolikeaboss-setup-workaround
