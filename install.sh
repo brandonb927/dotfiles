@@ -91,6 +91,7 @@ case $response in
       imagesnap
       jp2a
       normalize
+      pv
       pyenv
       pyenv-virtualenv
       rbenv
