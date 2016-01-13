@@ -222,6 +222,7 @@ case $response in
       clean-css
       coffee-script
       csslint
+      git-land
       grunt-cli
       gulp-cli
       hicat
