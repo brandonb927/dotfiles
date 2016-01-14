@@ -142,6 +142,23 @@ esac
 
 echo ""
 cecho "===================================================" $dark_gray
+cecho "Install various versions of ruby? (y/n)" $gray
+cecho "===================================================" $dark_gray
+read -r response
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing ruby versions" $gray
+    rbenv install 2.1.3
+    rbenv install 2.2.1
+    rbenv install 2.2.3
+    rbenv global 2.2.3
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $dark_gray
 cecho "Install various versions of python? (y/n)" $gray
 cecho "===================================================" $dark_gray
 read -r response
