@@ -250,6 +250,7 @@ case $response in
       jspm
       keybase-installer
       less
+      nativefier
       nodemon
       npm-check-updates
       npm-release
