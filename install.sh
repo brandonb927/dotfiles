@@ -256,6 +256,7 @@ case $response in
       npm-release
       release-it
       resume-cli
+      soundnode
       speed-test
       standard
       surge
