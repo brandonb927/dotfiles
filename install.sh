@@ -108,16 +108,6 @@ case $response in
     echo ""
     echo "Tapping for Joe (for .gitignore)"
     brew tap karan/karan
-    
-    # echo ""
-    # echo "Install iTerm2 layout helpers"
-    # brew install TomAnthony/brews/itermocil
-
-    # echo ""
-    # echo "Installing sudolikeaboss"
-    # brew tap ravenac95/sudolikeaboss
-    # brew install sudolikeaboss sudolikeaboss-workaround
-    # sudolikeaboss-setup-workaround
 
     echo ""
     echo "Installing GNU version of grep"
@@ -275,18 +265,17 @@ esac
 
 echo ""
 cecho "===================================================" $dark_gray
-cecho "Install brew cask and apps? (y/n)" $gray
+cecho "Install brew cask apps? (y/n)" $gray
 cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
     echo ""
-    cecho "Installing cask" $gray
+    echo "Installing cask and tapping"
     brew tap caskroom/versions
-    brew install caskroom/cask/brew-cask
-
+    
     echo ""
-    echo "Installing brew-cask apps"
+    echo "Installing cask apps"
     apps=(
       1password
       alfred
@@ -336,22 +325,6 @@ cecho "===================================================" $dark_gray
 read -r response
 case $response in
   [yY])
-    echo ""
-    echo "Installing brew-cask fonts"
-    brew tap caskroom/fonts
-    fonts=(
-      font-comic-neue
-      font-droid-sans
-      font-droid-sans-mono
-      font-meslo-lg
-      font-open-sans
-      font-open-sans-condensed
-      font-roboto
-      font-source-code-pro
-    )
-
-    brew cask install ${fonts[@]}
-
     echo ""
     echo "Installing all Google Web Fonts"
     curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
