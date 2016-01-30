@@ -315,10 +315,12 @@ case $response in
       steam
       teamviewer
       transmission
+      unetbootin
       vagrant
       vagrant-manager
       vlc
       virtualbox
+      wmail
     )
 
     brew cask install --appdir="/Applications" ${apps[@]}
