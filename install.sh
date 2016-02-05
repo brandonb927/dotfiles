@@ -90,6 +90,7 @@ case $response in
       imagemagick
       imagesnap
       jp2a
+      keybase
       normalize
       pv
       pyenv
@@ -238,7 +239,6 @@ case $response in
       js2coffee
       jscs
       jspm
-      keybase-installer
       less
       nativefier
       nodemon
