@@ -290,6 +290,7 @@ case $response in
       firefox
       fluid
       flux
+      gifrocket
       google-chrome
       imageoptim
       istat-menus
