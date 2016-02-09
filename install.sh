@@ -111,15 +111,15 @@ case $response in
     brew tap karan/karan
 
     echo ""
-    echo "Installing GNU version of grep"
+    echo "Installing GNU version of utils"
     brew tap homebrew/dupes
-    brew install homebrew/dupes/grep
-    mkdir -p ~/bin
-    ln -s /usr/local/Cellar/grep/2.21/bin/ggrep ~/bin/ggrep
+    brew install grep --with-default-names
+    brew install gnu-sed --with-default-names
     
     echo ""
     echo "Installing slackcat"
     curl -Lo ~/Downloads/slackcat https://github.com/vektorlab/slackcat/releases/download/v0.7/slackcat-0.7-darwin-amd64
+    mkdir -p ~/bin
     mv ~/Downloads/slackcat ~/bin
     chmod +x ~/bin/slackcat
 
@@ -230,6 +230,7 @@ case $response in
       clean-css
       coffee-script
       csslint
+      diff-so-fancy
       git-land
       grunt-cli
       gulp-cli
@@ -318,6 +319,26 @@ case $response in
     break;;
   *) break;;
 esac
+
+echo ""
+cecho "===================================================" $dark_gray
+cecho "Set some git config defaults? (y/n)" $gray
+cecho "===================================================" $dark_gray
+read -r response
+case $response in
+  [yY])
+    echo ""
+    echo "Setting git config defaults"
+    git config --global color.diff-highlight.oldNormal "red bold"
+    git config --global color.diff-highlight.oldHighlight "red bold 52"
+    git config --global color.diff-highlight.newNormal "green bold"
+    git config --global color.diff-highlight.newHighlight "green bold 22"
+    git config --global core.pager "diff-highlight | diff-so-fancy | less --tabs=1,5 -R"
+    
+    break;;
+  *) break;;
+esac
+
 
 echo ""
 cecho "===================================================" $dark_gray
