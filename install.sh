@@ -260,6 +260,7 @@ case $response in
     )
     
     npm install -g ${packages[@])
+    npm config set save true
     break;;
   *) break;;
 esac
