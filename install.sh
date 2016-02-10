@@ -17,8 +17,8 @@ light_purple='\033[1;35m'
 yellow='\033[1;33m'
 white='\033[1;37m'
 
-alias Reset="tput sgr0"      #  Reset text attributes to normal
-                             #+ without clearing screen.
+# Reset text attributes to normal without clearing screen.
+alias Reset="tput sgr0"  
 
 # Color-echo.
 # Argument $1 = messageu
@@ -236,6 +236,7 @@ case $response in
       gulp-cli
       hicat
       html-minifier
+      imageoptim-cli
       js-beautify
       js2coffee
       jscs
