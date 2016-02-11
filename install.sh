@@ -237,6 +237,7 @@ case $response in
       hicat
       html-minifier
       imageoptim-cli
+      imdbtr
       js-beautify
       js2coffee
       jscs
