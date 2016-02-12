@@ -52,7 +52,7 @@ case $response in
   [yY])br
     echo ""
     echo "Installing oh-my-zsh"
-    curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     echo ""
     echo "Installing oh-my-zsh"
@@ -118,7 +118,7 @@ case $response in
     
     echo ""
     echo "Installing slackcat"
-    curl -Lo ~/Downloads/slackcat https://github.com/vektorlab/slackcat/releases/download/v0.7/slackcat-0.7-darwin-amd64
+    curl -Lo ~/Downloads/slackcat https://github.com/vektorlab/slackcat/releases/download/v0.9/slackcat-0.9-darwin-amd64
     mkdir -p ~/bin
     mv ~/Downloads/slackcat ~/bin
     chmod +x ~/bin/slackcat
