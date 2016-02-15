@@ -238,6 +238,7 @@ case $response in
       html-minifier
       imageoptim-cli
       imdbtr
+      init-module
       js-beautify
       js2coffee
       jscs
@@ -263,6 +264,7 @@ case $response in
     
     npm install -g ${packages[@])
     npm config set save true
+    npm set init-module $(init-module --path)
     break;;
   *) break;;
 esac
