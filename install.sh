@@ -89,6 +89,7 @@ case $response in
       hub
       imagemagick
       imagesnap
+      imgcat
       jp2a
       keybase
       normalize
