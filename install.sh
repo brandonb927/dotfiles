@@ -248,6 +248,7 @@ case $response in
       nodemon
       npm-check-updates
       npm-release
+      readability-checker
       release-it
       resume-cli
       soundnode
