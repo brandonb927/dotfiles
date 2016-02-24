@@ -231,6 +231,7 @@ case $response in
       coffee-script
       csslint
       diff-so-fancy
+      ffmpeg-gif
       git-land
       grunt-cli
       gulp-cli
