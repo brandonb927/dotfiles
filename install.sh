@@ -233,6 +233,7 @@ case $response in
       csslint
       diff-so-fancy
       ffmpeg-gif
+      gifi
       git-land
       grunt-cli
       gulp-cli
