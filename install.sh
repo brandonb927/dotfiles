@@ -113,6 +113,11 @@ case $response in
     brew tap karan/karan
 
     echo ""
+    echo "Installing iTerm2 + 1Password integration, sudolikeaboss"
+    brew tap ravenac95/sudolikeaboss
+    brew install sudolikeaboss
+    
+    echo ""
     echo "Installing GNU version of utils"
     brew tap homebrew/dupes
     brew install grep --with-default-names
