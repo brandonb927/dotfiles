@@ -100,6 +100,7 @@ case $response in
       ruby-build
       shml
       spaceman-diff
+      sslmate
       wget
       youtube-dl
     )
