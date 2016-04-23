@@ -273,7 +273,7 @@ case $response in
       yo
     )
     
-    npm install -g ${packages[@])
+    npm install -g ${packages[@]}
     npm config set save true
     npm set init-module $(init-module --path)
     break;;
