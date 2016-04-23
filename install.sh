@@ -11,7 +11,7 @@ gray='\033[0;37m'
 dark_gray='\033[1;30m'n
 light_blue='\033[1;34m'
 light_green='\033[1;32m'
-light_cyan='\033[1;36m'
+light_cyan='\033[1;36m'sou
 light_red='\033[1;31m'n
 light_purple='\033[1;35m'
 yellow='\033[1;33m'
@@ -261,7 +261,6 @@ case $response in
       readability-checker
       release-it
       resume-cli
-      soundnode
       speed-test
       standard
       surge
