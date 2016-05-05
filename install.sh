@@ -121,8 +121,11 @@ case $response in
     echo ""
     echo "Installing GNU version of utils"
     brew tap homebrew/dupes
-    brew install grep --with-default-names
-    brew install gnu-sed --with-default-names
+    gbinaries=(
+      grep
+      gnu-sed
+    )
+    brew install ${gbinaries[@]} --with-default-names
     
     echo ""
     echo "Installing slackcat"
