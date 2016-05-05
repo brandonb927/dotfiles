@@ -83,6 +83,7 @@ case $response in
       git
       gitignore
       git-extras
+      git-fresh
       graphicsmagick
       heroku-toolbelt
       htop
