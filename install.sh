@@ -80,7 +80,6 @@ case $response in
       findutils
       figlet
       ffmpeg
-      gcal
       git
       gitignore
       git-extras
