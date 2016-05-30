@@ -192,6 +192,29 @@ esac
 
 echo ""
 cecho "===================================================" $dark_gray
+cecho "Install gvm and go versions? (y/n)" $gray
+cecho "===================================================" $dark_gray
+read -r response
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing gvm packages" $gray
+    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    
+    echo ""
+    cecho "Installing go versions" $gray
+    gvm install go1.4 -B
+    gvm use go1.4
+    export GOROOT_BOOTSTRAP=$GOROOT
+    gvm install go1.5
+    gvm install go1.6
+    gvm uninstall go1.4
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $dark_gray
 cecho "Install node and npm? (y/n)" $gray
 cecho "===================================================" $dark_gray
 read -r response
