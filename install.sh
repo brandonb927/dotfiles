@@ -330,6 +330,7 @@ case $response in
       daisydisk
       dropbox
       easysimbl
+      filebot
       firefox
       fluid
       flux
@@ -338,6 +339,7 @@ case $response in
       imageoptim
       istat-menus
       iterm2-nightly
+      java
       licecap
       screenflick
       skype
