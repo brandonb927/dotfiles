@@ -357,6 +357,7 @@ case $response in
       vlc
       virtualbox
       wmail
+      xbox360-controller-driver
     )
 
     brew cask install --appdir="/Applications" ${apps[@]}
