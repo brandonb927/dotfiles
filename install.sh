@@ -266,6 +266,7 @@ case $response in
       coffee-script
       csslint
       diff-so-fancy
+      emoj
       ffmpeg-gif
       gifi
       git-land
