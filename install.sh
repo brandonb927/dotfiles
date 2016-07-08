@@ -356,7 +356,7 @@ case $response in
       vagrant-manager
       vlc
       virtualbox
-      wmail
+      webtorrent
       xbox360-controller-driver
     )
 
