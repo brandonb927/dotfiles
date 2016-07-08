@@ -362,6 +362,8 @@ case $response in
 
     brew cask install --appdir="/Applications" ${apps[@]}
     brew cask cleanup
+    
+    open -a "Google Chrome" --args --make-default-browser
     break;;
   *) break;;
 esac
