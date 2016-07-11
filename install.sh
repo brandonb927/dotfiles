@@ -284,6 +284,7 @@ case $response in
       less
       nativefier
       nodemon
+      np
       npm-check
       npm-release
       readability-checker
