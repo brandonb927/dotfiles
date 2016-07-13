@@ -52,13 +52,14 @@ case $response in
   [yY])br
     echo ""
     echo "Installing oh-my-zsh"
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     echo ""
-    echo "Installing oh-my-zsh"
+    echo "Installing oh-my-zsh custom plugins"
     mkdir -p ~/.oh-my-zsh/custom/plugins
     cd ~/.oh-my-zsh/custom/plugins
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+    git clone git://github.com/lukechilds/zsh-nvm.git
     cd ~
     
     break;;
