@@ -73,9 +73,10 @@ cecho "Install m-cli? (y/n)" $gray
 cecho "===================================================" $dark_gray
 read -r response
 case $response in
-  [yY])br
+  [yY])
     echo ""
     echo "Installing m-cli — OS X Swiss Army Knife"
+    # https://github.com/rgcr/m-cli
     INSTALL_DIR=~/.m-cli curl -fsSL https://raw.githubusercontent.com/rgcr/m-cli/master/install.sh | sh
 
     break;;
