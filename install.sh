@@ -76,7 +76,7 @@ case $response in
   [yY])br
     echo ""
     echo "Installing m-cli — OS X Swiss Army Knife"
-    curl -fsSL https://raw.githubusercontent.com/rgcr/m-cli/master/install.sh | sh
+    INSTALL_DIR=~/.m-cli curl -fsSL https://raw.githubusercontent.com/rgcr/m-cli/master/install.sh | sh
 
     break;;
   *) break;;
