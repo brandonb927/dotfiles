@@ -69,6 +69,21 @@ esac
 
 echo ""
 cecho "===================================================" $dark_gray
+cecho "Install m-cli? (y/n)" $gray
+cecho "===================================================" $dark_gray
+read -r response
+case $response in
+  [yY])br
+    echo ""
+    echo "Installing m-cli — OS X Swiss Army Knife"
+    curl -fsSL https://raw.githubusercontent.com/rgcr/m-cli/master/install.sh | sh
+
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $dark_gray
 cecho "Install brew utilities? (y/n)" $gray
 cecho "===================================================" $dark_gray
 read -r response
