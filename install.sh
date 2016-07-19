@@ -284,6 +284,7 @@ case $response in
       csslint
       diff-so-fancy
       emoj
+      emojipacks
       ffmpeg-gif
       gifi
       git-land
