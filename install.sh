@@ -121,6 +121,7 @@ case $response in
       spaceman-diff
       sslmate
       wget
+      wifi-password
       youtube-dl
     )
     
