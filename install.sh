@@ -469,6 +469,23 @@ esac
 
 echo ""
 cecho "===================================================" $dark_gray
+cecho "Kill apps that might be affected by these changes? (y/n)" $gray
+cecho "===================================================" $dark_gray
+read -r response
+case $response in
+  [yY])
+    
+    for app in "Activity Monitor" "cfprefsd" \
+    	"Dock" "Finder" "Google Chrome" "Messages" \
+    	"Spectacle" "SystemUIServer"; do
+    	killall "${app}" &> /dev/null
+    done
+    break;;
+  *) break;;
+esac
+
+echo ""
+cecho "===================================================" $dark_gray
 cecho "Remember to download the OSX for Hackers script:" $gray
 cecho "https://gist.github.com/brandonb927/3195465" $gray
 cecho "===================================================" $dark_gray
