@@ -94,6 +94,7 @@ case $response in
       bash
       coreutils
       curl
+      docker
       findutils
       figlet
       ffmpeg
