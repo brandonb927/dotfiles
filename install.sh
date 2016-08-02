@@ -102,7 +102,6 @@ case $response in
       figlet
       ffmpeg
       git
-      gitignore
       git-extras
       git-fresh
       graphicsmagick
@@ -131,10 +130,6 @@ case $response in
     
     # Fix ffmpeg install
     brew reinstall ffmpeg --with-faac
-
-    echo ""
-    echo "Tapping for Joe (for .gitignore)"
-    brew tap karan/karan
 
     echo ""
     echo "Installing iTerm2 + 1Password integration, sudolikeaboss"
