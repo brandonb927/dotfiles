@@ -29,6 +29,9 @@ cecho() {
     return
 }
 
+# Make the user-relative bin folder to install things to
+mkdir -p ~/bin
+
 echo ""
 cecho "===================================================" $dark_gray
 cecho "Install homebrew? (y/n)" $gray
@@ -148,9 +151,12 @@ case $response in
     brew install ${gbinaries[@]} --with-default-names
     
     echo ""
+    echo "Installing joe for gitignore files"
+    curl -Lo ~/bin/joe https://github.com/karan/joe/releases/download/1.0.0/joe
+    
+    echo ""
     echo "Installing slackcat"
-    curl -Lo ~/Downloads/slackcat https://github.com/vektorlab/slackcat/releases/download/v0.9/slackcat-0.9-darwin-amd64
-    mkdir -p ~/bin
+    curl -Lo ~/bin/slackcat https://github.com/vektorlab/slackcat/releases/download/v0.9/slackcat-0.9-darwin-amd64
     mv ~/Downloads/slackcat ~/bin
     chmod +x ~/bin/slackcat
 
