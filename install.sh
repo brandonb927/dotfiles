@@ -148,6 +148,7 @@ case $response in
     echo ""
     echo "Installing joe for gitignore files"
     curl -Lo ~/bin/joe https://github.com/karan/joe/releases/download/1.0.0/joe
+    chmod +x ~/bin/joe
     
     echo ""
     echo "Installing slackcat"
