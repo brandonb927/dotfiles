@@ -350,22 +350,17 @@ case $response in
       atom
       bartender
       beamer
-      cdock
       daisydisk
       dropbox
-      easysimbl
-      filebot
       firefox
-      fluid
       flux
-      gifrocket
       google-chrome
       imageoptim
       istat-menus
       iterm2-nightly
       java
       licecap
-      screenflick
+      minecraft
       skype
       slack
       spectacle
@@ -379,8 +374,7 @@ case $response in
       vagrant-manager
       vlc
       virtualbox
-      webtorrent
-      xbox360-controller-driver
+      zoomus
     )
 
     brew cask install --appdir="/Applications" ${apps[@]}
