@@ -114,6 +114,7 @@ case $response in
       imgcat
       jp2a
       keybase
+      ncdu
       normalize
       pv
       pyenv
