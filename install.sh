@@ -362,6 +362,7 @@ case $response in
       iterm2-nightly
       java
       licecap
+      lumen
       minecraft
       skype
       slack
