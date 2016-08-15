@@ -126,6 +126,7 @@ case $response in
       sslmate
       wget
       wifi-password
+      you-get
       youtube-dl
     )
     
