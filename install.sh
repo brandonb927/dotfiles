@@ -319,6 +319,7 @@ case $response in
       standard
       surge
       svgo
+      tachyons-cli
       tldr
       uglifycss
       uglify-js
