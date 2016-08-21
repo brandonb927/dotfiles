@@ -292,6 +292,7 @@ case $response in
       diff-so-fancy
       emoj
       emojipacks
+      eslint
       ffmpeg-gif
       gifi
       git-land
