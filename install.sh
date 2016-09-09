@@ -124,6 +124,7 @@ case $response in
       ruby-build
       shml
       spaceman-diff
+      slackcat
       sslmate
       wget
       wifi-password
@@ -152,15 +153,10 @@ case $response in
     echo "Installing joe for gitignore files"
     curl -Lo ~/bin/joe https://github.com/karan/joe/releases/download/1.0.0/joe
     chmod +x ~/bin/joe
-    
-    echo ""
-    echo "Installing slackcat"
-    curl -Lo ~/bin/slackcat https://github.com/vektorlab/slackcat/releases/download/v0.9/slackcat-0.9-darwin-amd64
-    mv ~/Downloads/slackcat ~/bin
-    chmod +x ~/bin/slackcat
 
     echo ""
     echo "Installing brew packages"
+    brew tap colinstein/imgcat
     brew install ${binaries[@]}
 
     break;;
