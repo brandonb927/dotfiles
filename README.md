@@ -6,4 +6,4 @@
 
 ----------
 
-I've moved my dotfiles to Dropbox for easier cross-device syncing. This is now really just a bootstrap install script for OS X Yosemite 10.10
+I've moved my dotfiles to Dropbox for easier cross-device syncing. This is now really just a bootstrap install script for macOS 10.12
