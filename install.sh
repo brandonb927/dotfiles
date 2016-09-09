@@ -1,742 +1,493 @@
-#!/bin/sh
+#! /bin/sh
 
-# Alot of these configs have been taken from the various places
-# on the web, most from here
-# https://github.com/mathiasbynens/dotfiles/blob/master/.osx
-
-# Set the colours you can use
 black='\033[0;30m'
-white='\033[0;37m'
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
 blue='\033[0;34m'
-magenta='\033[0;35m'
+green='\033[0;32m'
 cyan='\033[0;36m'
+red='\033[0;31m'
+purple='\033[0;35m'
+brown='\033[0;33m'
+gray='\033[0;37m'
+dark_gray='\033[1;30m'
+light_blue='\033[1;34m'
+light_green='\033[1;32m'
+light_cyan='\033[1;36m'
+light_red='\033[1;31m'
+light_purple='\033[1;35m'
+yellow='\033[1;33m'
+white='\033[1;37m'
 
-# Resets the style
-reset=`tput sgr0`
+# Reset text attributes to normal without clearing screen.
+alias Reset="tput sgr0"  
 
-# Color-echo. Improved. [Thanks @joaocunha]
-# arg $1 = message
-# arg $2 = Color
+# Color-echo.
+# Argument $1 = messageu
+# Argument $2 = Colortt
 cecho() {
-  echo "${2}${1}${reset}"
-  return
+    echo "${2}${1}"
+    Reset # Reset to normal.
+    return
 }
 
-# Set continue to false by default
-CONTINUE=false
+# Make the user-relative bin folder to install things to
+mkdir -p ~/bin
 
 echo ""
-cecho "###############################################" $red
-cecho "#        DO NOT RUN THIS SCRIPT BLINDLY       #" $red
-cecho "#         YOU'LL PROBABLY REGRET IT...        #" $red
-cecho "#                                             #" $red
-cecho "#              READ IT THOROUGHLY             #" $red
-cecho "#         AND EDIT TO SUIT YOUR NEEDS         #" $red
-cecho "###############################################" $red
-echo ""
-
-
-echo ""
-cecho "Have you read through the script you're about to run and " $red
-cecho "understood that it will make changes to your computer? (y/n)" $red
+cecho "===================================================" $dark_gray
+cecho "Install homebrew? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  CONTINUE=true
-fi
-
-if ! $CONTINUE; then
-  # Check if we're continuing and output a message if not
-  cecho "Please go read the script, it only takes a few minutes" $red
-  exit
-fi
-
-# Here we go.. ask for the administrator password upfront and run a
-# keep-alive to update existing `sudo` time stamp until script has finished
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-###############################################################################
-# General UI/UX
-###############################################################################
+case $response in
+  [yY])
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew doctor
+    brew update
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Would you like to set your computer name (as done via System Preferences >> Sharing)?  (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install oh-my-zsh? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  echo "What would you like it to be?"
-  read COMPUTER_NAME
-  sudo scutil --set ComputerName $COMPUTER_NAME
-  sudo scutil --set HostName $COMPUTER_NAME
-  sudo scutil --set LocalHostName $COMPUTER_NAME
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
-fi
+case $response in
+  [yY])
+    echo ""
+    echo "Installing oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    echo ""
+    echo "Installing oh-my-zsh custom plugins"
+    mkdir -p ~/.oh-my-zsh/custom/plugins
+    cd ~/.oh-my-zsh/custom/plugins
+    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+    git clone git://github.com/lukechilds/zsh-nvm.git
+    cd ~
+    
+    break;;
+
+  *) break;;
+esac
 
 echo ""
-echo "Hide the Time Machine, Volume, User, and Bluetooth icons?  (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install m-cli? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  # Get the system Hardware UUID and use it for the next menubar stuff
-  for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-    defaults write "${domain}" dontAutoLoad -array \
-      "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-      "/System/Library/CoreServices/Menu Extras/Volume.menu" \
-      "/System/Library/CoreServices/Menu Extras/User.menu"
-  done
+case $response in
+  [yY])
+    echo ""
+    echo "Installing m-cli — OS X Swiss Army Knife"
+    # https://github.com/rgcr/m-cli
+    INSTALL_DIR=~/.m-cli curl -fsSL https://raw.githubusercontent.com/rgcr/m-cli/master/install.sh | sh
 
-  defaults write com.apple.systemuiserver menuExtras -array \
-    "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-    "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-    "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-    "/System/Library/CoreServices/Menu Extras/Clock.menu"
-fi
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Hide the Spotlight icon? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install brew utilities? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
-fi
+case $response in
+  [yY])
+    binaries=(
+      bash
+      coreutils
+      curl
+      docker
+      findutils
+      figlet
+      ffmpeg
+      git
+      git-extras
+      git-fresh
+      graphicsmagick
+      heroku-toolbelt
+      htop
+      httpie
+      hub
+      imagemagick
+      imagesnap
+      imgcat
+      jp2a
+      keybase
+      ncdu
+      normalize
+      phantomjs
+      pv
+      pyenv
+      pyenv-virtualenv
+      rbenv
+      ruby-build
+      shml
+      spaceman-diff
+      sslmate
+      wget
+      wifi-password
+      you-get
+      youtube-dl
+    )
+    
+    # Fix ffmpeg install
+    brew reinstall ffmpeg --with-faac
+
+    echo ""
+    echo "Installing iTerm2 + 1Password integration, sudolikeaboss"
+    brew tap ravenac95/sudolikeaboss
+    brew install sudolikeaboss
+    
+    echo ""
+    echo "Installing GNU version of utils"
+    brew tap homebrew/dupes
+    gbinaries=(
+      grep
+      gnu-sed
+    )
+    brew install ${gbinaries[@]} --with-default-names
+    
+    echo ""
+    echo "Installing joe for gitignore files"
+    curl -Lo ~/bin/joe https://github.com/karan/joe/releases/download/1.0.0/joe
+    chmod +x ~/bin/joe
+    
+    echo ""
+    echo "Installing slackcat"
+    curl -Lo ~/bin/slackcat https://github.com/vektorlab/slackcat/releases/download/v0.9/slackcat-0.9-darwin-amd64
+    mv ~/Downloads/slackcat ~/bin
+    chmod +x ~/bin/slackcat
+
+    echo ""
+    echo "Installing brew packages"
+    brew install ${binaries[@]}
+
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install various versions of ruby? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  echo 'Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.'
-  sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-fi
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing ruby versions" $gray
+    rbenv install 2.1.3
+    rbenv install 2.2.1
+    rbenv install 2.2.3
+    rbenv global 2.2.3
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Change indexing order and disable some search results in Spotlight? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install various versions of python? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  # Yosemite-specific search results (remove them if your are using OS X 10.9 or older):
-  #   MENU_DEFINITION
-  #   MENU_CONVERSION
-  #   MENU_EXPRESSION
-  #   MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
-  #   MENU_WEBSEARCH             (send search queries to Apple)
-  #   MENU_OTHER
-  defaults write com.apple.spotlight orderedItems -array \
-    '{"enabled" = 1;"name" = "APPLICATIONS";}' \
-    '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-    '{"enabled" = 1;"name" = "DIRECTORIES";}' \
-    '{"enabled" = 1;"name" = "PDF";}' \
-    '{"enabled" = 1;"name" = "FONTS";}' \
-    '{"enabled" = 0;"name" = "DOCUMENTS";}' \
-    '{"enabled" = 0;"name" = "MESSAGES";}' \
-    '{"enabled" = 0;"name" = "CONTACT";}' \
-    '{"enabled" = 0;"name" = "EVENT_TODO";}' \
-    '{"enabled" = 0;"name" = "IMAGES";}' \
-    '{"enabled" = 0;"name" = "BOOKMARKS";}' \
-    '{"enabled" = 0;"name" = "MUSIC";}' \
-    '{"enabled" = 0;"name" = "MOVIES";}' \
-    '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-    '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-    '{"enabled" = 0;"name" = "SOURCE";}' \
-    '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
-    '{"enabled" = 0;"name" = "MENU_OTHER";}' \
-    '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
-    '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
-    '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
-    '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
-  # Load new settings before rebuilding the index
-  killall mds > /dev/null 2>&1
-  # Make sure indexing is enabled for the main volume
-  sudo mdutil -i on / > /dev/null
-  # Rebuild the index from scratch
-  sudo mdutil -E / > /dev/null
-fi
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing python versions" $gray
+    pyenv install 2.7.8
+    pyenv install 2.7.10
+    pyenv global 2.7.10
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Expanding the save panel by default"
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
-
-echo ""
-echo "Automatically quit printer app once the print jobs complete"
-defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-
-# Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
-echo ""
-echo "Displaying ASCII control characters using caret notation in standard text views"
-defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
-
-echo ""
-echo "Save to disk, rather than iCloud, by default? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install python packages? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-fi
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing some python packages" $gray
+    sudo pip install flake8 doge thefuck glances saws
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-
-echo ""
-echo "Check for software updates daily, not just once per week"
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
-echo ""
-echo "Removing duplicates in the 'Open With' menu"
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
-
-echo ""
-echo "Disable smart quotes and smart dashes? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install gvm and go versions? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-  defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-fi
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing gvm packages" $gray
+    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    
+    echo ""
+    cecho "Installing go versions" $gray
+    gvm install go1.4 -B
+    gvm use go1.4
+    export GOROOT_BOOTSTRAP=$GOROOT
+    gvm install go1.5
+    gvm install go1.6
+    gvm uninstall go1.4
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Add ability to toggle between Light and Dark mode in Yosemite using ctrl+opt+cmd+t? (y/n)"
-# http://www.reddit.com/r/apple/comments/2jr6s2/1010_i_found_a_way_to_dynamically_switch_between/
+cecho "===================================================" $dark_gray
+cecho "Install node and npm? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true
-fi
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing node (without npm)" $gray
+    # For more info, see here https://gist.github.com/DanHerbert/9520689
+    brew install node --without-npm
+
+    echo ""
+    cecho "Installing nvm to manage node versions" $gray
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Disable Photos.app from starting everytime a device is plugged in"
-defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
-
-
-###############################################################################
-# General Power and Performance modifications
-###############################################################################
-
-echo ""
-echo "Disable hibernation? (speeds up entering sleep mode) (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install node versions? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo pmset -a hibernatemode 0
-fi
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing node versions" $gray
+    . ~/.nvm/nvm.sh > /dev/null
+    nvm install 5
+    nvm alias stable 5
+    nvm alias default 5
+    nvm use 5
+     break;;
+  *) break;;
+esac
 
 echo ""
-echo "Remove the sleep image file to save disk space? (y/n)"
-echo "(If you're on a <128GB SSD, this helps but can have adverse affects on performance. You've been warned.)"
+cecho "===================================================" $dark_gray
+cecho "Install npm modules? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo rm /Private/var/vm/sleepimage
-  echo "Creating a zero-byte file instead"
-  sudo touch /Private/var/vm/sleepimage
-  echo "and make sure it can't be rewritten"
-  sudo chflags uchg /Private/var/vm/sleepimage
-fi
+case $response in
+  [yY])
+    echo ""
+    cecho "Installing some global modules" $gray
+    packages=(
+      bower
+      caniuse-cmd
+      clean-css
+      coffee-script
+      csslint
+      diff-so-fancy
+      emoj
+      emojipacks
+      eslint
+      ffmpeg-gif
+      gifi
+      git-land
+      grunt-cli
+      gulp-cli
+      hicat
+      html-minifier
+      imageoptim-cli
+      imdbtr
+      init-module
+      js-beautify
+      js2coffee
+      jscs
+      jspm
+      less
+      nativefier
+      nodemon
+      np
+      npm-check
+      npm-release
+      readability-checker
+      release-it
+      resume-cli
+      speed-test
+      standard
+      surge
+      svgo
+      tldr
+      uglifycss
+      uglify-js
+      vtop
+      yo
+    )
+    
+    npm install -g ${packages[@]}
+    npm config set save true
+    npm set init-module $(init-module --path)
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Disable the sudden motion sensor? (it's not useful for SSDs/current MacBooks) (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install brew cask apps? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo pmset -a sms 0
-fi
+case $response in
+  [yY])
+    echo ""
+    echo "Installing cask and tapping"
+    brew tap caskroom/versions
+    
+    echo ""
+    echo "Installing cask apps"
+    apps=(
+      1password
+      alfred
+      appcleaner
+      atom
+      bartender
+      beamer
+      daisydisk
+      dropbox
+      firefox
+      flux
+      google-chrome
+      imageoptim
+      istat-menus
+      iterm2-nightly
+      java
+      licecap
+      lumen
+      minecraft
+      skype
+      slack
+      spectacle
+      spotify
+      stay
+      steam
+      teamviewer
+      transmission
+      unetbootin
+      vagrant
+      vagrant-manager
+      vlc
+      virtualbox
+      zoomus
+    )
+
+    brew cask install --appdir="/Applications" ${apps[@]}
+    brew cask cleanup
+    
+    open -a "Google Chrome" --args --make-default-browser
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Disable system-wide resume? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Set some git config defaults? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
-fi
+case $response in
+  [yY])
+    echo ""
+    echo "Setting git config defaults"
+    git config --global color.diff-highlight.oldNormal "red bold"
+    git config --global color.diff-highlight.oldHighlight "red bold 52"
+    git config --global color.diff-highlight.newNormal "green bold"
+    git config --global color.diff-highlight.newHighlight "green bold 22"
+    git config --global core.pager "diff-highlight | diff-so-fancy | less --tabs=1,5 -R"
+    
+    break;;
+  *) break;;
+esac
+
 
 echo ""
-echo "Disable the menubar transparency? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install fonts? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.universalaccess reduceTransparency -bool true
-fi
+case $response in
+  [yY])
+    echo ""
+    echo "Installing all Google Web Fonts"
+    curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
+
+    echo ""
+    echo "Downloading and installing Powerline fonts"
+    wget https://github.com/powerline/fonts/archive/master.zip -O fonts.zip && unzip fonts.zip
+    ./fonts-master/install.sh
+    rm -r fonts.zip && rm -r fonts-master
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Speeding up wake from sleep to 24 hours from an hour"
-# http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
-sudo pmset -a standbydelay 86400
-
-
-################################################################################
-# Trackpad, mouse, keyboard, Bluetooth accessories, and input
-###############################################################################
-
-echo ""
-echo "Increasing sound quality for Bluetooth headphones/headsets"
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-echo ""
-echo "Enabling full keyboard access for all controls (enable Tab in modal dialogs, menu windows, etc.)"
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
-echo ""
-echo "Disabling press-and-hold for special keys in favor of key repeat"
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-echo ""
-echo "Setting a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 0
-
-echo ""
-echo "Disable auto-correct? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Install Spectacle.app keyboard shortcuts? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-fi
+case $response in
+  [yY])
+    echo ""
+    echo "Installing Spectacle.app keyboard shortcuts"
+    defaults write com.divisiblebyzero.Spectacle MakeLarger -data 62706c6973743030d40102030405061819582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708101155246e756c6cd4090a0b0c0d0e0d0f596d6f64696669657273546e616d65576b6579436f64655624636c6173731000800280035a4d616b654c6172676572d2121314155a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a216175f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11a1b54726f6f74800108111a232d32373c424b555a62696b6d6f7a7f8a93a7aabec7d9dce10000000000000101000000000000001c000000000000000000000000000000e3
+    defaults write com.divisiblebyzero.Spectacle MakeSmaller -data 62706c6973743030d40102030405061819582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708101155246e756c6cd4090a0b0c0d0e0d0f596d6f64696669657273546e616d65576b6579436f64655624636c6173731000800280035b4d616b65536d616c6c6572d2121314155a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a216175f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11a1b54726f6f74800108111a232d32373c424b555a62696b6d6f7b808b94a8abbfc8dadde20000000000000101000000000000001c000000000000000000000000000000e4
+    defaults write com.divisiblebyzero.Spectacle MoveToBottomDisplay -data 2016-07-27 16:32:52.385 defaults[12480:6563377]
+
+    defaults write com.divisiblebyzero.Spectacle MoveToBottomHalf -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c617373111a008002107d80035f10104d6f7665546f426f74746f6d48616c66d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072858a959eb2b5c9d2e4e7ec0000000000000101000000000000001d000000000000000000000000000000ee
+    defaults write com.divisiblebyzero.Spectacle MoveToCenter -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731109008002100880035c4d6f7665546f43656e746572d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70727f848f98acafc3ccdee1e60000000000000101000000000000001d000000000000000000000000000000e8
+    defaults write com.divisiblebyzero.Spectacle MoveToFullscreen -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731109008002100380035f10104d6f7665546f46756c6c73637265656ed2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072858a959eb2b5c9d2e4e7ec0000000000000101000000000000001d000000000000000000000000000000ee
+    defaults write com.divisiblebyzero.Spectacle MoveToLeftDisplay -data 2016-07-27 16:32:52.560 defaults[12488:6563397]
+
+    defaults write com.divisiblebyzero.Spectacle MoveToLeftHalf -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c617373111a008002107b80035e4d6f7665546f4c65667448616c66d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70728186919aaeb1c5cee0e3e80000000000000101000000000000001d000000000000000000000000000000ea
+    defaults write com.divisiblebyzero.Spectacle MoveToLowerLeft -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731118008002107d80035f100f4d6f7665546f4c6f7765724c656674d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70728489949db1b4c8d1e3e6eb0000000000000101000000000000001d000000000000000000000000000000ed
+    defaults write com.divisiblebyzero.Spectacle MoveToLowerRight -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731118008002107c80035f10104d6f7665546f4c6f7765725269676874d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072858a959eb2b5c9d2e4e7ec0000000000000101000000000000001d000000000000000000000000000000ee
+    defaults write com.divisiblebyzero.Spectacle MoveToNextDisplay -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c617373111b008002107c80035f10114d6f7665546f4e657874446973706c6179d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072868b969fb3b6cad3e5e8ed0000000000000101000000000000001d000000000000000000000000000000ef
+    defaults write com.divisiblebyzero.Spectacle MoveToNextThird -data 62706c6973743030d40102030405061819582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708101155246e756c6cd4090a0b0c0d0e0d0f596d6f64696669657273546e616d65576b6579436f64655624636c6173731000800280035f100f4d6f7665546f4e6578745468697264d2121314155a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a216175f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11a1b54726f6f74800108111a232d32373c424b555a62696b6d6f8186919aaeb1c5cee0e3e80000000000000101000000000000001c000000000000000000000000000000ea
+    defaults write com.divisiblebyzero.Spectacle MoveToPreviousDisplay -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c617373111b008002107b80035f10154d6f7665546f50726576696f7573446973706c6179d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70728a8f9aa3b7baced7e9ecf10000000000000101000000000000001d000000000000000000000000000000f3
+    defaults write com.divisiblebyzero.Spectacle MoveToPreviousThird -data 62706c6973743030d40102030405061819582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708101155246e756c6cd4090a0b0c0d0e0d0f596d6f64696669657273546e616d65576b6579436f64655624636c6173731000800280035f10134d6f7665546f50726576696f75735468697264d2121314155a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a216175f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11a1b54726f6f74800108111a232d32373c424b555a62696b6d6f858a959eb2b5c9d2e4e7ec0000000000000101000000000000001c000000000000000000000000000000ee
+    defaults write com.divisiblebyzero.Spectacle MoveToRightDisplay -data 2016-07-27 16:32:52.906 defaults[12504:6563437]
+
+    defaults write com.divisiblebyzero.Spectacle MoveToRightHalf -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c617373111a008002107c80035f100f4d6f7665546f526967687448616c66d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70728489949db1b4c8d1e3e6eb0000000000000101000000000000001d000000000000000000000000000000ed
+    defaults write com.divisiblebyzero.Spectacle MoveToTopDisplay -data 2016-07-27 16:32:52.990 defaults[12508:6563447]
+
+    defaults write com.divisiblebyzero.Spectacle MoveToTopHalf -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c617373111a008002107e80035d4d6f7665546f546f7048616c66d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e707280859099adb0c4cddfe2e70000000000000101000000000000001d000000000000000000000000000000e9
+    defaults write com.divisiblebyzero.Spectacle MoveToUpperLeft -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731118008002107b80035f100f4d6f7665546f55707065724c656674d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70728489949db1b4c8d1e3e6eb0000000000000101000000000000001d000000000000000000000000000000ed
+    defaults write com.divisiblebyzero.Spectacle MoveToUpperRight -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731118008002107e80035f10104d6f7665546f55707065725269676874d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072858a959eb2b5c9d2e4e7ec0000000000000101000000000000001d000000000000000000000000000000ee
+    defaults write com.divisiblebyzero.Spectacle RedoLastMove -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c617373110b008002100680035c5265646f4c6173744d6f7665d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70727f848f98acafc3ccdee1e60000000000000101000000000000001d000000000000000000000000000000e8
+    defaults write com.divisiblebyzero.Spectacle UndoLastMove -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731109008002100680035c556e646f4c6173744d6f7665d2131415165a24636c6173736e616d655824636c61737365735f1011537065637461636c6553686f7274637574a217185f1011537065637461636c6553686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70727f848f98acafc3ccdee1e60000000000000101000000000000001d000000000000000000000000000000e8
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Setting trackpad & mouse speed to a reasonable number"
-defaults write -g com.apple.trackpad.scaling 2
-defaults write -g com.apple.mouse.scaling 2.5
-
-echo ""
-echo "Turn off keyboard illumination when computer is not used for 5 minutes"
-defaults write com.apple.BezelServices kDimTime -int 300
-
-echo ""
-echo "Disable display from automatically adjusting brightness? (y/n)"
+cecho "===================================================" $dark_gray
+cecho "Kill apps that might be affected by these changes? (y/n)" $gray
+cecho "===================================================" $dark_gray
 read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
-fi
+case $response in
+  [yY])
+    
+    for app in "Activity Monitor" "cfprefsd" \
+    	"Dock" "Finder" "Google Chrome" "Messages" \
+    	"Spectacle" "SystemUIServer"; do
+    	killall "${app}" &> /dev/null
+    done
+    break;;
+  *) break;;
+esac
 
 echo ""
-echo "Disable keyboard from automatically adjusting backlight brightness in low light? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Keyboard Enabled" -bool false
-fi
-
-###############################################################################
-# Screen
-###############################################################################
-
-echo ""
-echo "Requiring password immediately after sleep or screen saver begins"
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-echo ""
-echo "Where do you want screenshots to be stored? (hit ENTER if you want ~/Desktop as default)"
-# Thanks https://github.com/omgmog
-read screenshot_location
-echo ""
-if [ -z "${screenshot_location}" ]
-then
-  # If nothing specified, we default to ~/Desktop
-  screenshot_location="${HOME}/Desktop"
-else
-  # Otherwise we use input
-  if [[ "${screenshot_location:0:1}" != "/" ]]
-  then
-    # If input doesn't start with /, assume it's relative to home
-    screenshot_location="${HOME}/${screenshot_location}"
-  fi
-fi
-echo "Setting location to ${screenshot_location}"
-defaults write com.apple.screencapture location -string "${screenshot_location}"
-
-echo ""
-echo "What format should screenshots be saved as? (hit ENTER for PNG, options: BMP, GIF, JPG, PDF, TIFF) "
-read screenshot_format
-if [ -z "$1" ]
-then
-  echo ""
-  echo "Setting screenshot format to PNG"
-  defaults write com.apple.screencapture type -string "png"
-else
-  echo ""
-  echo "Setting screenshot format to $screenshot_format"
-  defaults write com.apple.screencapture type -string "$screenshot_format"
-fi
-
-echo ""
-echo "Enabling subpixel font rendering on non-Apple LCDs"
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
-
-echo ""
-echo "Enabling HiDPI display modes (requires restart)"
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
-
-###############################################################################
-# Finder
-###############################################################################
-
-echo ""
-echo "Show icons for hard drives, servers, and removable media on the desktop? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-fi
-
-echo ""
-echo "Show hidden files in Finder by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.Finder AppleShowAllFiles -bool true
-fi
-
-echo ""
-echo "Show dotfiles in Finder by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder AppleShowAllFiles TRUE
-fi
-
-echo ""
-echo "Show all filename extensions in Finder by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-fi
-
-echo ""
-echo "Show status bar in Finder by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder ShowStatusBar -bool true
-fi
-
-echo ""
-echo "Display full POSIX path as Finder window title? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-fi
-
-echo ""
-echo "Disable the warning when changing a file extension? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-fi
-
-echo ""
-echo "Use column view in all Finder windows by default? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.finder FXPreferredViewStyle Clmv
-fi
-
-echo ""
-echo "Avoid creation of .DS_Store files on network volumes? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-fi
-
-echo ""
-echo "Disable disk image verification? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.frameworks.diskimages skip-verify -bool true
-  defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-  defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
-fi
-
-echo ""
-echo "Allowing text selection in Quick Look/Preview in Finder by default"
-defaults write com.apple.finder QLEnableTextSelection -bool true
-
-echo ""
-echo "Show item info near icons on the desktop and in other icon views? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-echo ""
-echo "Show item info to the right of the icons on the desktop? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-echo ""
-echo "Enable snap-to-grid for icons on the desktop and in other icon views? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-echo ""
-echo "Increase grid spacing for icons on the desktop and in other icon views? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-echo ""
-echo "Increase the size of icons on the desktop and in other icon views? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-fi
-
-
-###############################################################################
-# Dock & Mission Control
-###############################################################################
-
-echo "Wipe all (default) app icons from the Dock? (y/n)"
-echo "(This is only really useful when setting up a new Mac, or if you don't use the Dock to launch apps.)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.dock persistent-apps -array
-fi
-
-echo ""
-echo "Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate"
-defaults write com.apple.dock tilesize -int 36
-
-echo ""
-echo "Speeding up Mission Control animations and grouping windows by application"
-defaults write com.apple.dock expose-animation-duration -float 0.1
-defaults write com.apple.dock "expose-group-by-app" -bool true
-
-echo ""
-echo "Disable the over-the-top focus ring animation"
-defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
-
-echo ""
-echo "Hide the menu bar? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write "Apple Global Domain" "_HIHideMenuBar" 1
-fi
-
-echo ""
-echo "Set Dock to auto-hide and remove the auto-hiding delay? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.dock autohide -bool true
-  defaults write com.apple.dock autohide-delay -float 0
-  defaults write com.apple.dock autohide-time-modifier -float 0
-fi
-
-
-###############################################################################
-# Chrome, Safari, & WebKit
-###############################################################################
-
-echo ""
-echo "Privacy: Don't send search queries to Apple"
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-
-echo ""
-echo "Hiding Safari's bookmarks bar by default"
-defaults write com.apple.Safari ShowFavoritesBar -bool false
-
-echo ""
-echo "Hiding Safari's sidebar in Top Sites"
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false
-
-echo ""
-echo "Disabling Safari's thumbnail cache for History and Top Sites"
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
-
-echo ""
-echo "Enabling Safari's debug menu"
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-
-echo ""
-echo "Making Safari's search banners default to Contains instead of Starts With"
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-
-echo ""
-echo "Removing useless icons from Safari's bookmarks bar"
-defaults write com.apple.Safari ProxiesInBookmarksBar "()"
-
-echo ""
-echo "Enabling the Develop menu and the Web Inspector in Safari"
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
-
-echo ""
-echo "Adding a context menu item for showing the Web Inspector in web views"
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-
-echo ""
-echo "Disabling the annoying backswipe in Chrome"
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
-
-echo ""
-echo "Using the system-native print preview dialog in Chrome"
-defaults write com.google.Chrome DisablePrintPreview -bool true
-defaults write com.google.Chrome.canary DisablePrintPreview -bool true
-
-
-###############################################################################
-# Mail
-###############################################################################
-
-echo ""
-echo "Setting email addresses to copy as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app"
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
-
-
-###############################################################################
-# Terminal
-###############################################################################
-
-echo ""
-echo "Enabling UTF-8 ONLY in Terminal.app and setting the Pro theme by default"
-defaults write com.apple.terminal StringEncodings -array 4
-defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
-defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
-
-
-###############################################################################
-# Time Machine
-###############################################################################
-
-echo ""
-echo "Prevent Time Machine from prompting to use new hard drives as backup volume? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-fi
-
-echo ""
-echo "Disable local Time Machine backups? (This can take up a ton of SSD space on <128GB SSDs) (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  hash tmutil &> /dev/null && sudo tmutil disablelocal
-fi
-
-
-###############################################################################
-# Messages                                                                    #
-###############################################################################
-
-echo ""
-echo "Disable automatic emoji substitution in Messages.app? (i.e. use plain text smileys) (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
-fi
-
-echo ""
-echo "Disable smart quotes in Messages.app? (it's annoying for messages that contain code) (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
-fi
-
-echo ""
-echo "Disable continuous spell checking in Messages.app? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-fi
-
-
-###############################################################################
-# Transmission.app                                                            #
-###############################################################################
-
-
-echo ""
-echo "Do you use Transmission for torrenting? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  mkdir -p ~/Downloads/Incomplete
-
-  echo ""
-  echo "Setting up an incomplete downloads folder in Downloads"
-  defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-  defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Incomplete"
-
-  echo ""
-  echo "Setting auto-add folder to be Downloads"
-  defaults write org.m0k.transmission AutoImportDirectory -string "${HOME}/Downloads"
-
-  echo ""
-  echo "Don't prompt for confirmation before downloading"
-  defaults write org.m0k.transmission DownloadAsk -bool false
-
-  echo ""
-  echo "Trash original torrent files after adding them"
-  defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
-
-  echo ""
-  echo "Hiding the donate message"
-  defaults write org.m0k.transmission WarningDonate -bool false
-
-  echo ""
-  echo "Hiding the legal disclaimer"
-  defaults write org.m0k.transmission WarningLegal -bool false
-
-  echo ""
-  echo "Auto-resizing the window to fit transfers"
-  defaults write org.m0k.transmission AutoSize -bool true
-
-  echo ""
-  echo "Auto updating to betas"
-  defaults write org.m0k.transmission AutoUpdateBeta -bool true
-
-  echo ""
-  echo "Setting up the best block list"
-  defaults write org.m0k.transmission EncryptionRequire -bool true
-  defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
-  defaults write org.m0k.transmission BlocklistNew -bool true
-  defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-fi
-
-
-###############################################################################
-# Sublime Text
-###############################################################################
-echo ""
-echo "Do you use Sublime Text 3 as your editor of choice, and is it installed?"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  # Installing from homebrew cask does the following for you!
-  # echo ""
-  # echo "Linking Sublime Text for command line usage as subl"
-  # ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-
-  echo ""
-  echo "Setting Git to use Sublime Text as default editor"
-  git config --global core.editor "subl -n -w"
-fi
-
-###############################################################################
-# Optional Extras
-###############################################################################
-
-# Create a nice last-change git log message, from https://twitter.com/elijahmanor/status/697055097356943360
-git config --global alias.lastchange 'log -p --follow -n 1'
-
-
-
-###############################################################################
-# Kill affected applications
-###############################################################################
-
-echo ""
-cecho "Done!" $cyan
-echo ""
-echo ""
-cecho "################################################################################" $white
-echo ""
-echo ""
-cecho "Note that some of these changes require a logout/restart to take effect." $red
-cecho "Killing some open applications in order to take effect." $red
-echo ""
-
-find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-  "Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" \
-  "Terminal" "Transmission"; do
-  killall "${app}" > /dev/null 2>&1
-done
+cecho "===================================================" $dark_gray
+cecho "Remember to download the OSX for Hackers script:" $gray
+cecho "https://gist.github.com/brandonb927/3195465" $gray
+cecho "===================================================" $dark_gray
