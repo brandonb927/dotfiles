@@ -281,30 +281,23 @@ case $response in
     cecho "Installing some global modules" $gray
     packages=(
       bower
-      caniuse-cmd
       clean-css
       coffee-script
       csslint
       diff-so-fancy
-      emoj
-      emojipacks
       eslint
       ffmpeg-gif
-      gifi
       git-land
       grunt-cli
       gulp-cli
       hicat
       html-minifier
-      imageoptim-cli
-      imdbtr
       init-module
       js-beautify
       js2coffee
       jscs
       jspm
       less
-      nativefier
       nodemon
       np
       npm-check
@@ -313,10 +306,10 @@ case $response in
       release-it
       resume-cli
       speed-test
+      spoof
       standard
       surge
       svgo
-      tldr
       uglifycss
       uglify-js
       vtop
