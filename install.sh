@@ -141,6 +141,10 @@ case $response in
     brew install sudolikeaboss
     
     echo ""
+    echo "Installing the Pebble SDK"
+    brew install pebble/pebble-sdk/pebble-sdk
+    
+    echo ""
     echo "Installing GNU version of utils"
     brew tap homebrew/dupes
     gbinaries=(
