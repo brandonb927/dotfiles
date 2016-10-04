@@ -314,6 +314,7 @@ case $response in
       standard
       surge
       svgo
+      tv-schedule
       uglifycss
       uglify-js
       vtop
