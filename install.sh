@@ -47,6 +47,32 @@ case $response in
 esac
 
 echo ""
+cecho "=================================================" $cyan
+cecho " Install Mac App Store (MAS) CLI and apps? (y/n)" $cyan
+cecho "=================================================" $cyan
+read -r response
+case $response in
+  [yY])
+
+    if mas account | grep -q "Not signed in"; then cecho "Please sign in to the App Store." $red; exit; fi
+
+    echo ""
+    cecho "Installing MAS" $cyan
+    brew install argon/mas/mas
+
+    echo ""
+    cecho "Installing Mac App Store apps" $cyan
+    mas install 425424353   # The Unarchiver
+    mas install 692867256   # Simplenote
+    mas install 682658836   # GarageBand
+    # mas install 1127487414  # Install macOS Sierra
+    mas install 497799835   # Xcode (8.0)
+
+    break;;
+  *) break;;
+esac
+
+echo ""
 cecho "===================================================" $dark_gray
 cecho "Install oh-my-zsh? (y/n)" $gray
 cecho "===================================================" $dark_gray
