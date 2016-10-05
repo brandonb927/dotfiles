@@ -406,6 +406,11 @@ case $response in
     brew cask cleanup
     
     open -a "Google Chrome" --args --make-default-browser
+    
+    echo ''
+    echo 'Installing Kap'
+    curl -Lo https://kap-updates.now.sh/download/osx
+    
     break;;
   *) break;;
 esac
