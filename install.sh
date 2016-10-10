@@ -445,12 +445,18 @@ case $response in
     echo ""
     echo "Installing all Google Web Fonts"
     curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
+    
+    echo ""
+    echo "Installing Google Noto Mono"
+    wget https://noto-website.storage.googleapis.com/pkgs/NotoMono-hinted.zip -O mono.zip && unzip mono.zip
+    cp NotoMono-hinted/NotoMono-Regular.ttf /Library/Fonts/
+    rm -r mono.zip NotoMono-hinted
 
     echo ""
     echo "Downloading and installing Powerline fonts"
     wget https://github.com/powerline/fonts/archive/master.zip -O fonts.zip && unzip fonts.zip
     ./fonts-master/install.sh
-    rm -r fonts.zip && rm -r fonts-master
+    rm -r fonts.zip fonts-master
     break;;
   *) break;;
 esac
