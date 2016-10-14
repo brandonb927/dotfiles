@@ -386,6 +386,9 @@ case $response in
       licecap
       lumen
       minecraft
+      qlmarkdown
+      qlstephen
+      qlimagesize
       skype
       slack
       spectacle
