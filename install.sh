@@ -120,18 +120,23 @@ read -r response
 case $response in
   [yY])
     binaries=(
+      android-platform-tools
       bash
+      boost
+      boost-python
+      cmake
       coreutils
       curl
-      docker
-      findutils
-      figlet
+      dialog
+      faac
       ffmpeg
+      figlet
+      findutils
       git
       git-extras
       git-fresh
       graphicsmagick
-      heroku-toolbelt
+      heroku
       htop
       httpie
       hub
@@ -140,9 +145,10 @@ case $response in
       imgcat
       jp2a
       keybase
+      memcached
       ncdu
       normalize
-      phantomjs
+      pkg-config
       pv
       pyenv
       pyenv-virtualenv
@@ -150,8 +156,8 @@ case $response in
       ruby-build
       shml
       spaceman-diff
-      slackcat
       sslmate
+      tree
       wget
       wifi-password
       you-get
