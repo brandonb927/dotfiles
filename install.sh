@@ -370,31 +370,42 @@ case $response in
     apps=(
       1password
       alfred
+      android-file-transfer
       appcleaner
       atom
       bartender
       beamer
       daisydisk
+      discord
+      docker
       dropbox
+      filebot
       firefox
       flux
       google-chrome
+      hugin
+      hyper
       imageoptim
+      insomnia
       istat-menus
-      iterm2-nightly
+      iterm2
       java
       licecap
       lumen
       minecraft
+      openemu
+      phoneexpander
+      piezo
       qlmarkdown
       qlstephen
       qlimagesize
       skype
-      slack
+      slack-beta
       spectacle
       spotify
       stay
       steam
+      sublime-text
       teamviewer
       transmission
       unetbootin
