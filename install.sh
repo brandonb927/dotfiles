@@ -375,6 +375,7 @@ case $response in
       atom
       bartender
       beamer
+      cyberduck
       daisydisk
       discord
       docker
@@ -382,6 +383,7 @@ case $response in
       filebot
       firefox
       flux
+      gitify
       google-chrome
       hugin
       hyper
