@@ -54,14 +54,15 @@ brew tap ravenac95/sudolikeaboss
 brew tap pebble/pebble-sdk
 brew tap colinstein/imgcat
 
-echo ""
-echo "Installing brew packages"
+e_arrow "Installing brew packages"
+
+brew install TomAnthony/brews/itermocil
 brew install ${binaries[@]}
 # Fixes the ffmpeg install
 # brew reinstall ffmpeg --with-faac
 
-echo ""
-echo "Installing GNU version of utils"
+e_arrow "Installing GNU version of utils"
+
 brew tap homebrew/dupes
 gbinaries=(
   grep
