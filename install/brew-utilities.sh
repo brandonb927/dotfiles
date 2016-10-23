@@ -30,6 +30,7 @@ binaries=(
     # imgcat # SHA256 mismatch
     jp2a
     keybase
+    libmemcached
     m-cli
     memcached
     ncdu
