@@ -35,7 +35,6 @@ apps=(
   iterm2
   java
   kap
-  licecap
   macid
   minecraft
   openemu
