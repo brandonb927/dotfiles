@@ -37,6 +37,7 @@ apps=(
   kap
   macid
   minecraft
+  musicbrainz-picard
   openemu
   phoneexpander
   piezo
