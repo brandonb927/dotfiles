@@ -27,6 +27,7 @@ packages=(
   np
   npm-check
   npm-release
+  parrotsay
   readability-checker
   release-it
   resume-cli
