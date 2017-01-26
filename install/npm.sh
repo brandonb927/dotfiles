@@ -8,6 +8,7 @@ packages=(
   bower
   clean-css
   coffee-script
+  create-react-app
   csslint
   diff-so-fancy
   eslint
