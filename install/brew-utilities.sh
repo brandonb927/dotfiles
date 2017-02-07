@@ -21,7 +21,7 @@ binaries=(
     git-extras
     git-fresh
     graphicsmagick
-    # heroku # This is an incredibly old version of the CLI for some reason (v3.4.x, current is v5.x)
+    heroku
     htop
     httpie
     hub
