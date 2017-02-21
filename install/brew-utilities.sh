@@ -14,7 +14,6 @@ binaries=(
     curl
     dialog
     faac
-    ffmpeg
     figlet
     findutils
     git
@@ -59,8 +58,8 @@ e_arrow "Installing brew packages"
 
 brew install TomAnthony/brews/itermocil
 brew install ${binaries[@]}
-# Fixes the ffmpeg install
-# brew reinstall ffmpeg --with-faac
+
+brew install ffmpeg --with-ffplay --with-faac
 
 e_arrow "Installing GNU version of utils"
 
