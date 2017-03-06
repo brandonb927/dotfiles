@@ -13,6 +13,7 @@ packages=(
   diff-so-fancy
   eslint
   ffmpeg-gif
+  fkill-cli
   git-land
   grunt-cli
   gulp-cli
