@@ -645,10 +645,19 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 # Kill affected applications                                                  #
 ###############################################################################
 
+# In macOS Sierra, you can disable Gatekeeper to allow installation of apps 
+# downloaded from the internet (outside the Mac App Store)
+sudo spctl --master-disable
+echo 'NOTE: Remember to open System Preferences > Security & Privacy to enable "Allow apps downloaded from: Anywhere"'
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
 for app in "Activity Monitor" "cfprefsd" \
   "Dock" "Finder" "Google Chrome" "Mail" "Messages" \
   "Photos" "Safari" "SystemUIServer" "Terminal" \
-  "Transmission" "iCal"; do
+  "Transmission" "System Preferences"; do
     killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
