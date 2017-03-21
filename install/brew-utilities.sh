@@ -13,6 +13,7 @@ binaries=(
     coreutils
     curl
     dialog
+    dry
     faac
     figlet
     findutils
@@ -51,8 +52,9 @@ binaries=(
 )
 
 brew tap ravenac95/sudolikeaboss
-brew tap pebble/pebble-sdk
+#brew tap pebble/pebble-sdk
 brew tap colinstein/imgcat
+brew tap moncho/dry
 
 e_arrow "Installing brew packages"
 
