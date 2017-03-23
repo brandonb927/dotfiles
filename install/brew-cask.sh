@@ -12,7 +12,7 @@ e_arrow "Installing cask apps"
 
 apps=(
   1password
-  alfred2
+  alfred
   android-file-transfer
   appcleaner
   atom
