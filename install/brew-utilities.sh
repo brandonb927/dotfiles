@@ -21,6 +21,7 @@ binaries=(
     git-extras
     git-fresh
     graphicsmagick
+    graphviz
     heroku
     htop
     httpie
