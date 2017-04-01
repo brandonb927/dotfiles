@@ -14,6 +14,7 @@ apps=(
   1password
   alfred
   android-file-transfer
+  android-platform-tools
   appcleaner
   atom
   bartender
