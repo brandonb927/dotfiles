@@ -5,7 +5,7 @@ source ./utils.sh
 e_header "Installing brew utilities"
 
 binaries=(
-    android-platform-tools
+    # android-platform-tools
     bash
     boost
     boost-python
@@ -62,7 +62,7 @@ e_arrow "Installing brew packages"
 brew install TomAnthony/brews/itermocil
 brew install ${binaries[@]}
 
-brew install ffmpeg --with-ffplay --with-faac
+brew install ffmpeg --with-sdl2 --with-faac
 
 e_arrow "Installing GNU version of utils"
 
