@@ -5,7 +5,6 @@ source ./utils.sh
 e_header "Installing brew utilities"
 
 binaries=(
-    # android-platform-tools
     bash
     boost
     boost-python
