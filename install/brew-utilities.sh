@@ -29,7 +29,6 @@ binaries=(
     # imagesnap # DOES NOT COMPILE ON macOS
     # imgcat # SHA256 mismatch
     jp2a
-    keybase
     libmemcached
     m-cli
     memcached
@@ -52,14 +51,16 @@ binaries=(
 )
 
 brew tap ravenac95/sudolikeaboss
-#brew tap pebble/pebble-sdk
+brew tap pebble/pebble-sdk
 brew tap colinstein/imgcat
 brew tap moncho/dry
 
 e_arrow "Installing brew packages"
 
 brew install TomAnthony/brews/itermocil
-brew install ${binaries[@]}
+for binary in "${binaries[@]}"; do
+  brew install $binary
+done
 
 brew install ffmpeg --with-sdl2 --with-faac
 

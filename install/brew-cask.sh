@@ -13,13 +13,13 @@ e_arrow "Installing cask apps"
 apps=(
   1password
   alfred
-  android-file-transfer
+  # android-file-transfer
   android-platform-tools
   appcleaner
   atom
   bartender
   beamer
-  cyberduck
+  # cyberduck
   daisydisk
   discord
   docker
@@ -36,18 +36,18 @@ apps=(
   iterm2
   java
   kap
+  keybase
   macid
   minecraft
-  musicbrainz-picard
-  openemu
-  phoneexpander
-  piezo
+  # musicbrainz-picard
+  # openemu
+  # piezo
   qlmarkdown
   qlstephen
   qlimagesize
-  rocket
+  # rocket
   skype
-  slack-beta
+  slack
   spectacle
   spotify
   stay
@@ -55,15 +55,17 @@ apps=(
   sublime-text
   teamviewer
   transmission
-  unetbootin
-  vagrant
-  vagrant-manager
+  # unetbootin
+  # vagrant
+  # vagrant-manager
   vlc
-  virtualbox
+  # virtualbox
   zoomus
 )
+for app in "${apps[@]}"; do
+  brew cask install --appdir="~/Applications" $app
+done
 
-brew cask install --appdir="~/Applications" ${apps[@]}
 brew cask cleanup
 
 e_arrow "Setting Google Chrome as the default browser"
