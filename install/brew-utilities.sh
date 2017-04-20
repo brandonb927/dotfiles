@@ -58,6 +58,7 @@ brew tap moncho/dry
 e_arrow "Installing brew packages"
 
 brew install TomAnthony/brews/itermocil
+brew install getsentry/tools/sentry-cli
 for binary in "${binaries[@]}"; do
   brew install $binary
 done
