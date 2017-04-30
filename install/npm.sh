@@ -15,6 +15,7 @@ packages=(
   ffmpeg-gif
   fkill-cli
   git-land
+  git-unsaved
   grunt-cli
   gulp-cli
   hicat
