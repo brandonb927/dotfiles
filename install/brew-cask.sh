@@ -24,18 +24,18 @@ apps=(
   discord
   docker
   dropbox
-  filebot
+  # filebot
   firefox
   flux
   gitify
   google-chrome
-  hyper
+  # hyper
   imageoptim
   insomnia
   istat-menus
   iterm2
   java
-  kap
+  # kap
   keybase
   macid
   minecraft
@@ -46,7 +46,7 @@ apps=(
   qlstephen
   qlimagesize
   # rocket
-  skype
+  # skype
   slack
   spectacle
   spotify
