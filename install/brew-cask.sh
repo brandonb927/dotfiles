@@ -42,6 +42,7 @@ apps=(
   # musicbrainz-picard
   # openemu
   # piezo
+  plex-media-player
   qlmarkdown
   qlstephen
   qlimagesize
