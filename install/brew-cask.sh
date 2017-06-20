@@ -46,7 +46,7 @@ apps=(
   qlmarkdown
   qlstephen
   qlimagesize
-  # rocket
+  rocket
   # skype
   slack
   spectacle
