@@ -13,41 +13,34 @@ e_arrow "Installing cask apps"
 apps=(
   1password
   alfred
-  # android-file-transfer
   android-platform-tools
   appcleaner
-  atom
   bartender
   beamer
-  # cyberduck
   daisydisk
   discord
   docker
   dropbox
-  # filebot
   firefox
   flux
   gitify
   google-chrome
-  # hyper
   imageoptim
   insomnia
   istat-menus
   iterm2
   java
-  # kap
+  kap
   keybase
   macid
   minecraft
-  # musicbrainz-picard
-  # openemu
-  # piezo
+  musicbrainz-picard
+  piezo
   plex-media-player
   qlmarkdown
   qlstephen
   qlimagesize
-  rocket
-  # skype
+  skype
   slack
   spectacle
   spotify
@@ -56,11 +49,8 @@ apps=(
   sublime-text
   teamviewer
   transmission
-  # unetbootin
-  # vagrant
-  # vagrant-manager
+  visual-studio-code
   vlc
-  # virtualbox
   zoomus
 )
 for app in "${apps[@]}"; do
