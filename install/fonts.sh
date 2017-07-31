@@ -2,7 +2,7 @@
 
 source ./utils.sh
 
-e_header "Installing Google Web and Powerline fonts"
+e_header "Installing fonts"
 
 curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
 
