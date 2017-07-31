@@ -5,7 +5,7 @@ source ./utils.sh
 e_header "Installing fonts"
 
 brew tap caskroom/fonts
-brew cask install font-hack-nerd-font
+brew cask install font-awesome-terminal-fonts
 
 curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
 
