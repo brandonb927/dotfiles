@@ -4,6 +4,9 @@ source ./utils.sh
 
 e_header "Installing fonts"
 
+brew tap caskroom/fonts
+brew cask install font-hack-nerd-font
+
 curl https://raw.githubusercontent.com/qrpike/Web-Font-Load/master/install.sh | sh
 
 wget https://noto-website.storage.googleapis.com/pkgs/NotoMono-hinted.zip -O noto.zip
