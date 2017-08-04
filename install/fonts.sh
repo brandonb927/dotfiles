@@ -19,11 +19,6 @@ wget https://github.com/powerline/fonts/archive/master.zip -O powerline-fonts.zi
 ./fonts-master/install.sh
 rm -r powerline-fonts.zip fonts-master
 
-#curl -L https://codeload.github.com/gabrielelana/awesome-terminal-fonts/zip/v1.1.0 -o awesome-terminal-fonts.zip
-#unzip awesome-terminal-fonts.zip -d awesome-terminal-fonts
-#mv awesome-terminal-fonts/awesome-terminal-fonts-1.1.0/build/*.ttf ~/Library/Fonts/
-#mv awesome-terminal-fonts/awesome-terminal-fonts-1.1.0/build/*.sh ~/.fonts/
-#rm -r awesome-terminal-fonts*
 cask install font-awesome-terminal-fonts
 
 e_success "Done!"
