@@ -16,6 +16,7 @@ binaries=(
     faac
     figlet
     findutils
+    fzf
     git
     git-extras
     git-fresh
