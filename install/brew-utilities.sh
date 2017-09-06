@@ -25,7 +25,7 @@ binaries=(
     heroku
     htop
     httpie
-    hub
+    # hub # Moved to hub.sh
     imagemagick
     # imagesnap # DOES NOT COMPILE ON macOS
     # imgcat # SHA256 mismatch
