@@ -4,11 +4,10 @@ source ./utils.sh
 
 e_header "Installing various versions of python"
 
-pyenv
-if [ $? -eq 0 ]; then
-  CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 2.7.8
-  CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 2.7.10
-  CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv global 2.7.10
+if pyenv --version; then
+  CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 2.7.8
+  CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 2.7.13
+  CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv global 2.7.13
 
   e_success "Done!"
 else
