@@ -9,7 +9,6 @@ packages=(
   coffee-script
   create-react-app
   csslint
-  diff-so-fancy
   eslint
   ffmpeg-gif
   fkill-cli
