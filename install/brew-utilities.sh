@@ -5,6 +5,7 @@ source ./utils.sh
 e_header "Installing brew utilities"
 
 binaries=(
+    awscli
     bash
     boost
     boost-python
@@ -25,7 +26,6 @@ binaries=(
     heroku
     htop
     httpie
-    # hub # Moved to hub.sh
     imagemagick
     # imagesnap # DOES NOT COMPILE ON macOS
     # imgcat # SHA256 mismatch
@@ -73,12 +73,6 @@ gbinaries=(
   gnu-sed
 )
 brew install ${gbinaries[@]} --with-default-names
-
-
-e_arrow "Installing joe for gitignore files"
-
-# curl -Lo ~/bin/joe https://github.com/karan/joe/releases/download/1.0.1/joe
-# chmod +x ~/bin/joe
 
 brew cleanup
 
