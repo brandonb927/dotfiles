@@ -19,6 +19,6 @@ wget https://github.com/powerline/fonts/archive/master.zip -O powerline-fonts.zi
 ./fonts-master/install.sh
 rm -r powerline-fonts.zip fonts-master
 
-cask install font-awesome-terminal-fonts
+brew cask install font-awesome-terminal-fonts
 
 e_success "Done!"
