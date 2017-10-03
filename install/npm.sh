@@ -5,7 +5,6 @@ source ./utils.sh
 e_header "Installing npm modules"
 
 packages=(
-  bower
   clean-css
   coffee-script
   create-react-app
@@ -18,11 +17,11 @@ packages=(
   git-unsaved
   grunt-cli
   gulp-cli
+  heroku-cli
   hicat
   html-minifier
   init-module
   js-beautify
-  js2coffee
   jscs
   jspm
   less
@@ -30,8 +29,6 @@ packages=(
   np
   npm-check
   npm-release
-  parrotsay
-  readability-checker
   release-it
   resume-cli
   speed-test
@@ -39,11 +36,9 @@ packages=(
   standard
   surge
   svgo
-  tv-schedule
   uglifycss
   uglify-js
   vtop
-  yo
 )
 
 npm install -g ${packages[@]}
