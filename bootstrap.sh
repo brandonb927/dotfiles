@@ -8,6 +8,7 @@ source ./install/mas.sh
 source ./install/oh-my-zsh.sh
 source ./install/brew-utilities.sh
 source ./install/brew-cask.sh
+source ./install/hub.sh
 source ./install/ruby.sh
 source ./install/python.sh
 source ./install/python-packages.sh
