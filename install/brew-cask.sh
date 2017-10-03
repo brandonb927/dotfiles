@@ -25,6 +25,7 @@ apps=(
   flux
   gitify
   google-chrome
+  hajo-headphone-enhancer
   imageoptim
   insomnia
   istat-menus
