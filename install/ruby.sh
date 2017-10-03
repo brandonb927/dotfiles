@@ -4,10 +4,10 @@ source ./utils.sh
 
 e_header "Installing various versions of ruby"
 
-rbenv
-if [ $? -eq 0 ]; then
-  rbenv install 2.2.3
-  rbenv global 2.2.3
+
+if rbenv --version; then
+  rbenv install 2.4.2
+  rbenv global 2.4.2
 
   e_success "Done!"
 else
