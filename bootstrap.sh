@@ -6,6 +6,7 @@ mkdir -p ~/bin
 source ./install/brew.sh
 source ./install/mas.sh
 source ./install/oh-my-zsh.sh
+source ./install/oh-my-zsh-plugins.sh
 source ./install/brew-utilities.sh
 source ./install/brew-cask.sh
 source ./install/hub.sh
