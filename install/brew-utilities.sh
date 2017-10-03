@@ -13,6 +13,7 @@ binaries=(
     coreutils
     curl
     dialog
+    diff-so-fancy
     dry
     faac
     figlet
