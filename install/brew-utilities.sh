@@ -68,7 +68,6 @@ brew install ffmpeg --with-sdl2 --with-faac
 
 e_arrow "Installing GNU version of utils"
 
-brew tap homebrew/dupes
 gbinaries=(
   grep
   gnu-sed
