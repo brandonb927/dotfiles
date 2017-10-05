@@ -17,6 +17,7 @@ apps=(
   appcleaner
   bartender
   beamer
+  blackvue-viewer
   daisydisk
   discord
   docker
