@@ -5,8 +5,14 @@ mkdir -p ~/bin
 
 source ./install/brew.sh
 source ./install/mas.sh
-source ./install/oh-my-zsh.sh
-source ./install/oh-my-zsh-plugins.sh
+
+if [ -d "$ZSH" ]; then
+  e_message "oh-my-zsh is already installed!
+else
+  source ./install/oh-my-zsh.sh
+  source ./install/oh-my-zsh-plugins.sh
+fi;
+
 source ./install/brew-utilities.sh
 source ./install/brew-cask.sh
 source ./install/hub.sh
