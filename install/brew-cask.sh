@@ -26,17 +26,15 @@ apps=(
   flux
   gitify
   google-chrome
-  hajo-headphone-enhancer
-  imageoptim
+  # hajo-headphone-enhancer # Currently not working on macOS 10.13, the driver doesn't install cleanly
   insomnia
   istat-menus
   iterm2
   java
   kap
   keybase
-  macid
+  # macid # Currently not working on macOS 10.13, Bluetooth-related issue in iOS 11?
   minecraft
-  musicbrainz-picard
   piezo
   plex-media-player
   qlmarkdown
