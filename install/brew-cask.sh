@@ -48,11 +48,11 @@ apps=(
   spotify
   stay
   steam
-  sublime-text
   teamviewer
   transmission
-  visual-studio-code
+  visual-studio-code-insiders
   vlc
+  yakyak
   zoomus
 )
 for app in "${apps[@]}"; do
