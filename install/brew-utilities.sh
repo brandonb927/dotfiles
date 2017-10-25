@@ -66,6 +66,7 @@ for binary in "${binaries[@]}"; do
 done
 
 brew install ffmpeg --with-sdl2 --with-faac
+brew install yarn --without-node
 
 e_arrow "Installing GNU version of utils"
 
