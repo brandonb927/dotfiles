@@ -24,7 +24,7 @@ apps=(
   dropbox
   firefox
   flux
-  gitify
+  # gitify # Not used as much as I used to
   google-chrome
   # hajo-headphone-enhancer # Currently not working on macOS 10.13, the driver doesn't install cleanly
   insomnia
