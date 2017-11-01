@@ -47,6 +47,7 @@ apps=(
   stay
   steam
   teamviewer
+  # touchswitcher # If on a new MacBook Pro w/ Touch Bar
   transmission
   visual-studio-code-insiders
   vlc
