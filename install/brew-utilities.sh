@@ -9,6 +9,7 @@ binaries=(
     bash
     boost
     boost-python
+    certbot
     cmake
     coreutils
     curl
