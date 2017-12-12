@@ -24,7 +24,6 @@ apps=(
   dropbox
   firefox
   flux
-  # gitify # Not used as much as I used to
   google-chrome
   # hajo-headphone-enhancer # Currently not working on macOS 10.13, the driver doesn't install cleanly
   insomnia
@@ -37,9 +36,6 @@ apps=(
   minecraft
   piezo
   plex-media-player
-  qlmarkdown
-  qlstephen
-  qlimagesize
   skype
   slack
   spectacle
@@ -47,7 +43,6 @@ apps=(
   stay
   steam
   teamviewer
-  # touchswitcher # If on a new MacBook Pro w/ Touch Bar
   transmission
   visual-studio-code-insiders
   vlc
@@ -57,6 +52,11 @@ apps=(
 for app in "${apps[@]}"; do
   brew cask install --appdir="~/Applications" $app
 done
+
+e_arrow "Installing QuickLook plugins"
+# from https://github.com/sindresorhus/quick-look-plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv \
+  betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
 brew cask cleanup
 
