@@ -26,7 +26,7 @@ binaries=(
     graphicsmagick
     graphviz
     heroku
-    htop
+    # htop # doesn't compile on macOS
     httpie
     imagemagick
     # imagesnap # DOES NOT COMPILE ON macOS
