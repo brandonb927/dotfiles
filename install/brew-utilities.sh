@@ -23,6 +23,7 @@ binaries=(
     git
     git-extras
     git-fresh
+    glances
     graphicsmagick
     graphviz
     heroku
@@ -46,6 +47,7 @@ binaries=(
     spaceman-diff
     sslmate
     sudolikeaboss
+    tig
     tree
     wget
     wifi-password
