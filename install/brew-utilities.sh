@@ -7,6 +7,7 @@ e_header "Installing brew utilities"
 binaries=(
     awscli
     bash
+    bat
     boost
     boost-python
     certbot
