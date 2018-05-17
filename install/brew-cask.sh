@@ -22,6 +22,7 @@ apps=(
   discord
   docker
   dropbox
+  expressvpn
   firefox
   flux
   google-chrome
