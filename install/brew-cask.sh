@@ -11,12 +11,12 @@ brew tap caskroom/versions
 e_arrow "Installing cask apps"
 
 apps=(
-  1password
+  # 1password # disabled until 1Password 7 is the new stable release
   alfred
-  android-platform-tools
+  # android-platform-tools # don't use it as much as I used to
   appcleaner
   bartender
-  beamer
+  # beamer # don't use it as much as I used to
   blackvue-viewer
   daisydisk
   discord
@@ -34,7 +34,7 @@ apps=(
   keybase
   # macid # Currently not working on macOS 10.13, Bluetooth-related issue in iOS 11?
   minecraft
-  piezo
+  # piezo # don't use it as much as I used to
   plex-media-player
   skype
   slack
@@ -43,9 +43,10 @@ apps=(
   stay
   steam
   teamviewer
-  transmission
+  # transmission # in favour of WebTorrent
   visual-studio-code-insiders
   vlc
+  webtorrent
   yakyak
   zoomus
 )
