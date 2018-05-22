@@ -23,9 +23,7 @@ apps=(
   docker
   dropbox
   expressvpn
-  firefox
   flux
-  google-chrome
   # hajo-headphone-enhancer # Currently not working on macOS 10.13, the driver doesn't install cleanly
   insomnia
   istat-menus
@@ -54,6 +52,10 @@ apps=(
 for app in "${apps[@]}"; do
   brew cask install --appdir="~/Applications" $app
 done
+
+# These applications need to be in /Applications instead of ~/Applications 
+# because of an issue with 1Password and the folder location preventing autofill from working otherwise...
+brew cask install firefox google-chrome
 
 e_arrow "Installing QuickLook plugins"
 # from https://github.com/sindresorhus/quick-look-plugins
