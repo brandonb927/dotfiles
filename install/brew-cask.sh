@@ -46,7 +46,6 @@ apps=(
   visual-studio-code-insiders
   vlc
   webtorrent
-  yakyak
   zoomus
 )
 for app in "${apps[@]}"; do
