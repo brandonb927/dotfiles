@@ -25,6 +25,7 @@ binaries=(
     git-extras
     git-fresh
     glances
+    goenv
     graphicsmagick
     graphviz
     heroku
@@ -57,13 +58,13 @@ binaries=(
 )
 
 brew tap ravenac95/sudolikeaboss
-brew tap pebble/pebble-sdk
+# brew tap pebble/pebble-sdk # Fitbit owns Pebble now. RIP.
 brew tap colinstein/imgcat
 brew tap moncho/dry
 
 e_arrow "Installing brew packages"
 
-brew install TomAnthony/brews/itermocil
+# brew install TomAnthony/brews/itermocil # Don't use it as much as I'd like
 brew install getsentry/tools/sentry-cli
 for binary in "${binaries[@]}"; do
   brew install $binary
