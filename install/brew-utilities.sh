@@ -29,11 +29,10 @@ binaries=(
     graphicsmagick
     graphviz
     heroku
-    # htop # doesn't compile on macOS
+    htop
     httpie
     imagemagick
-    # imagesnap # DOES NOT COMPILE ON macOS
-    # imgcat # SHA256 mismatch
+    imagesnap
     jp2a
     libmemcached
     m-cli
@@ -82,5 +81,6 @@ gbinaries=(
 brew install ${gbinaries[@]} --with-default-names
 
 brew cleanup
+brew prune
 
 e_success "Done!"
