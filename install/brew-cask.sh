@@ -11,9 +11,7 @@ brew tap caskroom/versions
 e_arrow "Installing cask apps"
 
 apps=(
-  # 1password # disabled until 1Password 7 is the new stable release
   alfred
-  # android-platform-tools # don't use it as much as I used to
   appcleaner
   bartender
   # beamer # don't use it as much as I used to
@@ -43,7 +41,6 @@ apps=(
   stay
   steam
   teamviewer
-  # transmission # in favour of WebTorrent
   visual-studio-code-insiders
   vlc
   webtorrent
@@ -53,9 +50,9 @@ for app in "${apps[@]}"; do
   brew cask install --appdir="~/Applications" $app
 done
 
-# These applications need to be in /Applications instead of ~/Applications 
-# because of an issue with 1Password and the folder location preventing autofill from working otherwise...
-brew cask install firefox google-chrome
+# NOTE: These applications need to be in /Applications instead of ~/Applications 
+# because of an issue with 1Password and something something permissions
+brew cask install 1password firefox google-chrome
 
 e_arrow "Installing QuickLook plugins"
 # from https://github.com/sindresorhus/quick-look-plugins
