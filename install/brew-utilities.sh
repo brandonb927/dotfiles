@@ -37,6 +37,7 @@ binaries=(
     libmemcached
     m-cli
     memcached
+    neofetch
     ncdu
     normalize
     pv
