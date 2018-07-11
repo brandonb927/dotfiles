@@ -5,9 +5,11 @@ source ./utils.sh
 e_header "Installing various versions of python"
 
 if pyenv --version; then
+  # Because of old python version
   CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 2.7.8
-  CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 2.7.13
-  CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv global 2.7.13
+  pyenv install 2.7.13
+  pyenv install 2.7.13
+  pyenv global 3.7.0
 
   e_success "Done!"
 else

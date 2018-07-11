@@ -5,39 +5,37 @@ source ./utils.sh
 e_header "Installing npm modules"
 
 packages=(
-  clean-css
-  coffee-script
+  # clean-css
+  # coffee-script
   create-react-app
-  csslint
-  eslint
-  ffmpeg-gif
-  fkill-cli
-  git-land
-  git-unsaved
-  grunt-cli
-  gulp-cli
-  heroku-cli
+  # csslint
+  # eslint
+  # ffmpeg-gif
+  # fkill-cli
+  # git-land
+  # git-unsaved
+  # grunt-cli
+  # gulp-cli
   hicat
-  html-minifier
+  # html-minifier
   init-module
-  js-beautify
-  jscs
-  jspm
-  less
-  nodemon
-  np
-  npm-check
-  npm-release
-  release-it
+  # js-beautify
+  # jscs
+  # jspm
+  # less
+  # nodemon
+  # np
+  # npm-check
+  # npm-release
+  # release-it
   resume-cli
   speed-test
-  spoof
-  standard
+  # spoof
+  # standard
   surge
-  svgo
-  uglifycss
-  uglify-js
-  vtop
+  # svgo
+  # uglifycss
+  # uglify-js
 )
 
 npm install -g ${packages[@]}

@@ -7,20 +7,16 @@ source ./install/brew.sh
 source ./install/mas.sh
 
 if [ -d "$ZSH" ]; then
-  e_message "oh-my-zsh is already installed!
+  e_message 'oh-my-zsh is already installed!'
 else
   source ./install/oh-my-zsh.sh
-  source ./install/oh-my-zsh-plugins.sh
-fi;
+fi
 
 source ./install/brew-utilities.sh
 source ./install/brew-cask.sh
-source ./install/hub.sh
 source ./install/ruby.sh
 source ./install/python.sh
-source ./install/python-packages.sh
 source ./install/go.sh
-source ./install/node.sh
 source ./install/npm.sh
 source ./install/git.sh
 source ./install/fonts.sh
