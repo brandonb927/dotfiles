@@ -174,6 +174,9 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 # Enable HiDPI display modes (requires restart)
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
+# Mojave: No more blurry text on non-HiDPI screens
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool FALSE
+
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
