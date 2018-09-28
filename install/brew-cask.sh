@@ -11,20 +11,24 @@ brew tap caskroom/versions
 e_arrow "Installing cask apps"
 
 apps=(
+  1password
   alfred
   appcleaner
   bartender
   # beamer # don't use it as much as I used to
-  blackvue-viewer
+  bitbar
+  # blackvue-viewer # hash mismatch
   daisydisk
   discord
   docker
   dropbox
   expressvpn
+  firefox
   flux
+  google-chrome
   gpg-suite
   homebrew/cask-drivers/steelseries-exactmouse-tool
-  # hajo-headphone-enhancer # Currently not working on macOS 10.13, the driver doesn't install cleanly
+  # hajo-headphone-enhancer # Currently not working on macOS 10.13+, the driver doesn't install cleanly
   insomnia
   istat-menus
   iterm2
@@ -33,6 +37,7 @@ apps=(
   keybase
   # macid # Currently not working on macOS 10.13, Bluetooth-related issue in iOS 11?
   minecraft
+  ngrok
   # piezo # don't use it as much as I used to
   plex-media-player
   skype
@@ -48,19 +53,23 @@ apps=(
   zoomus
 )
 for app in "${apps[@]}"; do
-  brew cask install --appdir="~/Applications" $app
+  brew cask install $app
 done
-
-# NOTE: These applications need to be in /Applications instead of ~/Applications 
-# because of an issue with 1Password and something something permissions
-brew cask install 1password firefox google-chrome
 
 e_arrow "Installing QuickLook plugins"
 # from https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv \
-  betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
-
-brew cask cleanup
+brew cask install qlcolorcode \
+  qlstephen \
+  qlmarkdown \
+  quicklook-json \
+  qlprettypatch \
+  quicklook-csv \
+  # betterzipql \
+  qlimagesize \
+  webpquicklook \
+  suspicious-package \
+  quicklookase \
+  qlvideo
 
 e_arrow "Setting Google Chrome as the default browser"
 

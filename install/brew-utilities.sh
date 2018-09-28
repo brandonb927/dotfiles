@@ -70,7 +70,7 @@ for binary in "${binaries[@]}"; do
   brew install $binary
 done
 
-brew install ffmpeg --with-sdl2 --with-faac
+brew install ffmpeg --with-sdl2
 brew install yarn --without-node
 
 e_arrow "Installing GNU version of utils"
@@ -80,6 +80,9 @@ gbinaries=(
   gnu-sed
 )
 brew install ${gbinaries[@]} --with-default-names
+
+# Installed separately
+brew install gnu-tar
 
 brew cleanup
 brew prune

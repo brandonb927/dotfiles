@@ -4,7 +4,6 @@ source ./utils.sh
 
 e_header "Installing various versions of ruby"
 
-
 if $(command -v rbenv); then
   rbenv install 2.4.2
   rbenv install 2.5.0

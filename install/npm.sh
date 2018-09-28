@@ -39,7 +39,5 @@ packages=(
 )
 
 npm install -g ${packages[@]}
-npm config set save true
-npm set init-module $(init-module --path)
 
 e_success "Done!"
