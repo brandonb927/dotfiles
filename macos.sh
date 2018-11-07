@@ -616,6 +616,9 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 # Expand the print dialog by default
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 
+# Disable the silly swipe to go back. It's aggressive and doesn't work the way you want sometimes for horizontal scrolling.
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+
 ###############################################################################
 # Transmission.app                                                            #
 ###############################################################################
