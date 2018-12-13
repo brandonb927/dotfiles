@@ -35,6 +35,8 @@ apps=(
   java
   kap
   keybase
+  logitech-gaming-software
+  logitech-options
   # macid # Currently not working on macOS 10.13, Bluetooth-related issue in iOS 11?
   minecraft
   ngrok
