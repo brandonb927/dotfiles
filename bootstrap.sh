@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ./utils.sh 
+
 # Make the user-relative bin folder to install things to
 mkdir -p ~/bin
 
@@ -18,7 +20,7 @@ else
   source ./install/oh-my-zsh.sh
 fi
 
-source ./install/oh-my-zsh-utilities.sh
+source ./install/oh-my-zsh-plugins.sh
 source ./install/brew-utilities.sh
 source ./install/brew-cask.sh
 source ./install/ruby.sh

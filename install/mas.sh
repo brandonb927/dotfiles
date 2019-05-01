@@ -4,7 +4,7 @@ source ./utils.sh
 
 e_header " Installing Mac App Store (MAS) CLI and apps"
 
-brew install argon/mas/mas
+brew install mas-cli/tap/mas
 
 e_arrow "Installing Mac App Store apps" $cyan
 

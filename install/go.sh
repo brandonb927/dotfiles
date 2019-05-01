@@ -6,13 +6,4 @@ e_header "Installing a go version manager and go versions"
 
 goenv install 1.10.3
 
-# curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | zsh
-
-# source ~/.gvm/scripts/gvm
-# gvm install go1.4 -B
-# gvm use go1.4
-# export GOROOT_BOOTSTRAP=$GOROOT
-# gvm install go1.10.3
-# gvm uninstall go1.4
-
 e_success "Done!"
