@@ -4,6 +4,12 @@ source ./utils.sh
 
 e_header "Installing a go version manager and go versions"
 
-goenv install 1.10.3
+if $(command -v goenv); then
+  goenv install 1.10.3
+  goenv install 1.11.4
 
-e_success "Done!"
+  e_success "Done!"
+else
+  e_error "Failed to install go versions"
+fi
+

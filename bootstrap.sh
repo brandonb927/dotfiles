@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./utils.sh 
+source ./utils.sh
 
 # Make the user-relative bin folder to install things to
 mkdir -p ~/bin
@@ -11,26 +11,93 @@ else
   source ./install/brew.sh
 fi
 
-# Commented out due to https://github.com/mas-cli/mas/issues/164
-#source ./install/mas.sh
 
 if [ -d "$ZSH" ]; then
   e_arrow 'oh-my-zsh is already installed!'
 else
   source ./install/oh-my-zsh.sh
+  exit 0
 fi
 
 source ./install/oh-my-zsh-plugins.sh
-source ./install/brew-utilities.sh
-source ./install/brew-cask.sh
-source ./install/ruby.sh
-source ./install/python.sh
-source ./install/go.sh
-source ./install/node.sh
-source ./install/npm.sh
-source ./install/git.sh
-source ./install/fonts.sh
-source ./install/spectacle.sh
+
+echo ""
+echo "Install mac apps?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/mas.sh
+fi
+
+echo ""
+echo "Install brew utilities?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/brew-utilities.sh
+fi
+
+echo ""
+echo "Install brew cask apps?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/brew-cask.sh
+fi
+
+echo ""
+echo "Install ruby and versions?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/ruby.sh
+fi
+
+echo ""
+echo "Install python and versions?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/python.sh
+fi
+
+echo ""
+echo "Install Go and latest version?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/go.sh
+fi
+
+echo ""
+echo "Install node and nvm?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/node.sh
+fi
+
+echo ""
+echo "Install npm?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/npm.sh
+fi
+
+echo ""
+echo "Install git config?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/git.sh
+fi
+
+echo ""
+echo "Install fonts?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/fonts.sh
+fi
+
+echo ""
+echo "Install Spectacle settings?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/spectacle.sh
+fi
+
 
 for app in "Activity Monitor" "cfprefsd" \
   "Dock" "Finder" "Google Chrome" "Messages" \

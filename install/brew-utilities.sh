@@ -18,6 +18,7 @@ binaries=(
   diff-so-fancy                         # best-lookin git diffs https://github.com/so-fancy/diff-so-fancy
   dry                                   # docker manager https://github.com/moncho/dry
   faac                                  # mpeg-4 and mpeg-2 aac encoder
+  ffmpeg                                # streaming media editing tool
   figlet                                # text to ascii art converter http://www.figlet.org/
   findutils                             # gnu findutils
   fzf                                   # fuzzy finder for CLI https://github.com/junegunn/fzf
@@ -55,6 +56,7 @@ binaries=(
   tree                                  # fast recursive directory listing tool http://mama.indstate.edu/users/ice/tree/
   wget                                  # up-to-date wget
   wifi-password                         # get your wifi password https://github.com/rauchg/wifi-password
+  yarn                                  # package manager by Facebook
   you-get                               # downloader that scrapes the web https://github.com/soimort/you-get
   youtube-dl                            # download a youtube (or other) video by URL or ID https://rg3.github.io/youtube-dl/
 )
@@ -70,9 +72,6 @@ for binary in "${binaries[@]}"; do
   brew install $binary
 done
 
-brew install ffmpeg --with-sdl2
-brew install yarn --without-node
-
 e_arrow "Installing GNU version of utils"
 
 gbinaries=(
@@ -82,7 +81,7 @@ gbinaries=(
 brew install ${gbinaries[@]} --with-default-names
 
 # Installed separately
-brew install gnu-tar
+# brew install gnu-tar
 
 brew cleanup
 brew prune

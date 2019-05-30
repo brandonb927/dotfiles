@@ -16,8 +16,8 @@ apps=(
   appcleaner
   bartender
   # beamer # don't use it as much as I used to
-  bitbar
-  # blackvue-viewer # hash mismatch
+  # bitbar
+  blackvue-viewer
   daisydisk
   discord
   docker
@@ -26,7 +26,7 @@ apps=(
   firefox
   flux
   google-chrome
-  gpg-suite
+  # gpg-suite
   homebrew/cask-drivers/steelseries-exactmouse-tool
   # hajo-headphone-enhancer # Currently not working on macOS 10.13+, the driver doesn't install cleanly
   insomnia
@@ -37,10 +37,8 @@ apps=(
   keybase
   logitech-gaming-software
   logitech-options
-  # macid # Currently not working on macOS 10.13, Bluetooth-related issue in iOS 11?
   minecraft
   ngrok
-  # piezo # don't use it as much as I used to
   plex-media-player
   skype
   slack
