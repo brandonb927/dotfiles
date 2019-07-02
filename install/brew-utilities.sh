@@ -13,6 +13,7 @@ binaries=(
   certbot                               # Let's Encrypt tool from EFF https://certbot.eff.org/
   cmake                                 # C-version of make?
   coreutils                             # gnu coreutils
+  ctop                                  # Docker container process monitor
   curl                                  # up-to-date version of curl
   dialog                                # used in shell scripts to present questions/display msgs https://invisible-island.net/dialog/
   diff-so-fancy                         # best-lookin git diffs https://github.com/so-fancy/diff-so-fancy
@@ -31,6 +32,7 @@ binaries=(
   graphviz                              # generates graphs from python data?
   heroku/brew/heroku                    # Heroku CLI tool
   hub                                   # GitHub CLI tool
+  htop                                  # The best process monitor
   httpie                                # curl, but better https://github.com/jakubroztocil/httpie
   imagemagick                           # another image processor
   imagesnap                             # capture webcam images from CLI https://github.com/rharder/imagesnap
