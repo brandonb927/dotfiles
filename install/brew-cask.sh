@@ -21,7 +21,6 @@ apps=(
   daisydisk
   discord
   docker
-  dropbox
   expressvpn
   firefox
   flux
@@ -46,6 +45,7 @@ apps=(
   spotify
   stay
   steam
+  sync
   teamviewer
   visual-studio-code-insiders
   vlc
