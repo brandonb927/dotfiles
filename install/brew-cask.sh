@@ -15,17 +15,14 @@ apps=(
   alfred
   appcleaner
   bartender
-  # beamer # don't use it as much as I used to
-  # bitbar
   blackvue-viewer
+  brave-browser
   daisydisk
   discord
   docker
   expressvpn
   firefox
   flux
-  google-chrome
-  # gpg-suite
   homebrew/cask-drivers/steelseries-exactmouse-tool
   # hajo-headphone-enhancer # Currently not working on macOS 10.13+, the driver doesn't install cleanly
   insomnia
@@ -47,7 +44,7 @@ apps=(
   steam
   sync
   teamviewer
-  visual-studio-code-insiders
+  visual-studio-code
   vlc
   webtorrent
   zoomus
@@ -70,8 +67,8 @@ brew cask install qlcolorcode \
   quicklookase \
   qlvideo
 
-e_arrow "Setting Google Chrome as the default browser"
+e_arrow "Setting Brave Browser as the default browser"
 
-open -a "Google Chrome" --args --make-default-browser
+open -a "Brave Browser" --args --make-default-browser
 
 e_success "Done!"
