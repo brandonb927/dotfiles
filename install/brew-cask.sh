@@ -36,9 +36,9 @@ apps=(
   minecraft
   ngrok
   plex-media-player
+  rectangle
   skype
   slack
-  spectacle
   spotify
   stay
   steam
