@@ -32,6 +32,9 @@ fi
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
+# BRING BACK THE CHIME https://daringfireball.net/linked/2020/02/25/mac-startup-chime
+sudo nvram StartupMute=%00
+
 # Autohide the menu bar
 defaults write NSGlobalDomain _HIHideMenuBar -int 1
 
