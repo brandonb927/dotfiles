@@ -4,7 +4,7 @@ source ./utils.sh
 
 e_header "Installing a go version manager and go versions"
 
-if $(command -v goenv); then
+if type_exists 'goenv'; then
   goenv install 1.10.3
   goenv install 1.11.4
 
