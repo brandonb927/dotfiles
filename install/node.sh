@@ -15,4 +15,6 @@ nvm alias node ${VERSION}
 nvm alias system ${VERSION}
 nvm use ${VERSION}
 
+nvm install 12
+
 e_success "Done!"
