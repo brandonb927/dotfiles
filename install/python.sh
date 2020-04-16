@@ -13,10 +13,10 @@ if pyenv --version; then
   export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 
   # Because of old python version
-  CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 2.7.8
-  pyenv install 2.7.16
-  pyenv install 3.7.3
-  pyenv global 3.7.3
+  #CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 2.7.8
+  pyenv install 2.7.17
+  pyenv install 3.8.2
+  pyenv global 3.8.2
 
   e_success "Done!"
 else
