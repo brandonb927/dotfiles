@@ -6,8 +6,6 @@ e_header "Installing npm modules"
 
 packages=(
   create-react-app
-  hicat
-  init-module
   nodemon
   resume-cli
   speed-test
