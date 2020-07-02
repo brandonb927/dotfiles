@@ -16,6 +16,7 @@ apps=(
   alfred
   appcleaner
   bartender
+  brave-browser
   daisydisk
   discord
   docker
@@ -60,8 +61,8 @@ brew cask install qlcolorcode \
   quicklookase \
   qlvideo
 
-e_arrow "Setting Brave Browser as the default browser"
+e_arrow "Setting Google chrome as the default browser"
 
-open -a "Brave Browser" --args --make-default-browser
+open -a "Google Chrome" --args --make-default-browser
 
 e_success "Done!"
