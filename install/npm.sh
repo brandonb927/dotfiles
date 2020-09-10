@@ -5,11 +5,11 @@ source ./utils.sh
 e_header "Installing npm modules"
 
 packages=(
-  create-react-app
   nodemon
   resume-cli
   speed-test
   surge
+  trash-cli
 )
 
 npm install -g ${packages[@]}
