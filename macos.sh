@@ -36,7 +36,7 @@ sudo pmset -a standbydelay 86400
 sudo nvram StartupMute=%00
 
 # Autohide the menu bar
-defaults write NSGlobalDomain _HIHideMenuBar -int 1
+#defaults write NSGlobalDomain _HIHideMenuBar -int 1
 
 # Use Dark mode for the menu bar
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
