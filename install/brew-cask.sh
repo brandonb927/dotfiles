@@ -34,7 +34,7 @@ apps=(
   logitech-options
   minecraft
   ngrok
-  plex-media-player
+  plex
   rectangle
   slack
   spotify
