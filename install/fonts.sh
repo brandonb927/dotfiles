@@ -6,10 +6,9 @@ e_header "Installing fonts"
 
 brew tap homebrew/cask-fonts
 
-brew cask install \
+brew install \
   font-hack-nerd-font \
   font-cascadia \
-  font-cascadia-mono \
   font-cascadia-pl \
   font-cascadia-mono-pl
 
