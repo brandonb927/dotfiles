@@ -335,6 +335,10 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
+defaults write com.apple.dock springboard-columns -int 10;
+defaults write com.apple.dock springboard-rows -int 7;
+# defaults write com.apple.dock ResetLaunchPad -bool TRUE;
+
 # Reset Launchpad, but keep the desktop wallpaper intact
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
