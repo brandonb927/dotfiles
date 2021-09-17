@@ -12,8 +12,6 @@ e_arrow "Installing cask apps"
 
 apps=(
   1password
-  aerial
-  alfred
   appcleaner
   bartender
   brave-browser
@@ -34,25 +32,26 @@ apps=(
   logitech-options
   minecraft
   ngrok
+  parsec
   plex
+  raycast
   rectangle
   slack
   spotify
   stay
   steam
   sync
-  teamviewer
   visual-studio-code
   vlc
   webtorrent
 )
 for app in "${apps[@]}"; do
-  brew cask install $app
+  brew install $app
 done
 
 e_arrow "Installing QuickLook plugins"
 # from https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode \
+brew install qlcolorcode \
   qlstephen \
   qlmarkdown \
   quicklook-json \
