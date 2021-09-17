@@ -14,9 +14,9 @@ if pyenv --version; then
 
   # Because of old python version
   #CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 2.7.8
-  pyenv install 2.7.17
-  pyenv install 3.8.2
-  pyenv global 3.8.2
+  pyenv install 2.7.18
+  pyenv install 3.9.6
+  pyenv global 3.9.6
 
   e_success "Done!"
 else
