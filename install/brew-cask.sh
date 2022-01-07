@@ -24,7 +24,6 @@ apps=(
   google-chrome
   homebrew/cask-drivers/steelseries-exactmouse-tool
   insomnia
-  istat-menus
   iterm2
   java
   kap
@@ -38,6 +37,7 @@ apps=(
   rectangle
   slack
   spotify
+  stats
   stay
   steam
   sync
