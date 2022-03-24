@@ -17,6 +17,7 @@ binaries=(
   ffmpeg                                # streaming media editing tool
   figlet                                # text to ascii art converter http://www.figlet.org/
   findutils                             # gnu findutils
+  fzf                                   # Fuzzy finder
   git                                   # up-to-date version of git
   git-extras                            # extra git utilities https://github.com/tj/git-extras
   git-fresh                             # some more git utilities to keep git clean https://github.com/imsky/git-fresh
