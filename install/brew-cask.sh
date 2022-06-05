@@ -13,6 +13,7 @@ e_arrow "Installing cask apps"
 apps=(
   1password
   appcleaner
+  applepi-baker
   bartender
   brave-browser
   daisydisk
@@ -35,6 +36,7 @@ apps=(
   plex
   raycast
   rectangle
+  rpi-imager
   slack
   spotify
   stats
