@@ -36,7 +36,7 @@ apps=(
   plex
   raycast
   rectangle
-  rpi-imager
+  raspberry-pi-imager
   slack
   spotify
   stats
