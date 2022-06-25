@@ -4,7 +4,7 @@ source ./utils.sh
 
 e_header "Installing node nvm"
 
-export VERSION=12
+export VERSION=16
 curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 . ~/.nvm/nvm.sh > /dev/null
 

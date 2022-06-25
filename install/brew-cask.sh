@@ -14,6 +14,7 @@ apps=(
   1password
   appcleaner
   applepi-baker
+  audio-hijack
   bartender
   brave-browser
   cron
@@ -31,14 +32,17 @@ apps=(
   kap
   #keybase # No suitable M1 candidate?
   logitech-options
+  loopback
   minecraft
   ngrok
   parsec
+  podcastmenu
   plex
   raycast
   rectangle
   raspberry-pi-imager
   slack
+  soundsource
   spotify
   stats
   stay

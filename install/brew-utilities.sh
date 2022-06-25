@@ -5,10 +5,10 @@ source ./utils.sh
 e_header "Installing brew utilities"
 
 binaries=(
-  #awscli                                # AWS CLI tool https://aws.amazon.com/cli/
+  # awscli                                # AWS CLI tool https://aws.amazon.com/cli/
   bash                                  # up-to-date bash version
   bat                                   # cat clone with syntax highlighting and git integration https://github.com/sharkdp/bat
-  #certbot                               # Let's Encrypt tool from EFF https://certbot.eff.org/
+  # certbot                               # Let's Encrypt tool from EFF https://certbot.eff.org/
   coreutils                             # gnu coreutils
   curl                                  # up-to-date version of curl
   dialog                                # used in shell scripts to present questions/display msgs https://invisible-island.net/dialog/
@@ -23,9 +23,10 @@ binaries=(
   git-fresh                             # some more git utilities to keep git clean https://github.com/imsky/git-fresh
   glances                               # https://github.com/nicolargo/glances
   graphicsmagick                        # very powerful image processor
-  #heroku/brew/heroku                    # Heroku CLI tool
-  hub                                   # GitHub CLI tool
-  #htop                                  # The best process monitor
+  # heroku/brew/heroku                    # Heroku CLI tool
+  # hub                                   # GitHub CLI tool
+  gh                                    # GitHub CLI tool
+  # htop                                  # The best process monitor
   httpie                                # curl, but better https://github.com/jakubroztocil/httpie
   imagemagick                           # another image processor
   jq                                    # lightweight, flexible json parser https://stedolan.github.io/jq/
@@ -33,6 +34,7 @@ binaries=(
   neofetch                              # get info on the running system https://github.com/dylanaraps/neofetch
   ncdu                                  # ncurses disk usage https://dev.yorhel.nl/ncdu
   normalize                             # adjust the volume of an audio file https://www.nongnu.org/normalize/
+  pango                                 # Dependency for brandonb.ca blog
   peco                                  # interactive filtering tool https://github.com/peco/peco
   pv                                    # monitor progress of data through a pipeline between any two processes https://www.ivarch.com/programs/pv.shtml
   pyenv                                 # manage python versions easily https://github.com/pyenv/pyenv
