@@ -16,10 +16,11 @@ apps=(
   applepi-baker
   bartender
   brave-browser
+  cron
   daisydisk
   discord
   docker
-  expressvpn
+  #expressvpn # no M1 candidate
   firefox
   flux
   google-chrome
@@ -28,7 +29,7 @@ apps=(
   iterm2
   java
   kap
-  keybase
+  #keybase # No suitable M1 candidate?
   logitech-options
   minecraft
   ngrok
@@ -41,8 +42,8 @@ apps=(
   spotify
   stats
   stay
-  steam
-  sync
+  #steam
+  #sync # Install CloudFiles beta version instead
   visual-studio-code
   vlc
   webtorrent
@@ -61,9 +62,5 @@ brew install qlcolorcode \
   suspicious-package \
   quicklookase \
   qlvideo
-
-e_arrow "Setting Google chrome as the default browser"
-
-open -a "Google Chrome" --args --make-default-browser
 
 e_success "Done!"

@@ -5,15 +5,15 @@ source ./utils.sh
 e_header "Installing brew utilities"
 
 binaries=(
-  awscli                                # AWS CLI tool https://aws.amazon.com/cli/
+  #awscli                                # AWS CLI tool https://aws.amazon.com/cli/
   bash                                  # up-to-date bash version
   bat                                   # cat clone with syntax highlighting and git integration https://github.com/sharkdp/bat
-  certbot                               # Let's Encrypt tool from EFF https://certbot.eff.org/
+  #certbot                               # Let's Encrypt tool from EFF https://certbot.eff.org/
   coreutils                             # gnu coreutils
   curl                                  # up-to-date version of curl
   dialog                                # used in shell scripts to present questions/display msgs https://invisible-island.net/dialog/
   diff-so-fancy                         # best-lookin git diffs https://github.com/so-fancy/diff-so-fancy
-  dry                                   # docker manager https://github.com/moncho/dry
+  #dry                                   # docker manager https://github.com/moncho/dry
   ffmpeg                                # streaming media editing tool
   figlet                                # text to ascii art converter http://www.figlet.org/
   findutils                             # gnu findutils
@@ -23,9 +23,9 @@ binaries=(
   git-fresh                             # some more git utilities to keep git clean https://github.com/imsky/git-fresh
   glances                               # https://github.com/nicolargo/glances
   graphicsmagick                        # very powerful image processor
-  heroku/brew/heroku                    # Heroku CLI tool
+  #heroku/brew/heroku                    # Heroku CLI tool
   hub                                   # GitHub CLI tool
-  htop                                  # The best process monitor
+  #htop                                  # The best process monitor
   httpie                                # curl, but better https://github.com/jakubroztocil/httpie
   imagemagick                           # another image processor
   jq                                    # lightweight, flexible json parser https://stedolan.github.io/jq/
@@ -48,7 +48,7 @@ binaries=(
 )
 
 brew tap colinstein/imgcat # https://github.com/colinstein/homebrew-imgcat
-brew tap moncho/dry
+#brew tap moncho/dry
 
 e_arrow "Installing brew packages"
 
