@@ -20,7 +20,7 @@ apps=(
   cron
   daisydisk
   discord
-  docker
+  #docker # Install from docker website
   #expressvpn # no M1 candidate
   firefox
   flux
