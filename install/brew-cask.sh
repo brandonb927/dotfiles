@@ -12,6 +12,7 @@ e_arrow "Installing cask apps"
 
 apps=(
   1password
+  1password/tap/1password-cli
   appcleaner
   applepi-baker
   audio-hijack
@@ -53,7 +54,7 @@ apps=(
   webtorrent
 )
 for app in "${apps[@]}"; do
-  brew install $app
+  brew install --cask $app
 done
 
 e_arrow "Installing QuickLook plugins"
