@@ -32,12 +32,11 @@ apps=(
   java
   kap
   #keybase # No suitable M1 candidate?
-  logitech-options
+  logi-options-plus
   loopback
   minecraft
   ngrok
   parsec
-  podcastmenu
   plex
   raycast
   rectangle
@@ -48,7 +47,7 @@ apps=(
   stats
   stay
   #steam
-  #sync # Install CloudFiles beta version instead
+  sync
   visual-studio-code
   vlc
   webtorrent
