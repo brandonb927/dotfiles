@@ -6,7 +6,7 @@ e_header "Installing brew cask apps"
 
 e_arrow "Installing cask and tapping"
 
-brew tap caskroom/versions
+brew tap homebrew/cask-versions
 
 e_arrow "Installing cask apps"
 
@@ -17,31 +17,30 @@ apps=(
   applepi-baker
   audio-hijack
   bartender
-  brave-browser
+  #brave-browser
   cron
-  daisydisk
+  #daisydisk
   discord
   #docker # Install from docker website
   #expressvpn # no M1 candidate
-  firefox
+  #firefox
   flux
   google-chrome
   homebrew/cask-drivers/steelseries-exactmouse-tool
   insomnia
   iterm2
-  java
+  #java
   kap
   #keybase # No suitable M1 candidate?
   logi-options-plus
   loopback
-  minecraft
+  #minecraft
   ngrok
   parsec
   plex
   raycast
-  rectangle
   raspberry-pi-imager
-  slack
+  #slack
   soundsource
   spotify
   stats
@@ -52,19 +51,18 @@ apps=(
   vlc
   webtorrent
 )
-for app in "${apps[@]}"; do
-  brew install --cask $app
-done
+
+brew install --cask ${apps[@]}
 
 e_arrow "Installing QuickLook plugins"
 # from https://github.com/sindresorhus/quick-look-plugins
-brew install qlcolorcode \
-  qlstephen \
-  qlmarkdown \
-  quicklook-json \
-  qlimagesize \
-  suspicious-package \
-  quicklookase \
-  qlvideo
+#brew install qlcolorcode \
+#  qlstephen \
+#  qlmarkdown \
+#  quicklook-json \
+#  qlimagesize \
+#  suspicious-package \
+#  quicklookase \
+#  qlvideo
 
 e_success "Done!"

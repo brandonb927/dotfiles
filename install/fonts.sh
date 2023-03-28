@@ -8,8 +8,8 @@ brew tap homebrew/cask-fonts
 
 brew install \
   font-hack-nerd-font \
-  font-cascadia \
-  font-cascadia-pl \
+  font-cascadia-code \
+  font-cascadia-code-pl \
   font-cascadia-mono-pl
 
 e_success "Done!"
