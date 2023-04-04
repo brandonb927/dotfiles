@@ -13,6 +13,7 @@ binaries=(
   coreutils                             # gnu coreutils
   curl                                  # up-to-date version of curl
   dialog                                # used in shell scripts to present questions/display msgs https://invisible-island.net/dialog/
+  direnv                                # https://github.com/direnv/direnv
   diff-so-fancy                         # best-lookin git diffs https://github.com/so-fancy/diff-so-fancy
   #dry                                   # docker manager https://github.com/moncho/dry
   ffmpeg                                # streaming media editing tool
