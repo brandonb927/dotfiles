@@ -17,19 +17,14 @@ apps=(
   applepi-baker
   audio-hijack
   bartender
-  #brave-browser
   cron
-  #daisydisk
+  daisydisk
   discord
-  #docker # Install from docker website
   #expressvpn # no M1 candidate
-  #firefox
   flux
   google-chrome
-  homebrew/cask-drivers/steelseries-exactmouse-tool
   insomnia
   iterm2
-  #java
   kap
   #keybase # No suitable M1 candidate?
   logi-options-plus
@@ -40,7 +35,6 @@ apps=(
   plex
   raycast
   raspberry-pi-imager
-  #slack
   soundsource
   spotify
   stats
