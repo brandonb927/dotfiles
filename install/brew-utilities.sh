@@ -13,9 +13,7 @@ binaries=(
   dialog                                # used in shell scripts to present questions/display msgs https://invisible-island.net/dialog/
   direnv                                # https://github.com/direnv/direnv
   diff-so-fancy                         # best-lookin git diffs https://github.com/so-fancy/diff-so-fancy
-  #dry                                   # docker manager https://github.com/moncho/dry
   ffmpeg                                # streaming media editing tool
-  #figlet                                # text to ascii art converter http://www.figlet.org/
   findutils                             # gnu findutils
   fzf                                   # Fuzzy finder
   git                                   # up-to-date version of git
