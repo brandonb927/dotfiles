@@ -22,13 +22,11 @@ apps=(
   #expressvpn # no M1 candidate
   flux
   google-chrome
-  insomnia
   iterm2
   kap
   #keybase # No suitable M1 candidate?
   logi-options-plus
   loopback
-  #minecraft
   ngrok
   parsec
   plex
