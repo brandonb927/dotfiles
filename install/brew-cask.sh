@@ -17,7 +17,6 @@ apps=(
   applepi-baker
   audio-hijack
   bartender
-  cron
   daisydisk
   discord
   #expressvpn # no M1 candidate
