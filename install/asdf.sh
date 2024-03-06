@@ -3,19 +3,19 @@
 source ./utils.sh
 
 echo ""
-echo "Install node and nvm?  (y/n)"
+echo "Install node?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   e_header "Installing node versions"
 
   asdf plugin add nodejs
+  asdf install nodejs latest:20
   asdf install nodejs latest:18
-  asdf install nodejs latest:16
-  asdf global nodejs latest:18
+  asdf global nodejs latest:20
 fi
 
 echo ""
-echo "Install npm?  (y/n)"
+echo "Install global npm packages?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   e_header "Installing npm modules"
