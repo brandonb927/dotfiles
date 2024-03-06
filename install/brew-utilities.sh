@@ -5,7 +5,6 @@ source ./utils.sh
 e_header "Installing brew utilities"
 
 binaries=(
-  asdf                                  # asdf version manager https://asdf-vm.com/
   bash                                  # up-to-date bash version
   bat                                   # cat clone with syntax highlighting and git integration https://github.com/sharkdp/bat
   coreutils                             # gnu coreutils
@@ -23,14 +22,11 @@ binaries=(
   gh                                    # GitHub CLI tool
   imagemagick                           # another image processor
   jq                                    # lightweight, flexible json parser https://stedolan.github.io/jq/
-  mas                                   # macos app store manager https://github.com/mas-cli/mas
   normalize                             # adjust the volume of an audio file https://www.nongnu.org/normalize/
   pango                                 # Dependency for brandonb.ca blog
   spaceman-diff                         # diff images from the CLI https://github.com/holman/spaceman-diff
   tree                                  # fast recursive directory listing tool http://mama.indstate.edu/users/ice/tree/
   wget                                  # up-to-date wget
-  youtube-dl                            # download a youtube (or other) video by URL or ID https://rg3.github.io/youtube-dl/
-  zplug                                 # Plugin manager for zsh https://github.com/zplug/zplug
 )
 
 e_arrow "Installing brew packages"
