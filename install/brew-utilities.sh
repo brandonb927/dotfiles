@@ -6,10 +6,8 @@ e_header "Installing brew utilities"
 
 binaries=(
   asdf                                  # asdf version manager https://asdf-vm.com/
-  # awscli                                # AWS CLI tool https://aws.amazon.com/cli/
   bash                                  # up-to-date bash version
   bat                                   # cat clone with syntax highlighting and git integration https://github.com/sharkdp/bat
-  # certbot                               # Let's Encrypt tool from EFF https://certbot.eff.org/
   coreutils                             # gnu coreutils
   curl                                  # up-to-date version of curl
   dialog                                # used in shell scripts to present questions/display msgs https://invisible-island.net/dialog/
@@ -23,34 +21,19 @@ binaries=(
   git                                   # up-to-date version of git
   git-extras                            # extra git utilities https://github.com/tj/git-extras
   git-fresh                             # some more git utilities to keep git clean https://github.com/imsky/git-fresh
-  #glances                               # https://github.com/nicolargo/glances
   graphicsmagick                        # very powerful image processor
-  # heroku/brew/heroku                    # Heroku CLI tool
-  # hub                                   # GitHub CLI tool
   gh                                    # GitHub CLI tool
-  # htop                                  # The best process monitor
-  #httpie                                # curl, but better https://github.com/jakubroztocil/httpie
   imagemagick                           # another image processor
   jq                                    # lightweight, flexible json parser https://stedolan.github.io/jq/
   mas                                   # macos app store manager https://github.com/mas-cli/mas
-  #m-cli                                 # macos tool https://github.com/rgcr/m-cli
-  #neofetch                              # get info on the running system https://github.com/dylanaraps/neofetch
-  #ncdu                                  # ncurses disk usage https://dev.yorhel.nl/ncdu
   normalize                             # adjust the volume of an audio file https://www.nongnu.org/normalize/
   pango                                 # Dependency for brandonb.ca blog
-  #peco                                  # interactive filtering tool https://github.com/peco/peco
-  #pv                                    # monitor progress of data through a pipeline between any two processes https://www.ivarch.com/programs/pv.shtml
-  #getsentry/tools/sentry-cli            # sentry.io cli tool
   spaceman-diff                         # diff images from the CLI https://github.com/holman/spaceman-diff
-  #tig                                   # ncurses interface for git https://jonas.github.io/tig/
   tree                                  # fast recursive directory listing tool http://mama.indstate.edu/users/ice/tree/
   wget                                  # up-to-date wget
   youtube-dl                            # download a youtube (or other) video by URL or ID https://rg3.github.io/youtube-dl/
   zplug                                 # Plugin manager for zsh https://github.com/zplug/zplug
 )
-
-#brew tap colinstein/imgcat # https://github.com/colinstein/homebrew-imgcat
-#brew tap moncho/dry
 
 e_arrow "Installing brew packages"
 
@@ -64,10 +47,6 @@ gbinaries=(
 )
 brew install ${gbinaries[@]}
 
-#PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
-#PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-
 brew cleanup
-brew prune
 
 e_success "Done!"
