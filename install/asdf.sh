@@ -2,6 +2,8 @@
 
 source ./utils.sh
 
+asdf direnv setup --shell zsh --version latest
+
 echo ""
 echo "Install node?  (y/n)"
 read -r response
