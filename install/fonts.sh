@@ -10,6 +10,8 @@ brew install \
   font-hack-nerd-font \
   font-cascadia-code \
   font-cascadia-code-pl \
-  font-cascadia-mono-pl
+  font-cascadia-mono-pl \
+  font-comic-mono \
+  font-comix-neue
 
 e_success "Done!"
