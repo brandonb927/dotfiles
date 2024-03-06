@@ -2,7 +2,7 @@
 
 source ./utils.sh
 
-asdf direnv setup --shell zsh --version latest
+asdf direnv setup --shell fish --version latest
 
 echo ""
 echo "Install node?  (y/n)"
