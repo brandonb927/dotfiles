@@ -4,7 +4,8 @@ source ./utils.sh
 
 # asdf version manager https://asdf-vm.com/
 brew install asdf direnv
-asdf direnv setup --shell fish --version latest
+asdf direnv setup --shell zsh --version latest
+# asdf direnv setup --shell fish --version latest
 
 echo ""
 echo "Install node?  (y/n)"
