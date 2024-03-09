@@ -175,12 +175,12 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     bartender
     daisydisk
     discord
-    #expressvpn # no M1 candidate
+    expressvpn
     flux
     google-chrome
     iterm2
     kap
-    #keybase # No suitable M1 candidate?
+    keybase
     logi-options-plus
     loopback
     ngrok
@@ -192,16 +192,17 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     spotify
     stats
     stay
-    #steam
+    steam
     sync
     visual-studio-code
     vlc
     webtorrent
+    zoom
   )
 
   brew install --cask ${apps[@]}
 
-  e_arrow "Installing QuickLook plugins"
+  # e_arrow "Installing QuickLook plugins"
   # from https://github.com/sindresorhus/quick-look-plugins
   #brew install qlcolorcode \
   #  qlstephen \
@@ -222,4 +223,5 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   mas install 425424353   # The Unarchiver
   mas install 6444667067  # Hyperduck
   mas install 1294126402  # HEIC Converter
+  mas install 1451685025  # Wireguard
 fi
