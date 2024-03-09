@@ -221,4 +221,5 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   mas install 1522267256  # Shareful
   mas install 425424353   # The Unarchiver
   mas install 6444667067  # Hyperduck
+  mas install 1294126402  # HEIC Converter
 fi
