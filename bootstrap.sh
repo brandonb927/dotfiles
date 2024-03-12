@@ -219,9 +219,10 @@ echo "Install mac app store apps?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   brew install mas
-  mas install 1522267256  # Shareful
   mas install 425424353   # The Unarchiver
-  mas install 6444667067  # Hyperduck
+  mas install 888422857   # Overcast
   mas install 1294126402  # HEIC Converter
   mas install 1451685025  # Wireguard
+  mas install 1522267256  # Shareful
+  mas install 6444667067  # Hyperduck
 fi
