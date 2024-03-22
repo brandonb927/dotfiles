@@ -126,6 +126,7 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     dialog                                # used in shell scripts to present questions/display msgs https://invisible-island.net/dialog/
     direnv                                # https://github.com/direnv/direnv
     diff-so-fancy                         # best-lookin git diffs https://github.com/so-fancy/diff-so-fancy
+    difftastic                            # structural diff tool https://github.com/Wilfred/difftastic
     ffmpeg                                # streaming media editing tool
     findutils                             # gnu findutils
     fzf                                   # Fuzzy finder
